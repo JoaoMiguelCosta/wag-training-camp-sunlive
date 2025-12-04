@@ -1,11 +1,15 @@
+// src/pages/home/Home.jsx
+import { HomeHeader } from "./components/HomeHeader";
+import { UniqueCampSection } from "./components/UniqueCampSection";
+import { SunliveGroupSection } from "./components/SunliveGroupSection";
 import styles from "./Home.module.css";
-import { homeContent } from "../../config/content/home.content.js";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className={styles.page}>
-      <h1>{homeContent.hero.title}</h1>
-      <p>{homeContent.hero.subtitle}</p>
+      <HomeHeader />
+      <UniqueCampSection />
+      <SunliveGroupSection />
     </main>
   );
 }

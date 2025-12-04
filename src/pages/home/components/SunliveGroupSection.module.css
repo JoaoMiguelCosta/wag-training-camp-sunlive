@@ -1,0 +1,158 @@
+.section {
+    /* controla só a distância desta secção às outras */
+    padding: 4rem 1.5rem 5rem;
+}
+
+/* bloco com a imagem + overlay */
+.overlay {
+    position: relative;
+    color: #ffffff;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* padding interno -> impede o texto de colar às bordas da imagem */
+    padding: 3rem 2rem 3.5rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #f29af5;
+    margin-bottom: 2.5rem;
+}
+
+/* content centralizado com largura máxima */
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.textColumn {
+    flex: 1 1 0;
+}
+
+.subtitle {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.paragraph {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.link {
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* vídeo responsivo */
+.videoColumn {
+    flex: 1 1 0;
+}
+
+.videoWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    padding-top: 56.25%;
+    /* 16:9 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ---------- BREAKPOINTS ---------- */
+
+/* <= 1350px: encolhe um pouco e mantém margens internas */
+@media (max-width: 1350px) {
+    .overlay {
+        padding: 3rem 2rem 3.2rem;
+    }
+
+    .content {
+        gap: 2.5rem;
+    }
+}
+
+/* <= 992px: tipografia ligeiramente mais pequena */
+@media (max-width: 992px) {
+    .section {
+        padding: 3.5rem 1.5rem 4rem;
+    }
+
+    .title {
+        font-size: 2.3rem;
+        margin-bottom: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.8rem;
+    }
+
+    .paragraph,
+    .link {
+        font-size: 1rem;
+    }
+}
+
+/* <= 768px: texto em cima, vídeo em baixo (NÃO desaparece) */
+@media (max-width: 768px) {
+    .overlay {
+        padding: 2.5rem 1.5rem 3rem;
+        /* margem lateral consistente com o resto do site */
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2rem;
+    }
+
+    .textColumn,
+    .videoColumn {
+        flex: 0 0 auto;
+        /* evita encolher a 0 e “desaparecer” */
+    }
+
+    .videoWrapper {
+        max-width: 100%;
+    }
+}
+
+/* <= 480px: ajustes finais */
+@media (max-width: 480px) {
+    .section {
+        padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1.6rem;
+    }
+}

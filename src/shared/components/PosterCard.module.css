@@ -1,0 +1,43 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    max-width: 360px;
+    flex: 1 1 320px;
+}
+
+.posterImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.buttonWrapper {
+    margin-top: 0.5rem;
+}
+
+/* tablet */
+@media (max-width: 992px) {
+    .card {
+        max-width: 340px;
+        flex: 1 1 300px;
+    }
+}
+
+/* telemóvel */
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        gap: 1.25rem;
+    }
+}
