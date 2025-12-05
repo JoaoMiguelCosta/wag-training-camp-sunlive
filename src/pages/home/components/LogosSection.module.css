@@ -1,0 +1,124 @@
+.section {
+    padding: 4rem 1.5rem 5rem;
+    background-color: #e596d9;
+    /* mesmo fundo da página */
+}
+
+.grid {
+    max-width: 72rem;
+    /* ~1150px */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem 3rem;
+    align-items: center;
+    justify-items: center;
+}
+
+/* célula base */
+.logoCell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* tamanho base de todos os logos */
+.logoSmall {
+    max-width: 11rem;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* apenas Sunlive Group + Estalagem */
+.logoLarge {
+    max-width: 14rem;
+}
+
+/* header a toda a largura */
+.headerCell {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.headerLogo {
+    max-width: 24rem;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ---------- TABLET (<= 992px) ---------- */
+@media (max-width: 62rem) {
+    .section {
+        padding: 3.5rem 1.5rem 4rem;
+    }
+
+    .grid {
+        gap: 2rem 2.5rem;
+    }
+
+    .logoSmall {
+        max-width: 9.5rem;
+    }
+
+    .logoLarge {
+        max-width: 12rem;
+    }
+
+    .headerLogo {
+        max-width: 20rem;
+    }
+}
+
+/* ---------- TELEMÓVEL (<= 768px) ---------- */
+@media (max-width: 48rem) {
+    .section {
+        padding: 3rem 1.5rem 3.5rem;
+    }
+
+    /* 2 colunas em mobile “normal” */
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem 2rem;
+    }
+
+    .logoSmall {
+        max-width: 9rem;
+    }
+
+    .logoLarge {
+        max-width: 11rem;
+    }
+
+    .headerCell {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ---------- TELEMÓVEL PEQUENO (<= 480px) ---------- */
+@media (max-width: 30rem) {
+    .section {
+        padding: 2.5rem 1.5rem 3rem;
+    }
+
+    /* 1 coluna */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .logoSmall {
+        max-width: 10rem;
+    }
+
+    .logoLarge {
+        max-width: 12rem;
+    }
+
+    .headerLogo {
+        max-width: 18rem;
+    }
+}

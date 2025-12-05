@@ -2,14 +2,15 @@
 import { homeContent } from "../../../config/content/home.content.js";
 import PosterCard from "../../../shared/components/PosterCard.jsx";
 
-import posterMalta from "../../../assets/posters/poster-malta.png";
-import posterAnadia from "../../../assets/posters/poster-anadia.png";
+// 👉 agora a ir buscar às banners-home
+import bannerMalta from "../../../assets/banners-home/banner-malta.png";
+import bannerAnadia from "../../../assets/banners-home/banner-anadia.png";
 
 import styles from "./UniqueCampSection.module.css";
 
 const posterImagesById = {
-  malta: posterMalta,
-  anadia: posterAnadia,
+  malta: bannerMalta,
+  anadia: bannerAnadia,
 };
 
 export function UniqueCampSection() {

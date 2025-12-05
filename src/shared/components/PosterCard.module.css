@@ -4,15 +4,16 @@
     align-items: center;
     gap: 1.5rem;
 
-    max-width: 360px;
-    flex: 1 1 320px;
+    /* 600px → 37.5rem | 460px → 28.75rem */
+    max-width: 37.5rem;
+    flex: 1 1 28.75rem;
 }
 
 .posterImage {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 16px;
+    border-radius: 1rem;
     overflow: hidden;
 }
 
@@ -20,23 +21,26 @@
     margin-top: 0.5rem;
 }
 
-/* tablet */
-@media (max-width: 992px) {
+/* tablet: 992px → 62rem */
+@media (max-width: 62rem) {
+
+    /* 460px → 28.75rem | 400px → 25rem */
     .card {
-        max-width: 340px;
-        flex: 1 1 300px;
+        max-width: 28.75rem;
+        flex: 1 1 25rem;
     }
 }
 
-/* telemóvel */
-@media (max-width: 768px) {
+/* telemóvel: 768px → 48rem */
+@media (max-width: 48rem) {
     .card {
         max-width: 100%;
         flex: 1 1 100%;
     }
 }
 
-@media (max-width: 480px) {
+/* telemóvel pequeno: 480px → 30rem */
+@media (max-width: 30rem) {
     .card {
         gap: 1.25rem;
     }

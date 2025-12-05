@@ -3,21 +3,31 @@
     align-items: center;
     justify-content: space-between;
 
-    /* MESMAS MARGENS LATERAIS QUE O RESTO */
+    /* mesmas margens laterais */
     padding: 0 1.5rem;
 
-    height: 90px;
+    /* mais alto para o logo respirar */
+    height: 130px;
     background-color: #e596d9;
 }
 
+/* só para alinhar, sem fundo nem sombra */
+.logoWrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* logo maior, semelhante ao do footer */
 .logo {
     display: block;
-    height: 70px;
+    height: 110px;
+    /* aumenta aqui se quiseres ainda maior */
     width: auto;
 }
 
 .nav {
     display: flex;
+    align-items: center;
     gap: 3rem;
 }
 
@@ -33,6 +43,14 @@
 
 /* tablet */
 @media (max-width: 992px) {
+    .header {
+        height: 110px;
+    }
+
+    .logo {
+        height: 90px;
+    }
+
     .nav {
         gap: 2rem;
     }
@@ -50,12 +68,11 @@
         justify-content: center;
         height: auto;
         padding: 1rem 1.5rem 1.5rem;
-        /* mantém 1.5rem de lado */
         gap: 0.75rem;
     }
 
     .logo {
-        height: 60px;
+        height: 80px;
     }
 
     .nav {
@@ -63,9 +80,10 @@
     }
 }
 
+/* telemóvel pequeno */
 @media (max-width: 480px) {
     .logo {
-        height: 50px;
+        height: 70px;
     }
 
     .nav {

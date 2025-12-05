@@ -38,9 +38,34 @@ export const homeContent = {
       href: "https://www.sunlive.pt",
     },
     video: {
-      // 👇 autoplay + mute (necessário para os browsers deixarem tocar automaticamente)
       src: "https://www.youtube.com/embed/OueN7zefqmQ?autoplay=1&mute=1&playsinline=1",
       title: "SUNLIVE GROUP 2021 - What else?",
     },
+  },
+
+  contactsSection: {
+    title: "Contacts",
+    cards: [
+      {
+        id: "email",
+        title: "Email",
+        link: {
+          href: "mailto:events@sunlive.pt",
+          label: "events@sunlive.pt",
+        },
+      },
+      {
+        id: "phone",
+        title: "Phone",
+        link: {
+          href: "tel:+351936126161",
+          label: "+(00351) 936 126 161",
+        },
+      },
+    ],
+  },
+
+  footer: {
+    text: "© Copyright 2026 Sunlive - All Rights Reserved",
   },
 };

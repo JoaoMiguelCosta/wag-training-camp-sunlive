@@ -1,5 +1,5 @@
 // src/pages/home/components/HomeHeader.jsx
-import headerLogo from "../../../assets/header/header.png"
+import headerLogo from "../../../assets/header/header.png";
 import { homeContent } from "../../../config/content/home.content.js";
 import styles from "./HomeHeader.module.css";
 
@@ -8,7 +8,9 @@ export function HomeHeader() {
 
   return (
     <header className={styles.header}>
-      <img src={headerLogo} alt={logoAlt} className={styles.logo} />
+      <div className={styles.logoWrapper}>
+        <img src={headerLogo} alt={logoAlt} className={styles.logo} />
+      </div>
 
       <nav className={styles.nav}>
         {navItems.map((item) => (
