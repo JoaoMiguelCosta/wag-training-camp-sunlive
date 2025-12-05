@@ -1,96 +1,185 @@
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 120;
+    width: 100%;
+}
+
+.inner {
+    padding: 0.6rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2.5rem;
 
-    /* mesmas margens laterais */
-    padding: 0 1.5rem;
+    min-height: 5.5rem;
+    border-radius: 999px;
 
-    /* mais alto para o logo respirar */
-    height: 130px;
-    background-color: #e596d9;
+    /* 👇 ~3x mais transparente que antes */
+    background: linear-gradient(115deg,
+            rgba(236, 72, 153, 0.30) 0%,
+            /* var(--color-primary) */
+            rgba(244, 114, 182, 0.26) 35%,
+            /* #f472b6 */
+            rgba(59, 130, 246, 0.30) 100%
+            /* var(--color-secondary) */
+        );
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.35);
+    border: 1px solid rgba(236, 72, 153, 0.55);
 }
 
-/* só para alinhar, sem fundo nem sombra */
+/* LOGO */
 .logoWrapper {
     display: flex;
     align-items: center;
 }
 
-/* logo maior, semelhante ao do footer */
 .logo {
     display: block;
-    height: 110px;
-    /* aumenta aqui se quiseres ainda maior */
+    height: 5.25rem;
     width: auto;
 }
 
+/* NAV */
 .nav {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 1.25rem;
 }
 
+/* -------- BOTÕES DO MENU (PILLS) -------- */
 .navLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.55rem 1.25rem;
+    border-radius: 999px;
+
+    font-family: var(--font-family-heading);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    color: #fdf2f8;
     text-decoration: none;
-    font-size: 1.1rem;
-    color: #2c1533;
+
+    /* base: quase sem fundo, só um brilho muito leve */
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        opacity var(--transition-fast);
 }
 
+/* hover: fundo bem mais claro, parece botão “clicável” */
 .navLink:hover {
-    text-decoration: underline;
+background: linear-gradient(115deg,
+            var(--color-primary) 0%,
+            #e30683df 35%,
+            var(--color-secondary) 100%);
+
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.25);
+    border: 1px solid rgba(236, 72, 153, 0.55);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.35);
+    color: #ffffff;
+
+    transform: translateY(-2px);
+   
+}
+
+/* focus acessível (teclado) */
+.navLink:focus-visible {
+    outline: 2px solid #fef9c3;
+    outline-offset: 3px;
+}
+
+/* estado ativo (página atual) */
+.navLinkActive {
+    background-color: rgba(255, 255, 255, 0.45);
+    border-color: rgba(255, 255, 255, 0.7);
+    color: #ffffff;
 }
 
 /* tablet */
-@media (max-width: 992px) {
-    .header {
-        height: 110px;
+@media (max-width: 62rem) {
+    .inner {
+        gap: 2rem;
+        min-height: 5rem;
+        padding-inline: 1.25rem;
     }
 
     .logo {
-        height: 90px;
+        height: 4.6rem;
     }
 
     .nav {
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .navLink {
-        font-size: 1rem;
+        padding-inline: 1rem;
+        font-size: 0.75rem;
     }
 }
 
 /* telemóvel */
-@media (max-width: 768px) {
-    .header {
+@media (max-width: 48rem) {
+    .inner {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: auto;
-        padding: 1rem 1.5rem 1.5rem;
+        min-height: auto;
+        padding: 0.9rem 1.25rem 1.1rem;
         gap: 0.75rem;
+        border-radius: 1.5rem;
     }
 
     .logo {
-        height: 80px;
+        height: 4.2rem;
     }
 
     .nav {
-        gap: 1.5rem;
+        gap: 0.75rem;
+    }
+
+    .navLink {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
     }
 }
 
 /* telemóvel pequeno */
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
+    .inner {
+        padding-inline: 1rem;
+    }
+
     .logo {
-        height: 70px;
+        height: 3.8rem;
     }
 
     .nav {
-        gap: 1.25rem;
+        gap: 0.6rem;
     }
 
     .navLink {
-        font-size: 0.95rem;
+        padding-inline: 0.8rem;
+        font-size: 0.7rem;
     }
 }

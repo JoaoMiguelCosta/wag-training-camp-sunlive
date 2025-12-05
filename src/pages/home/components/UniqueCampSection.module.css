@@ -1,61 +1,133 @@
+.section {
+    position: relative;
+    padding: 4rem 1.5rem 4.5rem;
 
+    /* offset para o header fixo (desktop base) */
+    scroll-margin-top: var(--header-offset);
+
+    background: var(--gradient-main);
+
+    border-radius: var(--radius-section);
+    box-shadow: var(--shadow-section);
+    border: 1px solid rgba(236, 72, 153, 0.55);
+}
+
+/* ligeiro “chão” para os posters, bem discreto */
+.section::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 1.6rem;
+    height: 3rem;
+    border-radius: var(--radius-pill);
+    background: radial-gradient(ellipse at center,
+            rgba(15, 23, 42, 0.25),
+            transparent 70%);
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.inner {
+    max-width: var(--layout-inner-max);
+    /* alinhado com o header */
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    /* acima do ::after */
+}
 
 .title {
+    font-family: var(--font-family-heading);
     font-size: 2.4rem;
     font-weight: 800;
     text-align: center;
     margin-bottom: 2.5rem;
-    letter-spacing: 0.08em;
-    color: #7a1b68;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: var(--color-title-on-gradient);
+    text-shadow: var(--shadow-title-neon);
+
+    position: relative;
 }
 
+/* barra/after igual ao da secção de cima */
+.title::after {
+    content: "";
+    display: block;
+    width: 4.5rem;
+    height: 0.2rem;
+    border-radius: var(--radius-pill);
+    margin: 0.7rem auto 0;
+
+    background: var(--gradient-title-underline);
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.35);
+}
+
+/* cards lado a lado, centrados */
 .grid {
     display: flex;
     justify-content: center;
-    gap: 8rem;
+    align-items: stretch;
+    gap: 4.5rem;
     flex-wrap: wrap;
 }
 
-/* tablet */
-@media (max-width: 992px) {
+/* ---------- TABLET (<= 992px) ---------- */
+@media (max-width: 62rem) {
     .section {
         padding: 3.5rem 1.5rem 4rem;
+        border-radius: 2rem;
+
+        /* header um bocadinho mais baixo em tablet */
+        scroll-margin-top: 6rem;
     }
 
     .title {
-        font-size: 2.1rem;
-        margin-bottom: 2rem;
+        font-size: 2.15rem;
+        margin-bottom: 2.25rem;
+        letter-spacing: 0.1em;
     }
 
     .grid {
-        gap: 4rem;
+        gap: 3.25rem;
     }
 }
 
-/* telemóvel */
-@media (max-width: 768px) {
+/* ---------- TELEMÓVEL (<= 768px) ---------- */
+@media (max-width: 48rem) {
     .section {
         padding: 3rem 1.5rem 3.5rem;
+        border-radius: 1.75rem;
+
+        /* compensa header mobile */
+        scroll-margin-top: 5.5rem;
     }
 
     .title {
         font-size: 1.9rem;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.09em;
     }
 
     .grid {
         flex-direction: column;
         align-items: center;
-        gap: 3rem;
+        gap: 2.75rem;
     }
 }
 
-@media (max-width: 480px) {
+/* ---------- TELEMÓVEL PEQUENO (<= 480px) ---------- */
+@media (max-width: 30rem) {
     .section {
-        padding: 2.5rem 1.5rem 3rem;
+        padding: 2.5rem 1.25rem 3rem;
+        border-radius: 1.5rem;
+
+        /* um pouco menos para ecrãs muito pequenos */
+        scroll-margin-top: 5rem;
     }
 
     .title {
-        font-size: 1.7rem;
+        font-size: 1.75rem;
     }
 }

@@ -8,17 +8,19 @@ export function HomeHeader() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logoWrapper}>
-        <img src={headerLogo} alt={logoAlt} className={styles.logo} />
-      </div>
+      <div className={styles.inner}>
+        <div className={styles.logoWrapper}>
+          <img src={headerLogo} alt={logoAlt} className={styles.logo} />
+        </div>
 
-      <nav className={styles.nav}>
-        {navItems.map((item) => (
-          <a key={item.id} href={item.href} className={styles.navLink}>
-            {item.label}
-          </a>
-        ))}
-      </nav>
+        <nav className={styles.nav}>
+          {navItems.map((item) => (
+            <a key={item.id} href={item.href} className={styles.navLink}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
     </header>
   );
 }

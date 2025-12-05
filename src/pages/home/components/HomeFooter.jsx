@@ -7,7 +7,9 @@ export function HomeFooter() {
 
   return (
     <footer className={styles.footer}>
-      <p className={styles.text}>{text}</p>
+      <div className={styles.inner}>
+        <p className={styles.text}>{text}</p>
+      </div>
     </footer>
   );
 }

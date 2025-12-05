@@ -1,64 +1,166 @@
+.section {
+    position: relative;
+    padding: 4rem 1.5rem 4.5rem;
 
+    /* 🔥 mesmo fundo do header / unique camp */
+    background: var(--gradient-main);
+    border-radius: var(--radius-section);
+    box-shadow: var(--shadow-section);
+    border: 1px solid rgba(236, 72, 153, 0.55);
+}
 
+.inner {
+    max-width: var(--layout-inner-max);
+    margin: 0 auto;
+}
+
+/* 🎯 título com o mesmo estilo de "A UNIQUE CAMP!!!" */
 .title {
+    font-family: var(--font-family-heading);
     font-size: 2.4rem;
     font-weight: 800;
     text-align: center;
     margin-bottom: 2.5rem;
-    letter-spacing: 0.08em;
-    color: #2c1533;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-title-on-gradient);
+
+    text-shadow: var(--shadow-title-neon);
+
+    position: relative;
 }
 
+/* barra/after igual ao da secção de cima */
+.title::after {
+    content: "";
+    display: block;
+    width: 4.5rem;
+    height: 0.2rem;
+    border-radius: var(--radius-pill);
+    margin: 0.7rem auto 0;
+
+    background: var(--gradient-title-underline);
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.35);
+}
+
+/* grid dos cards */
 .grid {
     display: flex;
     justify-content: center;
+    align-items: stretch;
     gap: 3rem;
     flex-wrap: wrap;
 }
 
 /* conteúdo interno do InfoCard */
 .cardContent {
-    /* 👇 tamanho típico de cada card em desktop */
     flex: 1 1 30rem;
-    max-width: 36rem;
+    max-width: 34rem;
     gap: 1.25rem;
 }
 
+/* ícones grandes */
 .icon {
     font-size: 3rem;
+    margin-bottom: 0.25rem;
 }
 
+/* título do card */
+/* OPÇÃO 2 – NÉON ROSA/ROXO */
+
+/* OPÇÃO 3 – ICY AZUL */
+/* OPÇÃO 1 – CLEAN CARREGADA */
+
+/* OPÇÃO 1 – CLEAN ULTRA CARREGADA */
+
+/* título do card */
 .cardTitle {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #f9fafb;
+
+    text-shadow:
+        0 0 5px rgba(15, 23, 42, 1),
+        0 0 14px rgba(148, 163, 184, 1),
+        0 0 26px rgba(248, 250, 252, 1),
+        0 0 40px rgba(148, 163, 184, 1),
+        0 0 70px rgba(148, 163, 184, 1);
 }
 
-
+/* link de contacto */
 .link {
-    font-size: 1rem;
-    color: #0077cc;
-    text-decoration: underline;
+    font-size: 1.12rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+
+    color: #fee2e2;
+    text-decoration: none;
+
+    border-bottom: 0.16rem solid rgba(254, 226, 226, 1);
+    padding-bottom: 0.22rem;
+
+    text-shadow:
+        0 0 4px rgba(15, 23, 42, 1),
+        0 0 16px rgba(148, 163, 184, 1),
+        0 0 28px rgba(248, 250, 252, 1);
+
+    transition:
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        border-bottom-width var(--transition-fast),
+        text-shadow var(--transition-fast),
+        transform var(--transition-fast),
+        filter var(--transition-fast);
 }
 
-/* tablet */
+.link:hover,
+.link:focus-visible {
+    color: #facc15;
+    /* dourado forte */
+
+    border-bottom-color: #facc15;
+    border-bottom-width: 0.22rem;
+
+    text-shadow:
+        0 0 6px rgba(15, 23, 42, 1),
+        0 0 14px rgba(250, 204, 21, 1),
+        0 0 30px rgba(234, 179, 8, 1),
+        0 0 52px rgba(202, 138, 4, 1),
+        0 0 80px rgba(252, 211, 77, 1);
+
+    transform: translateY(-1px) scale(1.12);
+    filter: drop-shadow(0 0 22px rgba(250, 204, 21, 1));
+}
+/* ---------- TABLET (<= 62rem ~ 992px) ---------- */
 @media (max-width: 62rem) {
     .section {
         padding: 3.5rem 1.5rem 4rem;
+        border-radius: 2rem;
     }
 
     .title {
         font-size: 2.1rem;
+        margin-bottom: 2.1rem;
     }
 
     .grid {
         gap: 2.5rem;
     }
+
+    .cardContent {
+        flex: 1 1 26rem;
+        max-width: 30rem;
+    }
 }
 
-/* telemóvel */
+/* ---------- TELEMÓVEL (<= 48rem ~ 768px) ---------- */
 @media (max-width: 48rem) {
     .section {
         padding: 3rem 1.5rem 3.5rem;
+        border-radius: 1.75rem;
     }
 
     .title {
@@ -68,6 +170,7 @@
     .grid {
         flex-direction: column;
         align-items: stretch;
+        gap: 2rem;
     }
 
     .cardContent {
@@ -76,10 +179,11 @@
     }
 }
 
-/* telemóvel pequeno */
+/* ---------- TELEMÓVEL PEQUENO (<= 30rem ~ 480px) ---------- */
 @media (max-width: 30rem) {
     .section {
-        padding: 2.5rem 1.5rem 3rem;
+        padding: 2.5rem 1.25rem 3rem;
+        border-radius: 1.5rem;
     }
 
     .title {

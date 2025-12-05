@@ -5,7 +5,7 @@ import styles from "./HomeContactsSection.module.css";
 
 const iconsById = {
   email: "✉️",
-  phone: "📞", // o novo ícone
+  phone: "📞",
 };
 
 export function HomeContactsSection() {
@@ -13,24 +13,24 @@ export function HomeContactsSection() {
 
   return (
     <section id="contacts" className={styles.section}>
-      <h2 className={styles.title}>{title}</h2>
+      <div className={styles.inner}>
+        <h2 className={styles.title}>{title}</h2>
 
-      <div className={styles.grid}>
-        {cards.map((card) => (
-          <InfoCard key={card.id} className={styles.cardContent}>
-            <span className={styles.icon}>{iconsById[card.id]}</span>
+        <div className={styles.grid}>
+          {cards.map((card) => (
+            <InfoCard key={card.id} className={styles.cardContent}>
+              <span className={styles.icon}>{iconsById[card.id]}</span>
 
-            <h3 className={styles.cardTitle}>{card.title}</h3>
+              <h3 className={styles.cardTitle}>{card.title}</h3>
 
-            {/* descrição removida */}
-
-            {card.link && (
-              <a href={card.link.href} className={styles.link}>
-                {card.link.label}
-              </a>
-            )}
-          </InfoCard>
-        ))}
+              {card.link && (
+                <a href={card.link.href} className={styles.link}>
+                  {card.link.label}
+                </a>
+              )}
+            </InfoCard>
+          ))}
+        </div>
       </div>
     </section>
   );

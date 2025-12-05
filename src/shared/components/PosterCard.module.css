@@ -2,36 +2,66 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
 
-    /* 600px → 37.5rem | 460px → 28.75rem */
-    max-width: 37.5rem;
-    flex: 1 1 28.75rem;
+    max-width: 34rem;
+    /* ~544px */
+    flex: 1 1 28rem;
+    /* ~448px */
+
+    /* o efeito de hover é suave e não dá “caixa” ao botão */
+    transition:
+        transform var(--transition-normal),
+        filter var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateY(-0.4rem);
+    filter: saturate(1.03);
+}
+
+/* só a imagem leva sombra/borda */
+.posterWrapper {
+    width: 100%;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+
+    box-shadow:
+        var(--shadow-card),
+        0 0 0 1px rgba(255, 255, 255, 0.25);
+
+    transition: box-shadow var(--transition-normal);
+}
+
+.card:hover .posterWrapper {
+    box-shadow:
+        0 26px 60px rgba(15, 23, 42, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.35);
 }
 
 .posterImage {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 1rem;
-    overflow: hidden;
 }
 
+/* botão está fora da “caixa” do poster */
 .buttonWrapper {
-    margin-top: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.35rem;
 }
 
-/* tablet: 992px → 62rem */
+/* ---------- TABLET (<= 992px) ---------- */
 @media (max-width: 62rem) {
-
-    /* 460px → 28.75rem | 400px → 25rem */
     .card {
-        max-width: 28.75rem;
-        flex: 1 1 25rem;
+        max-width: 30rem;
+        flex: 1 1 24rem;
     }
 }
 
-/* telemóvel: 768px → 48rem */
+/* ---------- TELEMÓVEL (<= 768px) ---------- */
 @media (max-width: 48rem) {
     .card {
         max-width: 100%;
@@ -39,9 +69,9 @@
     }
 }
 
-/* telemóvel pequeno: 480px → 30rem */
+/* ---------- TELEMÓVEL PEQUENO (<= 480px) ---------- */
 @media (max-width: 30rem) {
     .card {
-        gap: 1.25rem;
+        gap: 1.1rem;
     }
 }

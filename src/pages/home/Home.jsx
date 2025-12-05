@@ -1,12 +1,11 @@
-// src/pages/home/Home.jsx
 import { HomeHeader } from "./components/HomeHeader";
 import { UniqueCampSection } from "./components/UniqueCampSection";
 import { SunliveGroupSection } from "./components/SunliveGroupSection";
 import { LogosSection } from "./components/LogosSection";
 import { HomeContactsSection } from "./components/HomeContactsSection";
 import { HomeFooter } from "./components/HomeFooter";
+import { ScrollToTopButton } from "../../shared/components/ScrollToTopButton";
 
-// 👇 ESTE IMPORT TEM DE EXISTIR
 import styles from "./Home.module.css";
 
 export default function HomePage() {
@@ -17,8 +16,10 @@ export default function HomePage() {
       <SunliveGroupSection />
       <HomeContactsSection />
       <LogosSection />
-
       <HomeFooter />
+
+      {/* botão flutuante para voltar ao topo / #home */}
+      <ScrollToTopButton />
     </main>
   );
 }

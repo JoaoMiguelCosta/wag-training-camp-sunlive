@@ -1,61 +1,65 @@
 .button {
+    /* Layout base */
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.4rem;
 
-    /* mais largo e alto */
-    padding: 1rem 3.75rem;
+    padding: 0.85rem 2.1rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(255, 255, 255, 0.45);
 
-    border-radius: 9999px;
-    border: none;
+    /* Tipografia */
+    font-family: var(--font-family-heading);
+    font-size: 0.9rem;
     font-weight: 600;
-    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    /* Gradiente forte, a casar com o fundo */
+    color: #ffffff;
+    background: var(--gradient-cta);
+
+    box-shadow: var(--shadow-card);
     cursor: pointer;
     text-decoration: none;
 
-    background-color: #861c6d;
-    color: #ffffff;
-    box-shadow: 0 0.5rem 1.125rem rgba(0, 0, 0, 0.25);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
-
-    /* largura base em desktop (~280px) */
-    min-width: 17.5rem;
-    /* 280px */
-    max-width: 22rem;
+    transform: translateY(0) scale(1);
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        filter var(--transition-fast),
+        border-color var(--transition-fast),
+        opacity var(--transition-fast);
 }
 
+/* Hover – mesma cor, só mais forte */
 .button:hover {
-    transform: translateY(-0.125rem);
-    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 26px 70px rgba(15, 23, 42, 0.6);
+    filter: brightness(1.05);
+    border-color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
+    /* garante que não muda */
 }
 
+/* Active */
 .button:active {
-    transform: translateY(0);
-    box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.2);
-    opacity: 0.9;
+    transform: translateY(0) scale(0.97);
+    box-shadow: var(--shadow-header);
 }
 
-/* tablet (<= 992px) */
-@media (max-width: 62rem) {
-    .button {
-        padding: 0.9rem 3.25rem;
-        min-width: 16rem;
-        max-width: 20rem;
-    }
+/* Focus acessível */
+.button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
 }
 
-/* telemóvel (<= 768px) */
-@media (max-width: 48rem) {
-    .button {
-        width: 100%;
-        max-width: 20rem;
-        padding: 0.9rem 2.5rem;
-    }
-}
-
-/* telemóvel pequeno (<= 480px) */
-@media (max-width: 30rem) {
-    .button {
-        max-width: 100%;
-    }
+/* Estados disabled (se no futuro usares) */
+.button[aria-disabled="true"],
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    filter: none;
 }

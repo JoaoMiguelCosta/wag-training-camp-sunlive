@@ -1,140 +1,210 @@
-.section {
-    /* controla só a distância desta secção às outras */
-    padding: 4rem 1.5rem 5rem;
-}
-
-/* bloco com a imagem + overlay */
+/* bloco com a imagem + overlay escuro */
 .overlay {
     position: relative;
     color: #ffffff;
 
+    /* gradiente mais leve + imagem de fundo mais visível */
+    background-image:
+        linear-gradient(to bottom,
+            rgba(15, 23, 42, 0.45),
+            rgba(15, 23, 42, 0.68)),
+        url("../../../assets/background-home/fundo-home.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    /* padding interno -> impede o texto de colar às bordas da imagem */
+    border-radius: var(--radius-section);
+    box-shadow: var(--shadow-section);
+    border: 1px solid rgba(15, 23, 42, 0.55);
+}
+
+/* alinhar com o resto da página (72rem) */
+.inner {
+    max-width: var(--layout-inner-max);
+    margin: 0 auto;
     padding: 3rem 2rem 3.5rem;
 }
 
+/* título principal */
 .title {
+    font-family: var(--font-family-heading);
     text-align: center;
-    font-size: 2.6rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #f29af5;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fed7ff;
     margin-bottom: 2.5rem;
+    position: relative;
+    text-shadow:
+        0 0 18px rgba(236, 72, 153, 0.7),
+        0 0 28px rgba(59, 7, 100, 0.8);
 }
 
-/* content centralizado com largura máxima */
+/* sublinhado decorativo */
+.title::after {
+    content: "";
+    display: block;
+    width: 4.5rem;
+    height: 0.2rem;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(90deg,
+            #f9a8d4 0%,
+            #f97316 35%,
+            #a5b4fc 100%);
+    margin: 0.7rem auto 0;
+}
+
+/* layout texto + vídeo */
 .content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
+    display: grid;
     gap: 3rem;
-    align-items: flex-start;
+    align-items: center;
 }
 
+/* duas colunas em ecrãs médios+ */
+@media (min-width: 900px) {
+    .content {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+    }
+}
+
+/* coluna de texto */
 .textColumn {
-    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
 .subtitle {
+    font-family: var(--font-family-heading);
     font-size: 2rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    color: #e5e7eb;
 }
 
+/* parágrafos */
 .paragraph {
     font-size: 1.05rem;
     line-height: 1.7;
-    margin-bottom: 1.5rem;
+    color: #e5e7eb;
 }
 
+/* link www.sunlive.pt – texto + linha dourados */
 .link {
-    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+
+    font-size: 1rem;
     font-weight: 600;
-    text-decoration: underline;
+    letter-spacing: 0.03em;
+
+    color: var(--color-highlight-gold);
+    /* dourado principal */
+    text-decoration: none;
+    border-bottom: 1px solid rgba(250, 204, 21, 0.95);
+    /* podes trocar para var(--color-highlight-gold) se quiseres */
+    padding-bottom: 0.12rem;
+
+    transition:
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        text-shadow var(--transition-fast);
 }
 
-/* vídeo responsivo */
+/* setinha antes do texto, também dourada */
+.link::before {
+    content: "»";
+    font-size: 1rem;
+    color: var(--color-highlight-gold);
+}
+
+/* hover: fica mais claro, com ligeiro glow */
+.link:hover {
+    color: var(--color-highlight-gold-soft);
+    /* dourado mais claro */
+    border-color: var(--color-highlight-gold-soft);
+    transform: translateY(-0.03rem);
+    text-shadow:
+        0 0 4px rgba(250, 250, 210, 0.8),
+        0 0 10px rgba(251, 191, 36, 0.9);
+}
+
+.link:hover::before {
+    color: var(--color-highlight-gold-soft);
+}
+/* coluna do vídeo */
 .videoColumn {
-    flex: 1 1 0;
+    display: flex;
+    justify-content: center;
 }
 
+/* cartão do vídeo em “glass” por cima do fundo escuro */
 .videoWrapper {
     position: relative;
     width: 100%;
-    max-width: 640px;
+    max-width: 40rem;
     padding-top: 56.25%;
     /* 16:9 */
-    margin-left: auto;
-    margin-right: auto;
+
+    border-radius: var(--radius-card);
+    overflow: hidden;
+
+    background: radial-gradient(circle at top left,
+            rgba(248, 250, 252, 0.26),
+            rgba(15, 23, 42, 0.9));
+    border: 1px solid rgba(248, 250, 252, 0.35);
+    box-shadow: var(--shadow-card);
 }
 
+/* iframe */
 .video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     border: 0;
+    border-radius: inherit;
 }
 
 /* ---------- BREAKPOINTS ---------- */
 
-/* <= 1350px: encolhe um pouco e mantém margens internas */
-@media (max-width: 1350px) {
-    .overlay {
-        padding: 3rem 2rem 3.2rem;
+/* <= 1200px */
+@media (max-width: 1200px) {
+    .inner {
+        padding: 2.8rem 2rem 3.2rem;
     }
 
     .content {
-        gap: 2.5rem;
-    }
-}
-
-/* <= 992px: tipografia ligeiramente mais pequena */
-@media (max-width: 992px) {
-    .section {
-        padding: 3.5rem 1.5rem 4rem;
+        gap: 2.3rem;
     }
 
     .title {
-        font-size: 2.3rem;
-        margin-bottom: 2rem;
+        font-size: 2.25rem;
     }
 
     .subtitle {
         font-size: 1.8rem;
     }
-
-    .paragraph,
-    .link {
-        font-size: 1rem;
-    }
 }
 
-/* <= 768px: texto em cima, vídeo em baixo (NÃO desaparece) */
-@media (max-width: 768px) {
-    .overlay {
-        padding: 2.5rem 1.5rem 3rem;
-        /* margem lateral consistente com o resto do site */
+/* <= 992px */
+@media (max-width: 992px) {
+    .inner {
+        padding: 2.6rem 1.8rem 3rem;
     }
 
     .title {
-        font-size: 2rem;
-        margin-bottom: 1.8rem;
+        font-size: 2.1rem;
+        margin-bottom: 2rem;
     }
 
-    .content {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 2rem;
-    }
-
-    .textColumn,
-    .videoColumn {
-        flex: 0 0 auto;
-        /* evita encolher a 0 e “desaparecer” */
+    .paragraph,
+    .link {
+        font-size: 0.98rem;
     }
 
     .videoWrapper {
@@ -142,17 +212,54 @@
     }
 }
 
-/* <= 480px: ajustes finais */
-@media (max-width: 480px) {
+/* <= 768px */
+@media (max-width: 768px) {
     .section {
-        padding: 2.5rem 1.5rem 3rem;
+        padding: 0 1.5rem;
+    }
+
+    .overlay {
+        border-radius: 2rem;
+    }
+
+    .inner {
+        padding: 2.4rem 1.6rem 2.8rem;
     }
 
     .title {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
     }
 
     .subtitle {
         font-size: 1.6rem;
+    }
+}
+
+/* <= 480px */
+@media (max-width: 480px) {
+    .section {
+        padding: 0 1.25rem;
+    }
+
+    .overlay {
+        border-radius: 1.5rem;
+    }
+
+    .inner {
+        padding: 2.2rem 1.25rem 2.6rem;
+    }
+
+    .title {
+        font-size: 1.7rem;
+    }
+
+    .subtitle {
+        font-size: 1.45rem;
     }
 }

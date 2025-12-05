@@ -1,7 +1,75 @@
+/* src/pages/home/Home.module.css */
+
 .page {
+    position: relative;
     min-height: 100vh;
-    background-color: #e596d9;
+
+    /* Fundo coerente com os gradientes das secções */
+    background:
+        radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.45) 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.35) 0, transparent 55%),
+        radial-gradient(circle at 0% 100%, rgba(236, 72, 153, 0.25) 0, transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.22) 0, transparent 60%),
+        var(--gradient-main);
+
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+
+    /* Espaço só para compensar o header FIXO no topo
+       👉 em baixo fica 0 para não haver espaço após o footer */
+    padding-block: var(--header-offset) 0;
+
+    overflow-x: hidden;
 }
 
+/*
+ * Todos os blocos principais (header, secções, footer)
+ * ficam centrados e com largura máxima.
+ * O último filho (scroll-to-top) fica livre para ser fixed.
+ */
+.page>*:not(:last-child) {
+    /* secções bem largas, margem lateral mínima */
+    width: min(var(--layout-page-max), 100% - 0.75rem);
+    margin-inline: auto;
+}
+
+/* Espaçamento vertical entre os blocos principais
+   ❌ não aplica margem antes do footer */
+.page>*:not(:last-child)+*:not(:last-child):not(footer) {
+    margin-top: var(--space-2xl);
+}
+
+/* ---------- DESKTOP LARGO (>= 1200px) ---------- */
+@media (min-width: 1200px) {
+    .page {
+        /* mantém o offset do header, mas sem espaço extra em baixo */
+        padding-block: var(--header-offset) 0;
+    }
+
+    .page>*:not(:last-child) {
+        /* ainda mais encostado mas com 2rem de respiro total */
+        width: min(var(--layout-page-max), 100% - 2rem);
+    }
+
+    .page>*:not(:last-child)+*:not(:last-child):not(footer) {
+        margin-top: var(--space-3xl);
+    }
+}
+
+/* ---------- MOBILE (<= 640px) ---------- */
+@media (max-width: 640px) {
+    .page {
+        /* offset do header fixo, sem espaço extra em baixo */
+        padding-block: var(--header-offset) 0;
+    }
+
+    .page>*:not(:last-child) {
+        /* um bocadinho de margem lateral para não colar */
+        width: min(100%, 100% - 1rem);
+    }
+
+    .page>*:not(:last-child)+*:not(:last-child):not(footer) {
+        margin-top: var(--space-xl);
+    }
+}

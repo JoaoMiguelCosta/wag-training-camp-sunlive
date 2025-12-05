@@ -1,9 +1,10 @@
 // src/config/content/home.content.js
+
 export const homeContent = {
   header: {
     logoAlt: "Sunlive International Wag Training Camp",
     navItems: [
-      { id: "home", label: "Home", href: "/" },
+      { id: "home", label: "Home", href: "#home" },
       { id: "sunlive", label: "Sunlive", href: "#sunlive" },
       { id: "contacts", label: "Contacts", href: "#contacts" },
     ],
@@ -38,6 +39,7 @@ export const homeContent = {
       href: "https://www.sunlive.pt",
     },
     video: {
+      // autoplay + mute (para os browsers permitirem o autoplay)
       src: "https://www.youtube.com/embed/OueN7zefqmQ?autoplay=1&mute=1&playsinline=1",
       title: "SUNLIVE GROUP 2021 - What else?",
     },

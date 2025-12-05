@@ -1,0 +1,99 @@
+:root {
+    /* -----------------------
+     *  BRAND / CORES
+     * --------------------- */
+    --color-primary: #ec4899;
+    /* rosa principal */
+    --color-primary-strong: #db2777;
+    /* hover / ênfase */
+    --color-secondary: #6366f1;
+    /* roxo/indigo de suporte */
+    --color-accent: #14b8a6;
+    /* turquesa (focus scroll-to-top) */
+
+    /* cor de texto em fundos muito escuros/gradiente (footer, etc.) */
+    --color-footer-text: #fefce8;
+
+    /* dourados para pequenos destaques (links tipo SunLive, etc.) */
+    --color-highlight-gold: #facc15;
+    --color-highlight-gold-soft: #fef9c3;
+
+    /* -----------------------
+     *  GRADIENTES RECORRENTES
+     * --------------------- */
+    --gradient-main: linear-gradient(115deg,
+            var(--color-primary) 0%,
+            #f472b6 35%,
+            var(--color-secondary) 100%);
+
+    /* para botões / hovers especiais (nav + scroll-to-top) */
+    --gradient-cta: linear-gradient(115deg,
+            var(--color-primary) 0%,
+            #e30683df 35%,
+            var(--color-secondary) 100%);
+
+    /* sublinhado dos títulos neon */
+    --gradient-title-underline: linear-gradient(90deg,
+            #fee2f2 0%,
+            #fbbf24 35%,
+            #e0f2fe 100%);
+
+    /* -----------------------
+     *  TIPOGRAFIA
+     * --------------------- */
+    --font-family-heading: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* cor dos títulos nos fundos em gradiente */
+    --color-title-on-gradient: #fdf2f8;
+
+    /* -----------------------
+     *  LAYOUT
+     * --------------------- */
+    --layout-page-max: 82rem;
+    /* largura dos blocos principais na Home */
+    --layout-inner-max: 72rem;
+    /* inner de secções */
+    --header-offset: 6.5rem;
+    /* compensar header fixo / scroll-margin */
+
+    /* -----------------------
+     *  ESPAÇAMENTO
+     * --------------------- */
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+
+    /* -----------------------
+     *  RADII
+     * --------------------- */
+    --radius-section: 2.5rem;
+    /* secções principais */
+    --radius-card: 1.75rem;
+    /* cards / logoCell */
+    --radius-pill: 999px;
+    /* header, pills, scroll-to-top */
+
+    /* -----------------------
+     *  SOMBRAS
+     * --------------------- */
+    --shadow-header: 0 10px 26px rgba(15, 23, 42, 0.35);
+    --shadow-section: 0 26px 60px rgba(15, 23, 42, 0.35);
+    --shadow-card: 0 18px 40px rgba(15, 23, 42, 0.45);
+    --shadow-strong: 0 20px 55px rgba(15, 23, 42, 0.55);
+
+    /* sombra neon dos títulos principais */
+    --shadow-title-neon:
+        0 0 3px rgba(0, 0, 0, 0.95),
+        0 0 6px rgba(131, 24, 67, 1),
+        0 0 16px rgba(236, 72, 153, 1),
+        0 0 28px rgba(147, 51, 234, 0.98),
+        0 0 46px rgba(236, 72, 153, 0.95),
+        0 0 68px rgba(147, 51, 234, 0.9),
+        0 0 92px rgba(15, 23, 42, 0.95);
+
+    /* -----------------------
+     *  TRANSIÇÕES
+     * --------------------- */
+    --transition-fast: 150ms ease-out;
+    --transition-normal: 220ms ease-out;
+}

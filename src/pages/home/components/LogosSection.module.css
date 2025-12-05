@@ -1,41 +1,140 @@
 .section {
-    padding: 4rem 1.5rem 5rem;
-    background-color: #e596d9;
-    /* mesmo fundo da página */
+    position: relative;
+    padding: 4rem 1.5rem 4.5rem;
+
+    background: var(--gradient-main);
+
+    /* borda normal em cima / lados */
+    border: 1px solid rgba(236, 72, 153, 0.55);
+    border-bottom: none;
+    /* 👈 tiramos a linha “seca” de baixo */
+
+    border-radius: 2.5rem 2.5rem 0 0;
+    box-shadow: var(--shadow-section);
+    overflow: hidden;
 }
 
-.grid {
-    max-width: 72rem;
-    /* ~1150px */
+
+.section::after {
+    content: "";
+    position: absolute;
+
+    /* 👉 agora é uma barra centrada com 50% da largura */
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    bottom: -0.35rem;
+    height: 0.7rem;
+
+    /* se quiseres arredondar as pontas: */
+    border-radius: 999px;
+
+    background: linear-gradient(90deg,
+            #fef3c7 0%,
+            #fde68a 15%,
+            #fbbf24 35%,
+            #fb7185 60%,
+            #a5b4fc 85%,
+            #e0f2fe 100%);
+
+    box-shadow:
+        0 -4px 16px rgba(15, 23, 42, 0.65),
+        0 0 18px rgba(251, 191, 36, 0.85),
+        0 0 32px rgba(59, 130, 246, 0.7);
+
+    opacity: 0.95;
+    pointer-events: none;
+}
+
+.inner {
+    max-width: var(--layout-inner-max);
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* grelha 3x2 + header full width */
+.grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2.5rem 3rem;
+    gap: 3rem 3.5rem;
     align-items: center;
     justify-items: center;
 }
 
-/* célula base */
+/* célula base de cada logo – cartão “glass” */
 .logoCell {
+    position: relative;
+    width: 100%;
+    max-width: 15rem;
+
+    /* todos os cartões com o mesmo formato */
+    aspect-ratio: 4 / 3;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    padding: 1.25rem 1.25rem;
+}
+
+/* halo / cartão por trás do logo */
+.logoCell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-card);
+
+    /* mesmo tipo de fundo que os cards de contactos */
+    background:
+        radial-gradient(circle at top center,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(255, 255, 255, 0.12) 50%,
+            rgba(15, 23, 42, 0.1) 100%),
+        var(--gradient-main);
+    background-blend-mode: screen;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+        var(--shadow-card),
+        0 0 0 1px rgba(255, 255, 255, 0.45);
+    opacity: 0.88;
+    transition:
+        opacity var(--transition-normal),
+        box-shadow var(--transition-normal),
+        transform var(--transition-normal);
 }
 
 /* tamanho base de todos os logos */
 .logoSmall {
-    max-width: 11rem;
-    width: 100%;
+    position: relative;
+    z-index: 1;
+
+    width: auto;
     height: auto;
     object-fit: contain;
+
+    transition:
+        transform var(--transition-normal),
+        filter var(--transition-normal);
 }
 
-/* apenas Sunlive Group + Estalagem */
-.logoLarge {
-    max-width: 14rem;
+/* hover: cartão mais brilhante + logo sobe um pouco */
+.logoCell:hover::before {
+    opacity: 1;
+    box-shadow:
+        0 18px 40px rgba(15, 23, 42, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
 }
 
-/* header a toda a largura */
+.logoCell:hover .logoSmall {
+    transform: translateY(-4px) scale(1.03);
+    filter: drop-shadow(0 14px 30px rgba(15, 23, 42, 0.55));
+}
+
+/* header a toda a largura, com cartão próprio */
 .headerCell {
     grid-column: 1 / -1;
     display: flex;
@@ -48,24 +147,32 @@
     width: 100%;
     height: auto;
     object-fit: contain;
+
+    filter: drop-shadow(0 14px 30px rgba(15, 23, 42, 0.7));
+    transition:
+        transform var(--transition-normal),
+        filter var(--transition-normal);
+}
+
+.headerCell:hover .headerLogo {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 18px 45px rgba(15, 23, 42, 0.9));
 }
 
 /* ---------- TABLET (<= 992px) ---------- */
 @media (max-width: 62rem) {
     .section {
         padding: 3.5rem 1.5rem 4rem;
+        border-radius: 2rem;
     }
 
     .grid {
-        gap: 2rem 2.5rem;
+        gap: 2.4rem 2.8rem;
     }
 
-    .logoSmall {
-        max-width: 9.5rem;
-    }
-
-    .logoLarge {
-        max-width: 12rem;
+    .logoCell {
+        max-width: 13.5rem;
+        padding: 1.15rem 1.15rem;
     }
 
     .headerLogo {
@@ -77,6 +184,7 @@
 @media (max-width: 48rem) {
     .section {
         padding: 3rem 1.5rem 3.5rem;
+        border-radius: 1.75rem;
     }
 
     /* 2 colunas em mobile “normal” */
@@ -85,12 +193,9 @@
         gap: 2rem 2rem;
     }
 
-    .logoSmall {
-        max-width: 9rem;
-    }
-
-    .logoLarge {
-        max-width: 11rem;
+    .logoCell {
+        max-width: 13rem;
+        padding: 1.1rem 1.1rem;
     }
 
     .headerCell {
@@ -101,7 +206,8 @@
 /* ---------- TELEMÓVEL PEQUENO (<= 480px) ---------- */
 @media (max-width: 30rem) {
     .section {
-        padding: 2.5rem 1.5rem 3rem;
+        padding: 2.5rem 1.25rem 3rem;
+        border-radius: 1.5rem;
     }
 
     /* 1 coluna */
@@ -110,12 +216,8 @@
         gap: 1.75rem;
     }
 
-    .logoSmall {
-        max-width: 10rem;
-    }
-
-    .logoLarge {
-        max-width: 12rem;
+    .logoCell {
+        max-width: 13.5rem;
     }
 
     .headerLogo {
