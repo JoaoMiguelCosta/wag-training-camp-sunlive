@@ -2,11 +2,10 @@
     position: relative;
     padding: 4rem 1.5rem 4.5rem;
 
-    /* offset para o header fixo (desktop base) */
+    /* usa SEMPRE a variável */
     scroll-margin-top: var(--header-offset);
 
     background: var(--gradient-main);
-
     border-radius: var(--radius-section);
     box-shadow: var(--shadow-section);
     border: 1px solid rgba(236, 72, 153, 0.55);
@@ -77,8 +76,7 @@
 /* ---------- TABLET (<= 992px) ---------- */
 @media (max-width: 62rem) {
     .section {
-        padding: 3.5rem 1.5rem 4rem;
-        border-radius: 2rem;
+   
 
         /* header um bocadinho mais baixo em tablet */
         scroll-margin-top: 6rem;
@@ -98,8 +96,7 @@
 /* ---------- TELEMÓVEL (<= 768px) ---------- */
 @media (max-width: 48rem) {
     .section {
-        padding: 3rem 1.5rem 3.5rem;
-        border-radius: 1.75rem;
+      
 
         /* compensa header mobile */
         scroll-margin-top: 5.5rem;
@@ -120,9 +117,7 @@
 /* ---------- TELEMÓVEL PEQUENO (<= 480px) ---------- */
 @media (max-width: 30rem) {
     .section {
-        padding: 2.5rem 1.25rem 3rem;
-        border-radius: 1.5rem;
-
+     
         /* um pouco menos para ecrãs muito pequenos */
         scroll-margin-top: 5rem;
     }

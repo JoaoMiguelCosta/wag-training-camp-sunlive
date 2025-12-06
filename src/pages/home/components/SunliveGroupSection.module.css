@@ -1,4 +1,9 @@
-/* bloco com a imagem + overlay escuro */
+.section {
+    
+
+    scroll-margin-top: var(--header-offset);
+ 
+}
 .overlay {
     position: relative;
     color: #ffffff;

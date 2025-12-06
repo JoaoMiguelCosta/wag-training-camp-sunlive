@@ -7,6 +7,7 @@
     border-radius: var(--radius-section);
     box-shadow: var(--shadow-section);
     border: 1px solid rgba(236, 72, 153, 0.55);
+    scroll-margin-top: var(--header-offset);
 }
 
 .inner {

@@ -1,11 +1,16 @@
+// src/pages/malta/MaltaPage.jsx
 import styles from "./Malta.module.css";
-import { maltaContent } from "../../config/content/malta.content.js";
+import { ScrollToTopButton } from "../../shared/components/ScrollToTopButton";
+import MaltaHeader from "./components/MaltaHeader";
+import MaltaRegistrationSection from "./components/MaltaRegistrationSection.jsx";
 
 export default function MaltaPage() {
   return (
     <main className={styles.page}>
-      <h1>{maltaContent.hero.title}</h1>
-      <p>{maltaContent.hero.subtitle}</p>
+      <MaltaHeader />
+      <MaltaRegistrationSection />
+
+      <ScrollToTopButton />
     </main>
   );
 }
