@@ -1,0 +1,10 @@
+/* src/pages/malta/components/MaltaHotelSection.module.css */
+
+.section {
+    width: 100%;
+
+    /* Mantém o padrão das outras secções:
+       o espaçamento vertical global é tratado em Malta.module.css */
+    display: flex;
+    justify-content: center;
+}

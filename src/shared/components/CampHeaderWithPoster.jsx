@@ -70,7 +70,7 @@ export default function CampHeaderWithPoster({
               onClick={closePoster}
             >
               <span aria-hidden="true">&times;</span>
-              <span className={styles.srOnly}>Fechar poster</span>
+              <span className={styles.srOnly}>Close poster</span>
             </button>
 
             <img
@@ -84,7 +84,7 @@ export default function CampHeaderWithPoster({
               className={styles.posterCloseBottom}
               onClick={closePoster}
             >
-              Fechar
+              Close
             </button>
           </div>
         </div>

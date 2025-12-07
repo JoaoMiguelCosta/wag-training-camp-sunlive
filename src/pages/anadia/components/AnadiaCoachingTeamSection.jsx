@@ -1,11 +1,11 @@
 // src/pages/malta/components/MaltaCoachingTeamSection.jsx
-import { maltaContent } from "../../../config/content/malta.content.js";
+import { anadiaContent } from "../../../config/content/anadia.content.js";
 import QuoteHighlight from "../../../shared/components/QuoteHighlight.jsx";
 
-import styles from "./MaltaCoachingTeamSection.module.css";
+import styles from "./AnadiaCoachingTeamSection.module.css";
 
-export default function MaltaCoachingTeamSection() {
-  const { coachingTeamSection } = maltaContent;
+export default function AnadiaCoachingTeamSection() {
+  const { coachingTeamSection } = anadiaContent;
   if (!coachingTeamSection) return null;
 
   const { id, title, quote, authorName, authorRole, photo, bio } =

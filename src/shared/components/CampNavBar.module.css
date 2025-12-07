@@ -1,10 +1,9 @@
 /* src/shared/components/CampNavBar.module.css */
 
 .header {
- 
     position: relative;
-        z-index: 120;
-        width: 100%;
+    z-index: 120;
+    width: 100%;
 }
 
 .inner {
@@ -92,9 +91,8 @@
             var(--color-primary) 0%,
             #e30683df 35%,
             var(--color-secondary) 100%);
-    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.25);
-    border: 1px solid rgba(236, 72, 153, 0.55);
     box-shadow: 0 10px 26px rgba(15, 23, 42, 0.35);
+    border: 1px solid rgba(236, 72, 153, 0.55);
     color: #ffffff;
     transform: translateY(-2px);
 }
@@ -162,8 +160,8 @@
         0 0 24px rgba(250, 204, 21, 1);
 }
 
-/* ---------- “TABLET” / LARGURAS <= 1397px ---------- */
-@media (max-width: 1397px) {
+/* ---------- LARGURAS >= 991px (layout igual ao design) ---------- */
+@media (min-width: 991px) {
     .inner {
         gap: 1.75rem;
         min-height: 5rem;
@@ -178,6 +176,11 @@
         gap: 0.9rem;
         flex-wrap: wrap;
         justify-content: center;
+
+        /* 🔒 trava a largura da barra de navegação
+           para não mudar o ponto de quebra das linhas */
+        max-width: 48rem;
+        margin-inline: auto;
     }
 
     .navLink {

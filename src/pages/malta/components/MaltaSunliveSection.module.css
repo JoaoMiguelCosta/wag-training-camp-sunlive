@@ -1,0 +1,17 @@
+/* src/pages/malta/components/MaltaSunliveSection.module.css */
+
+.section {
+    /* cartão igual às outras grandes secções */
+    width: min(var(--layout-page-max), 100% - 2rem);
+    margin-inline: auto;
+    margin-block: var(--space-3xl);
+
+    border-radius: var(--radius-section);
+    box-shadow: var(--shadow-section);
+    overflow: hidden;
+
+    /* imagem de fundo vinda do style inline */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

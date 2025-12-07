@@ -3,6 +3,7 @@ import sunliveGroupLogo from "../../assets/logos/sunlive-group.png";
 import posterMalta from "../../assets/posters/poster-malta.png";
 import bannerMalta from "../../assets/banners-malta-anadia/banner-malta.png";
 import fundoMalta from "../../assets/background-malta/fundo-malta.jpg";
+import fundoMalta3 from "../../assets/background-malta/malta-fundo3.jpg";
 
 export const maltaContent = {
   header: {
@@ -33,7 +34,7 @@ export const maltaContent = {
   },
 
   registrationSection: {
-    id: "registration",
+    id: "home",
     banner: {
       src: bannerMalta,
       alt: "Sunlive International WAG Training Camp Malta banner",
@@ -59,7 +60,7 @@ export const maltaContent = {
   },
 
   coachingTeamSection: {
-    id: "coaching-team",
+    id: "team",
     title: "Coaching Team",
     quote:
       '"I am absolutely delighted to be invited to be involved in the 2025 SUNLIVE International WAG Training Camp. This camp provides a unique opportunity for both gymnasts and coaches to develop their skills in an inspiring and supportive environment. With an exciting training program, top-class facilities, a fantastic hotel, delicious food, and a dedicated team, everything is set for an incredible experience. I look forward to working personally with all the gymnasts and coaches to help them achieve their best throughout this exceptional training camp."',
@@ -73,6 +74,51 @@ export const maltaContent = {
       label: "Biography",
       href: "/books/biography.pdf",
     },
+  },
+
+  // 🔹 SECÇÃO "WHO ARE WE?" (SUNLIVE GROUP)
+  sunliveSection: {
+    id: "who-we-are",
+    title: "Who Are We?",
+    background: {
+      src: fundoMalta3,
+      alt: "Pool area at the Sunlive hotel in Portugal",
+    },
+    description: [
+      "Nowadays we are a company performing on a wider range of solutions on several areas, working within a solid network with different partnerships, developed through the contacts in our Hotel in Portugal with our clients, allowing us to respond into several business opportunities.",
+    ],
+    video: {
+      src: "https://www.youtube.com/embed/OueN7zefqmQ?rel=0",
+      title: "SUNLIVE GROUP 2021 – What else?",
+    },
+    pdf: {
+      label: "Presentation PDF",
+      href: "/books/sunlive_apresentation.pdf",
+    },
+    website: {
+      label: "Website",
+      href: "https://sunlive.pt",
+    },
+  },
+
+  // 🔹 SECÇÃO GYMSTARS MALTA (THE VENUE)
+  gymStarsSection: {
+    id: "venue",
+    title: "GymStars Malta",
+    description: [
+      "Established in July 2003, GymStars Gymnastics Club (GGC) has evolved into a premier gymnastics facility on the island, boasting a spacious 800 square meters of state-of-the-art training space. From its humble beginnings with 40 registered members and 3 coaching staff, GGC has grown to become a cornerstone in gymnastics excellence.",
+      "Catering to a diverse range of athletes, GGC is proud to host elite squad groups, including members of the National Team. Over the years, the club has witnessed historic achievements, exemplified by a memorable moment in 2007 when a Men's Artistic Gymnastics (MAG) athlete secured the first-ever Artistic Gymnastics Medal at the Small Nation Games in Monaco. Continuing this legacy, two Senior gymnasts from GGC recently qualified for the prestigious World Championships held in Liverpool in 2022.",
+      "The training facility at GGC is meticulously maintained and updated to meet the highest standards, ensuring that our athletes receive top-notch coaching and support. Recognized by the International Gymnastics Federation (FIG), our facility is a testament to our commitment to excellence in gymnastics.",
+    ],
+    addressTitle: "Address",
+    addressLines: [
+      "GymStars Gymnastics Club",
+      "c/o Attrans,",
+      "Mdina Road, Zebbug",
+      "ZBG 9018 MALTA",
+    ],
+    websiteLabel: "Website",
+    websiteUrl: "https://gymstarsmalta.com",
   },
 
   // 🔹 SECÇÃO DE PROGRAMA
@@ -217,5 +263,109 @@ export const maltaContent = {
         },
       ],
     },
+  },
+
+  // 🔹 SECÇÃO CONTENT (InfoGridSection)
+  contentSection: {
+    id: "content",
+    title: "General Informations",
+    items: [
+      {
+        id: "registration",
+        title: "★ REGISTRATION",
+        lines: [
+          "Registrations must be made in our website registration form until May 30.",
+          "Registrations will only be accepted after submission of bank transfer of 50% of the final price.",
+          "A proof of payment of the remaining 50% has to be made up to the moment of the check in.",
+          "We'll accept a maximum of 40 gymnasts in a first come first served basis.",
+          "If available, it will be possible to register after June 15 with an extra payment per person.",
+          "In case of cancellation of the camp, all the payments will be reimbursed.",
+          "Website: www.wagtrainingcamp.sunlive.pt",
+          "Mobile: (+356) 99 164 245",
+          "Mail: events@sunlive.pt",
+        ],
+      },
+      {
+        id: "prices",
+        title: "★ PRICES",
+        lines: [
+          "GYMNASTS",
+          "Single room: €940",
+          "Double/Twin room: €840",
+          "Triple and more room: €780",
+          "",
+          "COACHES",
+          "Single room: N/A",
+          "Double/Twin room: €740",
+          "Triple and more room: €680",
+          "",
+          "FAMILY",
+          "Single room: N/A (upon request)",
+          "Double/Twin room: €620",
+          "Triple and more room: €560",
+          "",
+          "Extra nights at TOPAZ HOTEL:",
+          "Single room: €110",
+          "Double/Twin room: €95",
+          "Triple and more room: €85",
+          "",
+          "EXTRA MEALS: €20",
+        ],
+      },
+      {
+        id: "extra-info",
+        title: "► Additional services available at extra cost:",
+        lines: [
+          "Physiotherapy & Manual therapy treatments",
+          "Water Park entrance",
+          "Extra lunches and dinners outside the program",
+          "Extra nights (the package includes 5 nights)",
+        ],
+      },
+      {
+        id: "bank",
+        title: "► THE BANK DETAILS",
+        lines: [
+          "Bank: APS Bank Ltd",
+          "Account Name: Sunlive Malta Ltd",
+          "IBAN: MT43 APSB 7701 3000 0004 4900 0200 16",
+          "Swift Code / BIC: APSBMTMT",
+        ],
+      },
+      {
+        id: "package",
+        title: "► Package Inclusions & Additional Costs:",
+        lines: [
+          "5 nights at Topaz Hotel* on a full-board basis.",
+          "Free access to the outdoor swimming pool (as per hotel regulations).",
+          "Free Wi-Fi.",
+          "Transfers to/from the airport.",
+          "Transfers between the hotel and gym during the camp.",
+          "Camp coordination and coaching team expert services.",
+          "Theoretical lectures (for coaches).",
+          "Camp diploma and photo souvenirs for all gymnasts and coaches.",
+          "Surveillance and basic physiotherapy support.",
+        ],
+      },
+    ],
+  },
+
+  // 🔹 SECÇÃO HOTEL – TOPAZ HOTEL
+  hotelSection: {
+    id: "hotel",
+    title: "Topaz Hotel",
+    videoSrc: "https://www.youtube.com/embed/GlQCSUtnb3E?rel=0",
+    videoTitle: "Topaz Hotel - Bugibba, Malta",
+    addressTitle: "Address:",
+    addressLines: [
+      "Topaz Hotel,",
+      "Censu Tanti street,",
+      "Bugibba,",
+      "SPB3025",
+    ],
+    contactsTitle: "Contacts:",
+    contactsLines: ["Tel: +356 20146000", "reservations@topaz.com.mt"],
+    websiteLabel: "Website",
+    websiteHref: "https://topaz.com.mt/",
   },
 };

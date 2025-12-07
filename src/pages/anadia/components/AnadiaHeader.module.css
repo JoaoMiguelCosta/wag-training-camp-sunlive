@@ -1,0 +1,6 @@
+/* Só overrides específicos de Malta (ex: tamanho do logo) */
+
+.logo {
+    height: 12.8rem;
+    /* ou o valor que tinhas antes */
+}
