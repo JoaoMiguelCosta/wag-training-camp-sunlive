@@ -1,0 +1,230 @@
+/* src/shared/components/CampLogosSection.module.css */
+
+.section {
+    position: relative;
+    padding: 4rem 1.5rem 4.5rem;
+
+    background: var(--gradient-main);
+
+    /* borda normal em cima / lados */
+    border: 1px solid rgba(236, 72, 153, 0.55);
+    border-bottom: none;
+    /* tiramos a linha “seca” de baixo */
+
+    border-radius: 2.5rem 2.5rem 0 0;
+    box-shadow: var(--shadow-section);
+    overflow: hidden;
+}
+
+/* barra dourada em baixo, centrada */
+
+
+.inner {
+    max-width: var(--layout-inner-max);
+    margin: 0 auto;
+
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+/* Títulos "Organization" / "Partners" */
+.blockTitle {
+    text-align: center;
+
+    font-family: var(--font-family-heading);
+    font-size: 2.3rem;
+    /* igual ao TOPAZ HOTEL */
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: #f9f4fb;
+
+    text-shadow:
+        0 0 12px rgba(15, 23, 42, 0.85),
+        0 0 22px rgba(15, 23, 42, 0.9);
+}
+
+/* Linha de logos (grelha) */
+.logosRow {
+    display: grid;
+    gap: 3rem 3.5rem;
+    align-items: center;
+    justify-items: center;
+}
+
+/* 3 colunas (Organization + Partners Malta) */
+.cols3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* 4 colunas (Partners Anadia) */
+.cols4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* cartão base de cada logo */
+.logoCard {
+    position: relative;
+
+    /* 👉 dimensões fixas em desktop: 240 x 240 */
+    width: 15rem;
+    height: 15rem;
+    max-width: 15rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1.25rem 1.25rem;
+}
+
+/* halo / “glass” atrás do logo */
+.logoCard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-card);
+
+    background:
+        radial-gradient(circle at top center,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(255, 255, 255, 0.12) 50%,
+            rgba(15, 23, 42, 0.1) 100%),
+        var(--gradient-main);
+    background-blend-mode: screen;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+        var(--shadow-card),
+        0 0 0 1px rgba(255, 255, 255, 0.45);
+
+    opacity: 0.88;
+    transition:
+        opacity var(--transition-normal),
+        box-shadow var(--transition-normal),
+        transform var(--transition-normal);
+}
+
+/* tamanho base dos logos */
+.logoCard img,
+.logoCard svg {
+    position: relative;
+    z-index: 1;
+
+    /* 👉 logo 200 x 200 */
+    width: 12.5rem;
+    height: 12.5rem;
+
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+
+    transition:
+        transform var(--transition-normal),
+        filter var(--transition-normal);
+}
+
+/* hover: cartão mais brilhante + logo sobe um pouco */
+.logoCard:hover::before {
+    opacity: 1;
+    box-shadow:
+        0 18px 40px rgba(15, 23, 42, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+.logoCard:hover img,
+.logoCard:hover svg {
+    transform: translateY(-4px) scale(1.03);
+    filter: drop-shadow(0 14px 30px rgba(15, 23, 42, 0.55));
+}
+
+/* ---------- TABLET (<= 992px) ---------- */
+@media (max-width: 62rem) {
+    .section {
+        padding: 3.5rem 1.5rem 4rem;
+        border-radius: 2rem;
+    }
+
+    .logosRow {
+        gap: 2.4rem 2.8rem;
+    }
+
+    .logoCard {
+        width: 13.5rem;
+        height: 13.5rem;
+        max-width: 13.5rem;
+        padding: 1.15rem 1.15rem;
+    }
+
+    .logoCard img,
+    .logoCard svg {
+        width: 11rem;
+        height: 11rem;
+    }
+}
+
+/* ---------- TELEMÓVEL (<= 768px) ---------- */
+@media (max-width: 48rem) {
+    .section {
+        padding: 3rem 1.5rem 3.5rem;
+        border-radius: 1.75rem;
+    }
+
+    /* 2 colunas em mobile “normal” */
+    .logosRow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem 2rem;
+    }
+
+    .logoCard {
+        width: 13rem;
+        height: 13rem;
+        max-width: 13rem;
+        padding: 1.1rem 1.1rem;
+    }
+
+    .logoCard img,
+    .logoCard svg {
+        width: 10.5rem;
+        height: 10.5rem;
+    }
+}
+
+/* ---------- TELEMÓVEL PEQUENO (<= 480px) ---------- */
+@media (max-width: 30rem) {
+    .section {
+        padding: 2.5rem 1.25rem 3rem;
+        border-radius: 1.5rem;
+    }
+
+    /* 1 coluna */
+    .logosRow {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .logoCard {
+        width: 13.5rem;
+        height: 13.5rem;
+        max-width: 13.5rem;
+    }
+
+    .logoCard img,
+    .logoCard svg {
+        width: 11rem;
+        height: 11rem;
+    }
+}

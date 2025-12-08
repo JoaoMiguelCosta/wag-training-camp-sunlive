@@ -1,0 +1,12 @@
+/* src/pages/anadia/components/AnadiaContactsSection.module.css */
+
+.sectionWrapper {
+    margin-top: 4rem;
+}
+
+/* ligeiro ajuste em ecrãs mais pequenos */
+@media (max-width: 48rem) {
+    .sectionWrapper {
+        margin-top: 3rem;
+    }
+}

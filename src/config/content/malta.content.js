@@ -1,5 +1,15 @@
 // src/config/content/malta.content.js
 import sunliveGroupLogo from "../../assets/logos/sunlive-group.png";
+import wagGoldLogo from "../../assets/logos/wag-gold.png";
+import jumpUpLogo from "../../assets/logos/jump-up.png";
+import gymtrackLogo from "../../assets/logos/gymtrack.png";
+import gymstarsLogo from "../../assets/logos/gymstars.png";
+import maltaLogo from "../../assets/logos/malta.png";
+import topazHotelLogo from "../../assets/logos/topaz-hotel.png";
+import maltaTourismLogo from "../../assets/logos/malta-tourism.png";
+import globeLogo from "../../assets/logos/globe.png";
+import wagVerticalLogo from "../../assets/logos/wag-vertical.png";
+
 import posterMalta from "../../assets/posters/poster-malta.png";
 import bannerMalta from "../../assets/banners-malta-anadia/banner-malta.png";
 import fundoMalta from "../../assets/background-malta/fundo-malta.jpg";
@@ -19,6 +29,8 @@ export const maltaContent = {
       { id: "content", label: "Content" },
       { id: "hotel", label: "Hotel" },
       { id: "contacts", label: "Contacts" },
+      // quando quiseres podes adicionar aqui, por ex.:
+      // { id: "organization-partners", label: "Organization & Partners" },
     ],
     poster: {
       label: "Poster",
@@ -74,6 +86,64 @@ export const maltaContent = {
       label: "Biography",
       href: "/books/biography.pdf",
     },
+  },
+
+  // 🔹 SECÇÃO LOGOS (Organization & Partners)
+  logosSection: {
+    id: "organization-partners",
+    organization: [
+      {
+        id: "sunlive-group",
+        src: sunliveGroupLogo,
+        alt: "Sunlive Group",
+      },
+      {
+        id: "wag-gold",
+        src: wagGoldLogo,
+        alt: "Sunlive Member Malta",
+      },
+      {
+        id: "jump-up",
+        src: jumpUpLogo,
+        alt: "Jump Up",
+      },
+    ],
+    partnersRows: [
+      [
+        {
+          id: "gymtrack",
+          src: gymtrackLogo,
+          alt: "Gymtrack",
+        },
+        {
+          id: "gymstars",
+          src: gymstarsLogo,
+          alt: "GymStars Malta",
+        },
+        {
+          id: "malta",
+          src: maltaLogo,
+          alt: "Malta",
+        },
+      ],
+      [
+        {
+          id: "topaz-hotel",
+          src: topazHotelLogo,
+          alt: "Topaz Hotel",
+        },
+        {
+          id: "malta-tourism",
+          src: maltaTourismLogo,
+          alt: "Malta Tourism",
+        },
+        {
+          id: "globe",
+          src: globeLogo,
+          alt: "Sunlive Globe",
+        },
+      ],
+    ],
   },
 
   // 🔹 SECÇÃO "WHO ARE WE?" (SUNLIVE GROUP)
@@ -368,4 +438,67 @@ export const maltaContent = {
     websiteLabel: "Website",
     websiteHref: "https://topaz.com.mt/",
   },
+
+  contactsSection: {
+    id: "contacts",
+    logo: {
+      src: wagVerticalLogo,
+      alt: "Sunlive International WAG Training Camp",
+    },
+    columns: [
+      {
+        id: "address",
+        title: "Address",
+        lines: [
+          "GymStars Malta",
+          "Attrans, Mdina Road, Haz-Zebbug,",
+          "Malta ZBG 9018",
+        ],
+      },
+      {
+        id: "contacts",
+        title: "Contacts",
+        lines: ["@: events@sunlive.pt", "M: (+356) 99 164 245"],
+      },
+      {
+        id: "links",
+        title: "Links",
+        lines: [
+          {
+            id: "gdpr",
+            label: "GDPR",
+            href: "https://www.sunlive.pt/en/rgpd",
+          },
+          {
+            id: "facebook-wag",
+            label: "Facebook WAG",
+            href: "https://www.facebook.com/SunliveInternationalWAGTrainingCamp",
+          },
+        ],
+      },
+    ],
+    website: {
+      label: "www.wagtrainingcamp.sunlive.pt/malta",
+      href: "https://wagtrainingcamp.sunlive.pt/malta",
+    },
+    followLabel: "FOLLOW US",
+    socialLinks: [
+      {
+        id: "facebook",
+        label: "Facebook",
+        href: "https://www.facebook.com/SunliveInternationalWAGTrainingCamp/",
+      },
+      {
+        id: "youtube",
+        label: "YouTube",
+        href: "https://www.youtube.com/channel/UC_83bWDr30mR9fw8JETjHcw",
+      },
+    ],
+    
+  },
+    footer: {
+    text: "© Copyright 2026 Sunlive - All Rights Reserved",
+  },
+
 };
+

@@ -1,0 +1,6 @@
+/* src/pages/malta/components/MaltaLogosSection.module.css */
+
+.section {
+    /* para o header fixo não tapar a âncora */
+    scroll-margin-top: var(--header-offset);
+}

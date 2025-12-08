@@ -1,4 +1,14 @@
+// src/config/content/anadia.content.js
 import sunliveGroupLogo from "../../assets/logos/sunlive-group.png";
+import sunliveCompletoLogo from "../../assets/logos/sunlive-completo.png";
+import wagGoldLogo from "../../assets/logos/wag-gold.png";
+import aceLogo from "../../assets/logos/ace.png";
+import anadiaLogo from "../../assets/logos/anadia.png";
+import estalagemLogo from "../../assets/logos/estalagem.png";
+import jumpUpLogo from "../../assets/logos/jump-up.png";
+import gymtrackLogo from "../../assets/logos/gymtrack.png";
+import wagVerticalLogo from "../../assets/logos/wag-vertical.png";
+
 import posterAnadia from "../../assets/posters/poster-anadia.png";
 import bannerAnadia from "../../assets/banners-malta-anadia/banner-anadia.png";
 import fundoMalta from "../../assets/background-malta/fundo-malta.jpg";
@@ -18,6 +28,8 @@ export const anadiaContent = {
       { id: "content", label: "Content" },
       { id: "hotel", label: "Hotel" },
       { id: "contacts", label: "Contacts" },
+      // quando quiseres podes adicionar:
+      // { id: "organization-partners", label: "Organization & Partners" },
     ],
     poster: {
       label: "Poster",
@@ -191,6 +203,52 @@ export const anadiaContent = {
     },
   },
 
+  // 🔹 SECÇÃO LOGOS (Organization & Partners)
+  logosSection: {
+    id: "organization-partners",
+    organization: [
+      {
+        id: "sunlive-completo",
+        src: sunliveCompletoLogo,
+        alt: "Sunlive Group",
+      },
+      {
+        id: "wag-gold",
+        src: wagGoldLogo,
+        alt: "Sunlive Member",
+      },
+      {
+        id: "ace",
+        src: aceLogo,
+        alt: "ACE",
+      },
+    ],
+    partnersRows: [
+      [
+        {
+          id: "anadia",
+          src: anadiaLogo,
+          alt: "Anadia",
+        },
+        {
+          id: "estalagem",
+          src: estalagemLogo,
+          alt: "Estalagem de Sangalhos",
+        },
+        {
+          id: "jump-up",
+          src: jumpUpLogo,
+          alt: "Jump Up",
+        },
+        {
+          id: "gymtrack",
+          src: gymtrackLogo,
+          alt: "Gymtrack",
+        },
+      ],
+    ],
+  },
+
   // 🔹 THE VENUE – ANADIA (sem website)
   gymStarsSection: {
     id: "venue",
@@ -350,5 +408,74 @@ export const anadiaContent = {
       label: "Biography",
       href: "/books/biography.pdf",
     },
+  },
+
+  // 🔹 SECÇÃO CONTACTOS (usa CampContactsSection)
+  contactsSection: {
+    id: "contacts",
+    logo: {
+      src: wagVerticalLogo,
+      alt: "Sunlive International WAG Training Camp logo",
+    },
+    columns: [
+      {
+        id: "address",
+        title: "ADDRESS",
+        lines: [
+          "Velodrome of Sangalhos",
+          "Rua Ivo Neves",
+          "3780-524 Sangalhos",
+        ],
+      },
+      {
+        id: "contacts",
+        title: "CONTACTS",
+        lines: [
+          "@: events@sunlive.pt",
+          "M: +(00351) 936 126 161",
+          "T: +(00351) 234 745 133",
+        ],
+      },
+      {
+        id: "links",
+        title: "LINKS",
+        lines: [
+          {
+            id: "gdpr",
+            label: "GDPR",
+            href: "https://www.sunlive.pt/en/rgpd",
+          },
+          {
+            id: "facebook-wag",
+            label: "Facebook WAG",
+            href: "https://www.facebook.com/SunliveInternationalWAGTrainingCamp",
+          },
+        ],
+      },
+    ],
+    website: {
+      label: "www.wagtrainingcamp.sunlive.pt/anadia",
+      href: "https://www.wagtrainingcamp.sunlive.pt/anadia",
+    },
+    followLabel: "FOLLOW US",
+    socialLinks: [
+      {
+        id: "facebook",
+        label: "Facebook",
+        href: "https://www.facebook.com/SunliveInternationalWAGTrainingCamp/",
+        icon: "facebook",
+      },
+      {
+        id: "youtube",
+        label: "YouTube",
+        href: "https://www.youtube.com/channel/UC_83bWDr30mR9fw8JETjHcw",
+        icon: "youtube",
+      },
+    ],
+  },
+
+  // 🔹 FOOTER (usado pelo AnadiaFooter)
+  footer: {
+    text: "© Copyright 2026 Sunlive - All Rights Reserved",
   },
 };

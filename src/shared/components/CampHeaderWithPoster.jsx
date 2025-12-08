@@ -78,14 +78,6 @@ export default function CampHeaderWithPoster({
               alt={poster.image.alt}
               className={styles.posterImage}
             />
-
-            <button
-              type="button"
-              className={styles.posterCloseBottom}
-              onClick={closePoster}
-            >
-              Close
-            </button>
           </div>
         </div>
       )}

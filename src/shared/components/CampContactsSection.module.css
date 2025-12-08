@@ -1,0 +1,376 @@
+/* src/shared/components/CampContactsSection.module.css */
+
+.section {
+    position: relative;
+    padding: 4rem 1.5rem 4.5rem;
+
+    /* mesmo fundo das outras secções principais */
+    background: var(--gradient-main);
+
+    border: 1px solid rgba(236, 72, 153, 0.55);
+    border-bottom: none;
+    border-radius: 2.5rem 2.5rem 0 0;
+    box-shadow: var(--shadow-section);
+    overflow: hidden;
+
+
+}
+
+.section::after {
+    content: "";
+    position: absolute;
+
+    /* 👉 agora é uma barra centrada com 50% da largura */
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    bottom: -0.35rem;
+    height: 0.7rem;
+
+    /* se quiseres arredondar as pontas: */
+    border-radius: 999px;
+
+    background: linear-gradient(90deg,
+            #fef3c7 0%,
+            #fde68a 15%,
+            #fbbf24 35%,
+            #fb7185 60%,
+            #a5b4fc 85%,
+            #e0f2fe 100%);
+
+    box-shadow:
+        0 -4px 16px rgba(15, 23, 42, 0.65),
+        0 0 18px rgba(251, 191, 36, 0.85),
+        0 0 32px rgba(59, 130, 246, 0.7);
+
+    opacity: 0.95;
+    pointer-events: none;
+}
+
+.inner {
+    max-width: var(--layout-inner-max);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+}
+
+/* ---------- TOPO: LOGO + COLUNAS ---------- */
+
+.topRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr));
+    gap: 2.5rem 3.5rem;
+    align-items: flex-start;
+    border-radius: 2.5rem 2.5rem 2.5rem 2.5rem;
+
+    border: 1px solid rgba(236, 72, 153, 0.55);
+    padding: 2.5rem 3rem;
+    background:
+        radial-gradient(circle at top left,
+            rgba(255, 255, 255, 0.65) 0,
+            rgba(255, 255, 255, 0.25) 45%,
+            rgba(255, 255, 255, 0.06) 100%),
+        var(--gradient-main);
+    background-blend-mode: screen;
+
+
+    box-shadow: var(--shadow-section);
+}
+
+.logoWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 👈 centro mesmo */
+    padding: 0.5rem 0 0.75rem;
+}
+
+/* halo grande atrás */
+.logoWrapper::before {
+    content: "";
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 👈 halo centrado */
+
+    width: 11rem;
+    height: 11rem;
+    border-radius: 999px;
+
+    background: radial-gradient(circle at 25% 0%,
+            rgba(254, 249, 195, 0.9) 0,
+            rgba(251, 113, 133, 0.7) 30%,
+            rgba(129, 140, 248, 0.6) 60%,
+            rgba(15, 23, 42, 0.15) 100%);
+    filter: blur(1px);
+    opacity: 0.95;
+}
+
+/* anel à volta do logo */
+.logoWrapper::after {
+    content: "";
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 👈 anel centrado */
+
+    width: 8.5rem;
+    height: 8.5rem;
+    border-radius: 999px;
+
+    border: 2px solid rgba(254, 249, 195, 0.9);
+    box-shadow:
+        0 0 16px rgba(251, 191, 36, 0.9),
+        0 0 26px rgba(251, 113, 133, 0.8);
+
+    opacity: 0.95;
+}
+
+.logoImage {
+    position: relative;
+    z-index: 2;
+
+    width: 7.5rem;
+    /* maior */
+    height: auto;
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 18px 40px rgba(15, 23, 42, 0.8)) drop-shadow(0 0 18px rgba(251, 191, 36, 0.9));
+}
+
+/* colunas de texto */
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.columnTitle {
+    font-family: var(--font-family-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    /* texto escuro para melhor contraste neste card claro */
+    color: #111827;
+    text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.7),
+        0 0 10px rgba(148, 163, 184, 0.8);
+}
+
+.linesList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.lineItem {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #f9fafb;
+    /* 👉 texto branco */
+    text-shadow:
+        0 0 6px rgba(15, 23, 42, 0.6),
+        0 0 14px rgba(15, 23, 42, 0.8);
+    /* ajuda a destacar no fundo */
+}
+
+/* links dentro das colunas */
+.link {
+    color: #f973a3;
+    /* rosa mais claro e forte */
+    text-decoration: none;
+    font-weight: 600;
+
+    text-shadow:
+        0 0 6px rgba(15, 23, 42, 0.85),
+        0 0 16px rgba(236, 72, 153, 0.95);
+    transition:
+        color var(--transition-fast),
+        text-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.link:hover,
+.link:focus-visible {
+    color: #fecaca;
+    /* quase branco rosado */
+    text-shadow:
+        0 0 10px rgba(236, 72, 153, 1),
+        0 0 22px rgba(236, 72, 153, 0.95);
+    transform: translateY(-1px);
+}
+
+/* ---------- FUNDO: WEBSITE + FOLLOW US ---------- */
+
+.bottomRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    margin-top: 0.5rem;
+}
+
+.websiteLink {
+    margin-top: 1.75rem;
+    text-align: center;
+
+    font-family: var(--font-family-heading);
+    font-size: 1.05rem;
+    letter-spacing: 0.18em;
+    text-transform: lowercase;
+    text-decoration: none;
+    cursor: pointer;
+
+    /* 👉 estilo “hover” sempre ativo */
+    color: #ffd166;
+    /* dourado forte */
+
+    text-shadow:
+        0 0 6px rgba(15, 23, 42, 0.85),
+        0 0 16px rgba(248, 113, 166, 1),
+        0 0 30px rgba(236, 72, 153, 0.95);
+
+    transition:
+        transform var(--transition-normal),
+        text-shadow var(--transition-normal);
+}
+
+.websiteLink:hover,
+.websiteLink:focus-visible {
+    transform: translateY(-1px) scale(1.04);
+    text-shadow:
+        0 0 8px rgba(15, 23, 42, 0.9),
+        0 0 20px rgba(248, 113, 166, 1),
+        0 0 38px rgba(236, 72, 153, 1);
+}
+
+.followLabel {
+    margin-top: 0.5rem;
+
+    font-family: var(--font-family-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: #f9fafb;
+    text-shadow:
+        0 0 8px rgba(15, 23, 42, 0.85),
+        0 0 20px rgba(15, 23, 42, 0.9);
+}
+
+.socialRow {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.socialLink {
+    text-decoration: none;
+}
+
+.socialIcon {
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 999px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #fb2f8a;
+    background: radial-gradient(circle at 30% 0%, #f9a8d4 0, #be185d 55%, #050308 100%);
+    color: #f9fafb;
+    font-size: 1.35rem;
+
+    box-shadow:
+        0 0 15px rgba(236, 72, 153, 0.9),
+        0 0 28px rgba(236, 72, 153, 0.9);
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.socialIcon svg {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.socialLink:hover .socialIcon,
+.socialLink:focus-visible .socialIcon {
+    transform: translateY(-2px) scale(1.06);
+    box-shadow:
+        0 0 22px rgba(236, 72, 153, 1),
+        0 0 40px rgba(236, 72, 153, 0.95);
+    border-color: #f97316;
+}
+
+/* ---------- RESPONSIVO ---------- */
+
+@media (max-width: 62rem) {
+    .topRow {
+        grid-template-columns: minmax(0, 1.1fr) repeat(2, minmax(0, 1fr));
+        row-gap: 2rem;
+        padding: 2.25rem 2.25rem;
+    }
+}
+
+@media (max-width: 48rem) {
+    .section {
+        padding: 3rem 1.5rem 3.25rem;
+        border-radius: 2rem 2rem 0 0;
+    }
+
+    .topRow {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 2rem;
+        padding: 2rem 1.75rem;
+    }
+
+    .logoWrapper {
+        grid-column: 1 / -1;
+        justify-content: center;
+    }
+
+    .logoWrapper::before {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 30rem) {
+    .section {
+        padding: 2.5rem 1.25rem 3rem;
+        border-radius: 1.75rem 1.75rem 0 0;
+    }
+
+    .topRow {
+        grid-template-columns: 1fr;
+        padding: 1.75rem 1.5rem;
+    }
+
+    .column {
+        align-items: center;
+        text-align: center;
+    }
+}

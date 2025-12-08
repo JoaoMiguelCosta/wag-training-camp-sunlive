@@ -8,22 +8,33 @@
 
 .posterOverlay {
     position: fixed;
-    inset: 0;
+
+    /* ocupa de cima a baixo */
+    top: 0;
+    bottom: 0;
+
+    /* mantém a mesma posição horizontal que tinhas */
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(var(--layout-page-max), 100% - 0.75rem);
+
     z-index: 200;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
+    /* 👇 muito importante: tira o margin herdado da .page */
+    margin: 0 !important;
+
     padding: 1.5rem;
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.25);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
 
     /* se o poster for maior que o ecrã, permite scroll */
     overflow-y: auto;
 }
-
 .posterContent {
     position: relative;
     width: min(28rem, 100%);
@@ -31,13 +42,13 @@
 
     margin: 2rem auto;
     border-radius: var(--radius-section);
-    padding: 1rem 1rem 1.75rem;
+    padding: 0;
+    /* sem padding */
 
-    background:
-        radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.18) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.28) 0, transparent 55%),
-        #020617;
-    box-shadow: var(--shadow-strong);
+    /* 👇 mesma “receita” que mostraste no print */
+    background: var(--gradient-main);
+    box-shadow: var(--shadow-section);
+    border: 1px solid rgba(236, 72, 153, 0.55);
 
     display: flex;
     flex-direction: column;
@@ -99,46 +110,6 @@
     outline-offset: 3px;
 }
 
-/* Botão "Fechar" em baixo */
-
-.posterCloseBottom {
-    margin-top: 0.9rem;
-
-    padding: 0.45rem 1.5rem;
-    border-radius: 999px;
-
-    font-family: var(--font-family-heading);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-
-    background: linear-gradient(115deg,
-            var(--color-primary) 0%,
-            #e30683df 35%,
-            var(--color-secondary) 100%);
-    color: #ffffff;
-
-    border: 1px solid rgba(248, 250, 252, 0.45);
-    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.5);
-
-    cursor: pointer;
-    transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        opacity var(--transition-fast);
-}
-
-.posterCloseBottom:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.7);
-}
-
-.posterCloseBottom:focus-visible {
-    outline: 2px solid var(--color-highlight-gold);
-    outline-offset: 3px;
-}
-
 /* acessibilidade */
 
 .srOnly {
@@ -165,7 +136,7 @@
         margin-top: 5.5rem;
         width: min(24rem, 100%);
         max-height: calc(100vh - 4rem);
-        padding: 0.85rem 0.85rem 1.5rem;
+        padding: 0;
         border-radius: 1.4rem;
     }
 
@@ -184,7 +155,7 @@
         margin-top: 4.5rem;
         width: 100%;
         max-height: calc(100vh - 3rem);
-        padding: 0.75rem 0.75rem 1.25rem;
+        padding: 0;
         border-radius: 1.25rem;
     }
 
