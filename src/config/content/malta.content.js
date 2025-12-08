@@ -335,7 +335,7 @@ export const maltaContent = {
     },
   },
 
-  // 🔹 SECÇÃO CONTENT (InfoGridSection)
+  // 🔹 SECÇÃO CONTENT (InfoGridSection) – usado também no wizard
   contentSection: {
     id: "content",
     title: "General Informations",
@@ -346,10 +346,14 @@ export const maltaContent = {
         lines: [
           "Registrations must be made in our website registration form until May 30.",
           "Registrations will only be accepted after submission of bank transfer of 50% of the final price.",
+          "In case of a participant withdrawal until May 30, this deposit will be refunded.",
+          "In case of a participant withdrawal after May 30 and before June 15, only 50% of the deposit will be refunded.",
+          "In case of absence of the camp or withdrawal after June 15, this deposit will not be refunded.",
           "A proof of payment of the remaining 50% has to be made up to the moment of the check in.",
           "We'll accept a maximum of 40 gymnasts in a first come first served basis.",
-          "If available, it will be possible to register after June 15 with an extra payment per person.",
+          "If available, it will be possible to register after June 15, with an extra payment of 100 euros per person.",
           "In case of cancellation of the camp, all the payments will be reimbursed.",
+          "",
           "Website: www.wagtrainingcamp.sunlive.pt",
           "Mobile: (+356) 99 164 245",
           "Mail: events@sunlive.pt",
@@ -383,26 +387,6 @@ export const maltaContent = {
         ],
       },
       {
-        id: "extra-info",
-        title: "► Additional services available at extra cost:",
-        lines: [
-          "Physiotherapy & Manual therapy treatments",
-          "Water Park entrance",
-          "Extra lunches and dinners outside the program",
-          "Extra nights (the package includes 5 nights)",
-        ],
-      },
-      {
-        id: "bank",
-        title: "► THE BANK DETAILS",
-        lines: [
-          "Bank: APS Bank Ltd",
-          "Account Name: Sunlive Malta Ltd",
-          "IBAN: MT43 APSB 7701 3000 0004 4900 0200 16",
-          "Swift Code / BIC: APSBMTMT",
-        ],
-      },
-      {
         id: "package",
         title: "► Package Inclusions & Additional Costs:",
         lines: [
@@ -415,6 +399,26 @@ export const maltaContent = {
           "Theoretical lectures (for coaches).",
           "Camp diploma and photo souvenirs for all gymnasts and coaches.",
           "Surveillance and basic physiotherapy support.",
+        ],
+      },
+      {
+        id: "extra-info",
+        title: "► Additional services available at extra cost:",
+        lines: [
+          "Physiotherapy & Manual therapy treatments.",
+          "Water Park entrance.",
+          "Extra lunches and dinners outside the program.",
+          "Extra nights (the package includes 5 nights).",
+        ],
+      },
+      {
+        id: "bank",
+        title: "► THE BANK DETAILS",
+        lines: [
+          "Bank: APS Bank Ltd",
+          "Account Name: Sunlive Malta Ltd",
+          "IBAN: MT43 APSB 7701 3000 0004 4900 0200 16",
+          "Swift Code / BIC: APSBMTMT",
         ],
       },
     ],
@@ -494,11 +498,9 @@ export const maltaContent = {
         href: "https://www.youtube.com/channel/UC_83bWDr30mR9fw8JETjHcw",
       },
     ],
-    
   },
-    footer: {
+
+  footer: {
     text: "© Copyright 2026 Sunlive - All Rights Reserved",
   },
-
 };
-

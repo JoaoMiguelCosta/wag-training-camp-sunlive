@@ -397,7 +397,7 @@ export const anadiaContent = {
     id: "team",
     title: "Coaching Team",
     quote:
-      '"I am absolutely delighted to be invited to be involved in the 2025 SUNLIVE International WAG Training Camp. This camp provides a unique opportunity for both gymnasts and coaches to develop their skills in an inspiring and supportive environment. With an exciting training program, top-class facilities, a fantastic hotel, delicious food, and a dedicated team, everything is set for an incredible experience. I look forward to working personally with all the gymnasts and coaches to help them achieve their best throughout this exceptional training camp."',
+      '"I am absolutely delighted to be invited to be involved in the 2026 SUNLIVE International WAG Training Camp. This camp provides a unique opportunity for both gymnasts and coaches to develop their skills in an inspiring and supportive environment. With an exciting training program, top-class facilities, a fantastic hotel, delicious food, and a dedicated team, everything is set for an incredible experience. I look forward to working personally with all the gymnasts and coaches to help them achieve their best throughout this exceptional training camp."',
     authorName: "Carol-Angela Orchard",
     authorRole: "4-time Worlds Medallist & 4-time Olympic coach",
     photo: {
