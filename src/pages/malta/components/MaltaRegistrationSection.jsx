@@ -28,7 +28,6 @@ export default function MaltaRegistrationSection() {
     paragraphs: baseParagraphs,
   };
 
-  // 👇 aqui já com 2026, como pediste
   const familyInfo = {
     title: "Families / Famílias | WAG Training Camp, Malta - 2026",
     paragraphs: baseParagraphs,
@@ -36,7 +35,7 @@ export default function MaltaRegistrationSection() {
 
   const campOptions = [
     {
-      value: "week1",
+      value: "14th - 19th July 2026",
       label: "» 14th - 19th July 2026",
     },
   ];
@@ -69,24 +68,25 @@ export default function MaltaRegistrationSection() {
         <GymnastRegistrationWizard
           isOpen={true}
           onClose={() => setOpenForm(null)}
+          camp="malta"
           infoContent={gymnastInfo}
           campOptions={campOptions}
         />
       )}
-
       {openForm === "coaches" && (
         <CoachRegistrationWizard
           isOpen={true}
           onClose={() => setOpenForm(null)}
+          camp="malta"
           infoContent={coachInfo}
           campOptions={campOptions}
         />
       )}
-
       {openForm === "families" && (
         <FamilyRegistrationWizard
           isOpen={true}
           onClose={() => setOpenForm(null)}
+          camp="malta"
           infoContent={familyInfo}
           campOptions={campOptions}
         />

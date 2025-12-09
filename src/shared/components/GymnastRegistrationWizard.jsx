@@ -2,26 +2,29 @@
 import { useState } from "react";
 import { GymnastRegistrationInfo } from "./GymnastRegistrationInfo.jsx";
 import { GymnastRegistrationForm } from "./GymnastRegistrationForm.jsx";
+import { submitRegistration } from "../api/registrations.js";
 import styles from "./GymnastRegistrationWizard.module.css";
 
 /**
- * Wizard reutilizável para inscrições de ginastas
+ * Wizard para inscrição de Gymnasts
  *
  * Props:
- * - isOpen: bool → controla se o modal está visível
- * - onClose: fn  → fecha o modal
- * - infoContent: { title, paragraphs: string[] } → texto do 1º passo (muda Malta/Anadia)
- * - campOptions: [{ value, label }]             → opções do select "Camp"
+ * - isOpen
+ * - onClose
+ * - camp: "malta" | "anadia"
+ * - infoContent: { title, paragraphs[] }
+ * - campOptions: [{ value, label }]
  */
 export function GymnastRegistrationWizard({
   isOpen,
   onClose,
+  camp,
   infoContent,
   campOptions,
 }) {
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // estado simples só no front-end (depois trocamos para backend)
   const [formData, setFormData] = useState({
     camp: "",
     name: "",
@@ -48,14 +51,39 @@ export function GymnastRegistrationWizard({
     setFormData((prev) => ({ ...prev, [field]: value }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // 🔹 Por agora só front-end
-    console.log("Gymnast registration data:", formData);
-    // opcional: mostrar feedback simples
-    alert("Form submitted (front-end only). Backend will be added later.");
-    onClose();
-    setStep(1);
+    if (isSubmitting) return;
+
+    try {
+      setIsSubmitting(true);
+
+      await submitRegistration({
+        camp, // "malta" ou "anadia"
+        role: "gymnast",
+        data: formData,
+      });
+
+      alert("Registration submitted successfully!");
+      onClose();
+      setStep(1);
+      setFormData({
+        camp: "",
+        name: "",
+        birthDate: "",
+        country: "",
+        club: "",
+        coachName: "",
+        phone: "",
+        email: "",
+        bestResults: "",
+      });
+    } catch (err) {
+      console.error(err);
+      alert(err.message || "Error submitting form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -91,6 +119,7 @@ export function GymnastRegistrationWizard({
             values={formData}
             onChange={handleChange}
             onSubmit={handleSubmit}
+            isSubmitting={isSubmitting}
             onPrevious={handlePrevious}
           />
         )}

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { GymnastRegistrationInfo } from "./GymnastRegistrationInfo.jsx";
 import { CoachRegistrationForm } from "./CoachRegistrationForm.jsx";
+import { submitRegistration } from "../api/registrations.js";
 import styles from "./GymnastRegistrationWizard.module.css";
 
 /**
@@ -10,16 +11,19 @@ import styles from "./GymnastRegistrationWizard.module.css";
  * Props:
  * - isOpen
  * - onClose
+ * - camp: "malta" | "anadia"
  * - infoContent: { title, paragraphs[] }
  * - campOptions: [{ value, label }]
  */
 export function CoachRegistrationWizard({
   isOpen,
   onClose,
+  camp,
   infoContent,
   campOptions,
 }) {
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
     camp: "",
@@ -46,12 +50,38 @@ export function CoachRegistrationWizard({
     setFormData((prev) => ({ ...prev, [field]: value }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log("Coach registration data:", formData);
-    alert("Form submitted (front-end only). Backend will be added later.");
-    onClose();
-    setStep(1);
+    if (isSubmitting) return;
+
+    try {
+      setIsSubmitting(true);
+
+      await submitRegistration({
+        camp, // "malta" ou "anadia"
+        role: "coach",
+        data: formData,
+      });
+
+      alert("Registration submitted successfully!");
+      onClose();
+      setStep(1);
+      setFormData({
+        camp: "",
+        name: "",
+        birthDate: "",
+        country: "",
+        club: "",
+        gymnastsNames: "",
+        phone: "",
+        email: "",
+      });
+    } catch (err) {
+      console.error(err);
+      alert(err.message || "Error submitting form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (

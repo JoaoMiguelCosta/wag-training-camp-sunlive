@@ -10,10 +10,8 @@ export default function AnadiaRegistrationSection() {
   const { registrationSection, contentSection } = anadiaContent;
   const { id, banner, ribbonText, buttons } = registrationSection;
 
-  // "gymnasts" | "coaches" | "families" | null
   const [openForm, setOpenForm] = useState(null);
 
-  // texto base (igual para ginastas, coaches e families)
   const baseParagraphs = contentSection.items.flatMap((item) => [
     item.title,
     ...item.lines,
@@ -37,7 +35,7 @@ export default function AnadiaRegistrationSection() {
 
   const campOptions = [
     {
-      value: "week1",
+      value: "13th - 18th August 2026",
       label: "» 13th - 18th August 2026",
     },
   ];
@@ -70,6 +68,7 @@ export default function AnadiaRegistrationSection() {
         <GymnastRegistrationWizard
           isOpen={true}
           onClose={() => setOpenForm(null)}
+          camp="anadia"
           infoContent={gymnastInfo}
           campOptions={campOptions}
         />
@@ -79,6 +78,7 @@ export default function AnadiaRegistrationSection() {
         <CoachRegistrationWizard
           isOpen={true}
           onClose={() => setOpenForm(null)}
+          camp="anadia"
           infoContent={coachInfo}
           campOptions={campOptions}
         />
@@ -88,6 +88,7 @@ export default function AnadiaRegistrationSection() {
         <FamilyRegistrationWizard
           isOpen={true}
           onClose={() => setOpenForm(null)}
+          camp="anadia"
           infoContent={familyInfo}
           campOptions={campOptions}
         />
