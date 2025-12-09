@@ -1,21 +1,33 @@
 // src/services/registration.service.js
-import { HttpError } from "../utils/httpError.js";
+import crypto from "crypto";
+import { saveRegistration } from "./registrationFileRepository.js";
 
 export const registrationService = {
+  /**
+   * Cria uma nova inscrição
+   * payload: { camp, role, data }
+   *  - camp: "malta" | "anadia"
+   *  - role: "gymnast" | "coach" | "family"
+   *  - data: campos específicos do formulário (já validados pelo Zod)
+   */
   async create({ camp, role, data }) {
-    if (!["malta", "anadia"].includes(camp)) {
-      throw new HttpError(400, "Invalid camp");
-    }
+    const id = crypto.randomUUID();
+    const submittedAt = new Date().toISOString();
 
-    if (!["gymnast", "coach", "family"].includes(role)) {
-      throw new HttpError(400, "Invalid role");
-    }
-
-    // Por agora só loga. Mais tarde: Google Sheets / Email / DB.
-    console.log("New registration:", { camp, role, data });
-
-    return {
-      id: `${camp}-${role}-${Date.now()}`,
+    const record = {
+      id,
+      submittedAt,
+      camp,
+      role,
+      data,
     };
+
+    // grava no ficheiro JSON (modo DEV)
+    await saveRegistration(record);
+
+    // log opcional para debugging
+    console.log("New registration saved:", record);
+
+    return { id };
   },
 };
