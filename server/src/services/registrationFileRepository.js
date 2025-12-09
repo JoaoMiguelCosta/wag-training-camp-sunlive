@@ -39,8 +39,27 @@ async function writeAll(registrations) {
   await fs.writeFile(REGISTRATIONS_FILE, json, "utf8");
 }
 
-export async function saveRegistration(record) {
-  const registrations = await readAll();
-  registrations.push(record);
-  await writeAll(registrations);
-}
+// 👇 export que o service está à espera
+export const registrationFileRepository = {
+  async save({ camp, role, data }) {
+    const record = {
+      id: `${camp}-${role}-${Date.now()}`,
+      submittedAt: new Date().toISOString(),
+      camp,
+      role,
+      data,
+    };
+
+    const registrations = await readAll();
+    registrations.push(record);
+    await writeAll(registrations);
+
+    console.log("New registration saved:", record);
+
+    return record; // o service precisa disto para mandar para o Sheets
+  },
+
+  async getAll() {
+    return readAll();
+  },
+};
