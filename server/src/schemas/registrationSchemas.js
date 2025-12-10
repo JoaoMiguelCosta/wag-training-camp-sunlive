@@ -4,6 +4,12 @@ import { z } from "zod";
 export const campSchema = z.enum(["malta", "anadia"]);
 export const roleSchema = z.enum(["gymnast", "coach", "family"]);
 
+// helper para telefone: só dígitos, min 5
+const phoneSchema = z
+  .string()
+  .regex(/^\d+$/, "Phone must contain digits only")
+  .min(5, "Phone must have at least 5 digits");
+
 // 🔹 Dados para GYMNAST
 export const gymnastDataSchema = z.object({
   camp: z.string().min(3),
@@ -14,9 +20,12 @@ export const gymnastDataSchema = z.object({
   country: z.string().min(2),
   club: z.string().min(2),
   coachName: z.string().min(2),
-  phone: z.string().min(5),
+  phone: phoneSchema,
   email: z.string().email(),
-  bestResults: z.string().min(1),
+  bestResults: z
+    .string()
+    .min(1)
+    .max(150, "Best results must be at most 150 characters"),
 });
 
 // 🔹 Dados para COACH
@@ -29,7 +38,7 @@ export const coachDataSchema = z.object({
   country: z.string().min(2),
   club: z.string().min(2),
   gymnastsNames: z.string().min(1),
-  phone: z.string().min(5),
+  phone: phoneSchema,
   email: z.string().email(),
 });
 
@@ -40,7 +49,7 @@ export const familyDataSchema = z.object({
   companionName: z.string().min(2),
   kinship: z.string().min(2),
   country: z.string().min(2),
-  phone: z.string().min(5),
+  phone: phoneSchema,
   email: z.string().email(),
 });
 

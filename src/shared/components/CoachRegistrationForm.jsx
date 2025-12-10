@@ -10,6 +10,7 @@ import styles from "./GymnastRegistrationWizard.module.css";
  * - onChange(field, value)
  * - onSubmit(event)
  * - onPrevious()
+ * - isSubmitting
  */
 export function CoachRegistrationForm({
   campOptions,
@@ -17,6 +18,7 @@ export function CoachRegistrationForm({
   onChange,
   onSubmit,
   onPrevious,
+  isSubmitting,
 }) {
   const isFormValid = Object.values(values).every(
     (value) => String(value ?? "").trim() !== ""
@@ -24,12 +26,19 @@ export function CoachRegistrationForm({
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!isFormValid) return;
+
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (!isFormValid || isSubmitting) return;
     onSubmit(e);
   }
 
   return (
-    <form className={styles.step} onSubmit={handleSubmit}>
+    <form className={styles.step} onSubmit={handleSubmit} noValidate>
       <h2 className={styles.stepTitle}>Coaches</h2>
 
       <div className={styles.formGrid}>
@@ -124,16 +133,19 @@ export function CoachRegistrationForm({
           />
         </div>
 
-        {/* Phone */}
+        {/* Phone – só dígitos */}
         <div className={styles.formField}>
           <label className={styles.label}>
             Phone <span className={styles.required}>*</span>
           </label>
           <input
             type="tel"
+            inputMode="numeric"
             className={styles.input}
             value={values.phone}
-            onChange={(e) => onChange("phone", e.target.value)}
+            onChange={(e) =>
+              onChange("phone", e.target.value.replace(/\D/g, ""))
+            }
             required
           />
         </div>
@@ -158,6 +170,7 @@ export function CoachRegistrationForm({
           type="button"
           className={styles.secondaryButton}
           onClick={onPrevious}
+          disabled={isSubmitting}
         >
           Previous
         </button>
@@ -165,9 +178,9 @@ export function CoachRegistrationForm({
         <button
           type="submit"
           className={styles.primaryButton}
-          disabled={!isFormValid}
+          disabled={!isFormValid || isSubmitting}
         >
-          Submit
+          {isSubmitting ? "Submitting..." : "Submit"}
         </button>
       </div>
     </form>

@@ -10,6 +10,7 @@ import styles from "./GymnastRegistrationWizard.module.css";
  * - onChange(field, value)
  * - onSubmit(event)
  * - onPrevious()
+ * - isSubmitting: boolean (estado de envio)
  */
 export function GymnastRegistrationForm({
   campOptions,
@@ -17,20 +18,31 @@ export function GymnastRegistrationForm({
   onChange,
   onSubmit,
   onPrevious,
+  isSubmitting,
 }) {
-  // ✅ só fica true quando TODOS os campos tiverem texto
   const isFormValid = Object.values(values).every(
     (value) => String(value ?? "").trim() !== ""
   );
 
+  const maxChars = 150;
+  const bestResultsLength = (values.bestResults ?? "").length;
+
   function handleSubmit(e) {
     e.preventDefault();
-    if (!isFormValid) return; // proteção extra
+
+    const form = e.currentTarget;
+    // validação nativa do browser (required, email, maxLength, etc.)
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (!isFormValid || isSubmitting) return;
     onSubmit(e);
   }
 
   return (
-    <form className={styles.step} onSubmit={handleSubmit}>
+    <form className={styles.step} onSubmit={handleSubmit} noValidate>
       <h2 className={styles.stepTitle}>Athletes</h2>
 
       <div className={styles.formGrid}>
@@ -124,16 +136,19 @@ export function GymnastRegistrationForm({
           />
         </div>
 
-        {/* Phone */}
+        {/* Phone – só números */}
         <div className={styles.formField}>
           <label className={styles.label}>
             Phone <span className={styles.required}>*</span>
           </label>
           <input
             type="tel"
+            inputMode="numeric"
             className={styles.input}
             value={values.phone}
-            onChange={(e) => onChange("phone", e.target.value)}
+            onChange={(e) =>
+              onChange("phone", e.target.value.replace(/\D/g, ""))
+            }
             required
           />
         </div>
@@ -152,7 +167,7 @@ export function GymnastRegistrationForm({
           />
         </div>
 
-        {/* Best results */}
+        {/* Best results – com contador */}
         <div className={styles.formFieldFull}>
           <label className={styles.label}>
             Best results (max. 5) <span className={styles.required}>*</span>
@@ -160,10 +175,14 @@ export function GymnastRegistrationForm({
           <textarea
             className={styles.textarea}
             rows={4}
+            maxLength={maxChars}
             value={values.bestResults}
             onChange={(e) => onChange("bestResults", e.target.value)}
             required
           />
+          <div className={styles.charCounter}>
+            {bestResultsLength}/{maxChars}
+          </div>
         </div>
       </div>
 
@@ -172,6 +191,7 @@ export function GymnastRegistrationForm({
           type="button"
           className={styles.secondaryButton}
           onClick={onPrevious}
+          disabled={isSubmitting}
         >
           Previous
         </button>
@@ -179,9 +199,9 @@ export function GymnastRegistrationForm({
         <button
           type="submit"
           className={styles.primaryButton}
-          disabled={!isFormValid}
+          disabled={!isFormValid || isSubmitting}
         >
-          Submit
+          {isSubmitting ? "Submitting..." : "Submit"}
         </button>
       </div>
     </form>

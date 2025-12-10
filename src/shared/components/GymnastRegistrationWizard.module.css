@@ -24,6 +24,7 @@
 
     overflow-y: auto;
 }
+
 .modal {
     position: relative;
     width: min(40rem, 100%);
@@ -178,7 +179,6 @@ select.input {
 
 .primaryButton,
 .secondaryButton {
-    border: none;
     border-radius: 999px;
     padding: 0.55rem 1.4rem;
     font-size: 0.95rem;
@@ -191,21 +191,16 @@ select.input {
         transform 0.12s ease,
         box-shadow 0.12s ease,
         background 0.12s ease,
-        color 0.12s ease;
+        color 0.12s ease,
+        filter 0.12s ease;
 }
 
 /* dourado para ação principal */
 .primaryButton {
     border: 1px solid rgba(248, 250, 252, 0.8);
-    border-radius: 999px;
     padding: 0.55rem 1.8rem;
-    font-size: 0.95rem;
-    font-weight: 600;
     letter-spacing: 0.14em;
-    text-transform: uppercase;
-    cursor: pointer;
 
-    /* 👇 gradiente igual ao botão principal do site */
     background: linear-gradient(115deg,
             var(--color-primary) 0%,
             #e30683df 35%,
@@ -213,19 +208,16 @@ select.input {
     color: #ffffff;
 
     box-shadow: 0 12px 32px rgba(15, 23, 42, 0.55);
-
-    transition:
-        transform 0.12s ease,
-        box-shadow 0.12s ease,
-        filter 0.12s ease;
 }
 
-.primaryButton:hover {
+/* hover só quando não está disabled */
+.primaryButton:not(:disabled):hover {
     transform: translateY(-1px) scale(1.03);
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
     filter: brightness(1.03);
 }
 
+/* estado disabled */
 .primaryButton:disabled {
     opacity: 0.45;
     cursor: not-allowed;
@@ -234,37 +226,28 @@ select.input {
     filter: none;
 }
 
-/* garantir que o hover só aplica quando está ativo */
-.primaryButton:not(:disabled):hover {
-    transform: translateY(-1px) scale(1.03);
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
-    filter: brightness(1.03);
-}
-
 /* botão secundário escuro */
 .secondaryButton {
+    border: 1px solid rgba(148, 163, 184, 0.7);
     background: rgba(15, 23, 42, 0.95);
     color: #e5e7eb;
-    border: 1px solid rgba(148, 163, 184, 0.7);
 }
 
-.secondaryButton:hover {
+/* hover só quando ativo */
+.secondaryButton:not(:disabled):hover {
     transform: translateY(-1px);
-    box-shadow:
-        0 10px 24px rgba(15, 23, 42, 0.8);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.8);
 }
 
-/* --------- responsive --------- */
-
-@media (max-width: 640px) {
-    .modal {
-        padding-inline: 1.1rem;
-    }
-
-    .formGrid {
-        grid-template-columns: 1fr;
-    }
+/* estado disabled secundário */
+.secondaryButton:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
+
+/* --------- radios (Families) --------- */
 
 .radioGroup {
     display: flex;
@@ -280,4 +263,46 @@ select.input {
     font-size: 0.9rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    background: rgba(15, 23, 42, 0.8);
+
+    cursor: pointer;
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.12s ease,
+        box-shadow 0.12s ease;
+}
+
+.radioOption input[type="radio"] {
+    accent-color: #facc15;
+}
+
+.radioOption:not(:has(input:disabled)):hover {
+    border-color: #facc15;
+    background: rgba(30, 64, 175, 0.7);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.85);
+    transform: translateY(-1px);
+}
+
+/* --------- responsive --------- */
+
+@media (max-width: 640px) {
+    .modal {
+        padding-inline: 1.1rem;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.charCounter {
+    margin-top: 0.15rem;
+    font-size: 0.75rem;
+    text-align: right;
+    color: #9ca3af;
 }

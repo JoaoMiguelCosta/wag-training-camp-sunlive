@@ -430,5 +430,20 @@
       "email": "joaoxxmiguel@hotmail.com",
       "bestResults": "ddd"
     }
+  },
+  {
+    "id": "anadia-family-1765383437587",
+    "submittedAt": "2025-12-10T16:17:17.587Z",
+    "camp": "anadia",
+    "role": "family",
+    "data": {
+      "camp": "13th - 18th August 2026",
+      "accompanyingGymnast": "Joao",
+      "companionName": "Tiago",
+      "kinship": "Brother",
+      "country": "Portugal",
+      "phone": "937682427",
+      "email": "joaoxxmiguel@hotmail.com"
+    }
   }
 ]

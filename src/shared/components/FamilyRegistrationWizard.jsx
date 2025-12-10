@@ -24,6 +24,7 @@ export function FamilyRegistrationWizard({
 }) {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const [formData, setFormData] = useState({
     camp: "",
@@ -62,9 +63,6 @@ export function FamilyRegistrationWizard({
         data: formData,
       });
 
-      alert("Registration submitted successfully!");
-      onClose();
-      setStep(1);
       setFormData({
         camp: "",
         accompanyingGymnast: "",
@@ -74,12 +72,21 @@ export function FamilyRegistrationWizard({
         phone: "",
         email: "",
       });
+
+      setShowSuccess(true);
+      setStep(3);
     } catch (err) {
       console.error(err);
       alert(err.message || "Error submitting form. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
+  }
+
+  function handleCloseSuccess() {
+    setShowSuccess(false);
+    setStep(1);
+    onClose();
   }
 
   return (
@@ -115,8 +122,29 @@ export function FamilyRegistrationWizard({
             values={formData}
             onChange={handleChange}
             onSubmit={handleSubmit}
+            isSubmitting={isSubmitting}
             onPrevious={handlePrevious}
           />
+        )}
+
+        {step === 3 && showSuccess && (
+          <div className={styles.step}>
+            <h2 className={styles.stepTitle}>Thank you!</h2>
+
+            <p className={styles.successMessage}>
+              Thank you for your registration. See you soon!
+            </p>
+
+            <div className={styles.footer}>
+              <button
+                type="button"
+                className={styles.primaryButton}
+                onClick={handleCloseSuccess}
+              >
+                Close
+              </button>
+            </div>
+          </div>
         )}
       </div>
     </div>

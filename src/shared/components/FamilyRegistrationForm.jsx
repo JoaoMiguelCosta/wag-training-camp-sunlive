@@ -3,6 +3,14 @@ import styles from "./GymnastRegistrationWizard.module.css";
 
 /**
  * Formulário para Families (2º passo do wizard)
+ *
+ * Props:
+ * - campOptions
+ * - values
+ * - onChange
+ * - onSubmit
+ * - onPrevious
+ * - isSubmitting
  */
 export function FamilyRegistrationForm({
   campOptions,
@@ -10,6 +18,7 @@ export function FamilyRegistrationForm({
   onChange,
   onSubmit,
   onPrevious,
+  isSubmitting,
 }) {
   const isFormValid = Object.values(values).every(
     (value) => String(value ?? "").trim() !== ""
@@ -17,12 +26,19 @@ export function FamilyRegistrationForm({
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!isFormValid) return;
+
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (!isFormValid || isSubmitting) return;
     onSubmit(e);
   }
 
   return (
-    <form className={styles.step} onSubmit={handleSubmit}>
+    <form className={styles.step} onSubmit={handleSubmit} noValidate>
       <h2 className={styles.stepTitle}>Families</h2>
 
       <div className={styles.formGrid}>
@@ -114,16 +130,19 @@ export function FamilyRegistrationForm({
           />
         </div>
 
-        {/* Phone */}
+        {/* Phone – só dígitos */}
         <div className={styles.formField}>
           <label className={styles.label}>
             Phone <span className={styles.required}>*</span>
           </label>
           <input
             type="tel"
+            inputMode="numeric"
             className={styles.input}
             value={values.phone}
-            onChange={(e) => onChange("phone", e.target.value)}
+            onChange={(e) =>
+              onChange("phone", e.target.value.replace(/\D/g, ""))
+            }
             required
           />
         </div>
@@ -148,6 +167,7 @@ export function FamilyRegistrationForm({
           type="button"
           className={styles.secondaryButton}
           onClick={onPrevious}
+          disabled={isSubmitting}
         >
           Previous
         </button>
@@ -155,9 +175,9 @@ export function FamilyRegistrationForm({
         <button
           type="submit"
           className={styles.primaryButton}
-          disabled={!isFormValid}
+          disabled={!isFormValid || isSubmitting}
         >
-          Submit
+          {isSubmitting ? "Submitting..." : "Submit"}
         </button>
       </div>
     </form>
