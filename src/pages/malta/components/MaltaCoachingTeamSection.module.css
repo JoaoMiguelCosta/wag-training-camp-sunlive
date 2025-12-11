@@ -8,7 +8,7 @@
     align-items: center;
     gap: 2rem;
 
-    /* o espaçamento vertical entre secções é controlado em Malta.module.css */
+    scroll-margin-top: var(--camp-header-offset);
 }
 
 /* ------- TÍTULO / HEADER ------- */

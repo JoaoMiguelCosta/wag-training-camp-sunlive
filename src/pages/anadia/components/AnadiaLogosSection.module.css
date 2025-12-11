@@ -1,6 +1,6 @@
 /* src/pages/anadia/components/AnadiaLogosSection.module.css */
 
 .section {
-    /* para o header fixo não tapar a âncora ao fazer scroll */
-    scroll-margin-top: var(--header-offset);
+    /* a aparência vem do CampLogosSection, aqui só tratamos a âncora */
+    scroll-margin-top: var(--camp-header-offset);
 }

@@ -24,7 +24,7 @@
     justify-content: center;
     align-items: center;
 
-    /* 👇 muito importante: tira o margin herdado da .page */
+    /* muito importante: tira qualquer margem herdada */
     margin: 0 !important;
 
     padding: 1.5rem;
@@ -35,6 +35,7 @@
     /* se o poster for maior que o ecrã, permite scroll */
     overflow-y: auto;
 }
+
 .posterContent {
     position: relative;
     width: min(28rem, 100%);
@@ -43,9 +44,7 @@
     margin: 2rem auto;
     border-radius: var(--radius-section);
     padding: 0;
-    /* sem padding */
 
-    /* 👇 mesma “receita” que mostraste no print */
     background: var(--gradient-main);
     box-shadow: var(--shadow-section);
     border: 1px solid rgba(236, 72, 153, 0.55);

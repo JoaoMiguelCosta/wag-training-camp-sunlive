@@ -8,8 +8,14 @@ export function AnadiaContactsSection() {
   const { contactsSection } = anadiaContent;
 
   return (
-    <div className={styles.sectionWrapper}>
-      <CampContactsSection {...contactsSection} />
+    <div id={contactsSection.id} className={styles.sectionWrapper}>
+      <CampContactsSection
+        logo={contactsSection.logo}
+        columns={contactsSection.columns}
+        website={contactsSection.website}
+        followLabel={contactsSection.followLabel}
+        socialLinks={contactsSection.socialLinks}
+      />
     </div>
   );
 }

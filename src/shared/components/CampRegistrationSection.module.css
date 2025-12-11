@@ -2,8 +2,10 @@
 
 .section {
     position: relative;
-    margin-inline: auto;
+    /* 👇 importante: offset para o header fixo */
+    scroll-margin-top: var(--camp-header-offset, var(--header-offset));
 
+    margin-inline: auto;
     width: min(var(--layout-page-max), 100% - 0.75rem);
 
     border-radius: var(--radius-section);

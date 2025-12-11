@@ -2,7 +2,9 @@
     /* cartão igual às outras grandes secções */
     width: min(var(--layout-page-max), 100% - 2rem);
     margin-inline: auto;
-    margin-block: var(--space-3xl);
+
+    /* o header fixo não tapa a âncora */
+    scroll-margin-top: var(--camp-header-offset);
 
     border-radius: var(--radius-section);
     box-shadow: var(--shadow-section);

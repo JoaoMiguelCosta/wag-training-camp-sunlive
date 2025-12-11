@@ -4,7 +4,9 @@
     width: 100%;
 
     /* Mantém o padrão das outras secções:
-       o espaçamento vertical global é tratado em Malta.module.css */
+       o espaçamento vertical global é tratado em MaltaPage.module.css */
     display: flex;
     justify-content: center;
+
+    scroll-margin-top: var(--camp-header-offset);
 }

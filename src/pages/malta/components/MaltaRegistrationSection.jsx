@@ -41,8 +41,6 @@ export default function MaltaRegistrationSection() {
   ];
 
   const handleClick = (button) => {
-    console.log("Malta registration button clicked:", button);
-
     if (button.id === "gymnasts") {
       setOpenForm("gymnasts");
     } else if (button.id === "coaches") {
@@ -73,6 +71,7 @@ export default function MaltaRegistrationSection() {
           campOptions={campOptions}
         />
       )}
+
       {openForm === "coaches" && (
         <CoachRegistrationWizard
           isOpen={true}
@@ -82,6 +81,7 @@ export default function MaltaRegistrationSection() {
           campOptions={campOptions}
         />
       )}
+
       {openForm === "families" && (
         <FamilyRegistrationWizard
           isOpen={true}

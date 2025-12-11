@@ -1,6 +1,5 @@
 /* src/pages/malta/components/MaltaContactsSection.module.css */
 
 .anchorWrapper {
-    /* para o scroll do menu "Contacts" não ficar tapado pelo header fixo */
-    scroll-margin-top: var(--header-offset);
+    scroll-margin-top: var(--camp-header-offset);
 }

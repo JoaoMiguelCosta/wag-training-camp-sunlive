@@ -1,10 +1,10 @@
-/* src/pages/malta/components/MaltaSunliveSection.module.css */
-
 .section {
     /* cartão igual às outras grandes secções */
     width: min(var(--layout-page-max), 100% - 2rem);
     margin-inline: auto;
-    margin-block: var(--space-3xl);
+
+    /* sem margin-block – o espaçamento entre secções vem da .page */
+    scroll-margin-top: var(--camp-header-offset);
 
     border-radius: var(--radius-section);
     box-shadow: var(--shadow-section);

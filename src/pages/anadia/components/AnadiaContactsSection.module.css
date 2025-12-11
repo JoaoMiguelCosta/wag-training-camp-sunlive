@@ -1,7 +1,7 @@
 /* src/pages/anadia/components/AnadiaContactsSection.module.css */
 
 .sectionWrapper {
-    margin-top: 4rem;
+    scroll-margin-top: var(--camp-header-offset);
 }
 
 /* ligeiro ajuste em ecrãs mais pequenos */

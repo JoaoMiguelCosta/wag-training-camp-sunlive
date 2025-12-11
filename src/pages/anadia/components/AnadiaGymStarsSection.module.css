@@ -1,6 +1,7 @@
 .section {
     position: relative;
     width: 100%;
+    scroll-margin-top: var(--camp-header-offset);
 
     background-position: center;
     background-size: cover;
@@ -36,7 +37,6 @@
 
     text-align: center;
 }
-
 /* ------- TÍTULO ------- */
 
 .title {

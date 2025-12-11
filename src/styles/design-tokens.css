@@ -54,7 +54,7 @@
     --layout-inner-max: 72rem;
     /* inner de secções */
     --header-offset: 6.5rem;
-    /* compensar header fixo / scroll-margin */
+--camp-header-offset: 14.1rem;
 
     /* -----------------------
      *  ESPAÇAMENTO

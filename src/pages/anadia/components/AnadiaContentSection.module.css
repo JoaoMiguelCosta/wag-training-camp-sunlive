@@ -1,4 +1,4 @@
-/* src/pages/malta/components/MaltaContentSection.module.css */
+/* src/pages/anadia/components/AnadiaContentSection.module.css */
 
 .section {
     /* wrapper geral da secção */
@@ -8,7 +8,8 @@
     align-items: center;
     gap: 2rem;
 
-    /* o espaçamento vertical entre secções é controlado em Malta.module.css */
+    /* âncora CONTENT não fica tapada */
+    scroll-margin-top: var(--camp-header-offset);
 }
 
 /* ------- TÍTULO / HEADER ------- */

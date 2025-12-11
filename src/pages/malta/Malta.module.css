@@ -1,8 +1,9 @@
+/* src/pages/malta/MaltaPage.module.css */
+
 .page {
     position: relative;
     min-height: 100vh;
 
-    /* Fundo coerente com os gradientes das secções */
     background:
         radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.45) 0, transparent 55%),
         radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.35) 0, transparent 55%),
@@ -14,15 +15,14 @@
     flex-direction: column;
     align-items: stretch;
 
-    /* Como o header não está fixed, não precisamos do offset */
-    padding-block: 0;
+    /* compensa o header fixo mais alto da Malta */
+    padding-block: var(--camp-header-offset) 0;
 
     overflow-x: hidden;
 }
 
 /*
- * Todos os blocos principais (header, secções, footer)
- * ficam centrados e com largura máxima.
+ * Blocos principais (header, secções, footer) centrados e com largura máxima.
  * O último filho (scroll-to-top) fica livre para ser fixed.
  */
 .page>*:not(:last-child) {
@@ -30,23 +30,22 @@
     margin-inline: auto;
 }
 
-/* Espaçamento vertical entre os blocos principais
-   ❌ não aplica margem antes do footer */
-.page>*+*:not(footer) {
+/* Espaçamento vertical entre blocos (sem margem antes do footer) */
+.page>*:not(:last-child)+*:not(:last-child):not(footer) {
     margin-top: var(--space-2xl);
 }
 
 /* ---------- DESKTOP LARGO (>= 1200px) ---------- */
 @media (min-width: 1200px) {
     .page {
-        padding-block: 0;
+        padding-block: var(--camp-header-offset) 0;
     }
 
     .page>*:not(:last-child) {
         width: min(var(--layout-page-max), 100% - 2rem);
     }
 
-    .page>*+*:not(footer) {
+    .page>*:not(:last-child)+*:not(:last-child):not(footer) {
         margin-top: var(--space-3xl);
     }
 }
@@ -54,14 +53,14 @@
 /* ---------- MOBILE (<= 640px) ---------- */
 @media (max-width: 640px) {
     .page {
-        padding-block: 0;
+        padding-block: var(--camp-header-offset) 0;
     }
 
     .page>*:not(:last-child) {
         width: min(100%, 100% - 1rem);
     }
 
-    .page>*+*:not(footer) {
+    .page>*:not(:last-child)+*:not(:last-child):not(footer) {
         margin-top: var(--space-xl);
     }
 }

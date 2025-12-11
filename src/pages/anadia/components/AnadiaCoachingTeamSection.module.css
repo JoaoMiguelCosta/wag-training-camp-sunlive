@@ -1,4 +1,4 @@
-/* src/pages/malta/components/MaltaCoachingTeamSection.module.css */
+/* src/pages/anadia/components/AnadiaCoachingTeamSection.module.css */
 
 .section {
     /* wrapper geral da secção */
@@ -8,7 +8,7 @@
     align-items: center;
     gap: 2rem;
 
-    /* o espaçamento vertical entre secções é controlado em Malta.module.css */
+    scroll-margin-top: var(--camp-header-offset);
 }
 
 /* ------- TÍTULO / HEADER ------- */
@@ -48,11 +48,6 @@
             rgba(248, 250, 252, 0.8));
     box-shadow: 0 6px 14px rgba(15, 23, 42, 0.35);
 }
-
-/* O QuoteHighlight já tem o cartão com:
-   background: var(--gradient-main);
-   border-radius + box-shadow + border
-   Por isso aqui não mexemos no fundo. */
 
 /* ---------- TABLET (<= 1024px) ---------- */
 @media (max-width: 64rem) {

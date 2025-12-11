@@ -1,9 +1,12 @@
-/* src/pages/malta/components/MaltaProgramSection.module.css */
+/* src/pages/anadia/components/AnadiaProgramSection.module.css */
 
 .section {
     display: flex;
     flex-direction: column;
     gap: var(--space-2xl);
+
+    /* para o header fixo não tapar a âncora PROGRAM */
+    scroll-margin-top: var(--camp-header-offset);
 }
 
 /* Tablet */

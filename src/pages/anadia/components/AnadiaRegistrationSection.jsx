@@ -41,8 +41,6 @@ export default function AnadiaRegistrationSection() {
   ];
 
   const handleClick = (button) => {
-    console.log("Anadia registration button clicked:", button);
-
     if (button.id === "gymnasts") {
       setOpenForm("gymnasts");
     } else if (button.id === "coaches") {
