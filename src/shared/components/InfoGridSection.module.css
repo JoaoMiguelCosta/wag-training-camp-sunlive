@@ -6,12 +6,11 @@
     justify-content: center;
 }
 
-/* cartão grande, mesmo estilo das outras secções */
 .inner {
     width: min(var(--layout-page-max), 100% - 2rem);
     margin-inline: auto;
 
-    padding: 2.75rem 2.25rem 3rem;
+    padding: clamp(2.1rem, 4vw, 2.75rem) clamp(1.25rem, 3vw, 2.25rem) clamp(2.4rem, 4vw, 3rem);
 
     background: var(--gradient-main);
     border-radius: var(--radius-section);
@@ -22,84 +21,54 @@
     flex-direction: column;
 }
 
-/* ---- GRID GERAL ---- */
-
 .grid {
     display: grid;
-    /* sem gap aqui – cada layout define o seu */
 }
 
-/* MALTA: 1.ª linha com 2 colunas, 2.ª linha com 3 colunas */
 .gridThree {
-    /* 3 colunas iguais */
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2rem 1.75rem;
-    /* gap específico para Malta */
+    gap: clamp(1.4rem, 3vw, 2rem) clamp(1.2rem, 2.6vw, 1.75rem);
 }
 
-/* Ordem dos items em Malta:
-   1: REGISTRATION
-   2: PRICES
-   3: EXTRA / ADDITIONAL SERVICES
-   4: THE BANK DETAILS
-   5: PACKAGE INCLUSIONS
-*/
-
-/* 1.ª linha */
+/* Malta layout (mantém a tua ideia) */
 .gridThree> :nth-child(1) {
     grid-column: 1 / span 2;
-    /* ocupa colunas 1 e 2 (2/3 da largura) */
 }
 
 .gridThree> :nth-child(2) {
     grid-column: 3 / span 1;
-    /* coluna 3 -> começa alinhado com PACKAGE */
 }
 
-/* 2.ª linha: 3 colunas normais */
 .gridThree> :nth-child(3) {
-    /* EXTRA / ADDITIONAL SERVICES */
     grid-column: 1 / span 1;
 }
 
 .gridThree> :nth-child(4) {
-    /* THE BANK DETAILS */
     grid-column: 2 / span 1;
 }
 
 .gridThree> :nth-child(5) {
-    /* PACKAGE INCLUSIONS */
     grid-column: 3 / span 1;
 }
 
-/* MALTA – nivelar títulos da 2.ª linha */
 .gridThree> :nth-child(3) .cardTitle,
 .gridThree> :nth-child(4) .cardTitle,
 .gridThree> :nth-child(5) .cardTitle {
-
-    /* 👉 altura comum para simular 2 linhas */
     display: flex;
     align-items: flex-end;
-    /* texto encostado em baixo dessa altura */
 }
 
-/* ANADIA: 2 colunas no desktop, mais estreitas e centradas */
 .gridTwo {
     grid-template-columns: repeat(2, minmax(0, 28rem));
     justify-content: center;
-    gap: 2.5rem 11rem;
-    /* gap específico para Anadia */
+    gap: clamp(1.8rem, 4vw, 2.5rem) clamp(2rem, 8vw, 11rem);
 }
-
-/* ---- CARTÃO INDIVIDUAL ---- */
 
 .card {
     text-align: left;
     width: 100%;
-    /* ocupa toda a coluna atribuída */
 }
 
-/* 👇 Estilo igual ao título dos dias do programa */
 .cardTitle {
     font-family: var(--font-family-heading);
     font-size: 0.95rem;
@@ -108,15 +77,13 @@
     letter-spacing: 0.16em;
 
     color: #fef3f7;
-    text-shadow:
-        0 0 10px rgba(15, 23, 42, 0.8),
+    text-shadow: 0 0 10px rgba(15, 23, 42, 0.8),
         0 0 18px rgba(15, 23, 42, 0.7);
 
     margin-bottom: 0.8rem;
     white-space: normal;
 }
 
-/* 👇 Estilo igual às descrições do programa */
 .list {
     margin: 0;
     padding: 0;
@@ -147,64 +114,49 @@
     color: #f9fafb;
 }
 
-/* ---------- TABLET (<= 1024px) ---------- */
-
 @media (max-width: 64rem) {
     .inner {
         width: min(var(--layout-page-max), 100% - 1.5rem);
-        padding: 2.4rem 1.8rem 2.8rem;
     }
 
     .gridThree,
     .gridTwo {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.9rem 1.6rem;
-        /* gap comum em tablet */
     }
 
-    /* em ecrãs médios voltamos ao fluxo normal */
     .gridThree>* {
         grid-column: auto;
     }
 
     .cardTitle {
         font-size: 0.9rem;
-        white-space: normal;
     }
 
     .list {
         font-size: 0.9rem;
     }
 }
-
-/* ---------- MOBILE (<= 640px) ---------- */
 
 @media (max-width: 40rem) {
     .inner {
         width: min(100%, 100% - 1rem);
-        padding: 2.2rem 1.25rem 2.5rem;
     }
 
     .gridThree,
     .gridTwo {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
         gap: 1.6rem;
-        /* gap comum em mobile */
     }
 
     .cardTitle {
-        font-size: 0.9rem;
         letter-spacing: 0.12em;
-        white-space: normal;
     }
 
     .list {
-        font-size: 0.9rem;
         line-height: 1.65;
     }
 }
-
-/* ---------- MOBILE PEQUENO (<= 360px) ---------- */
 
 @media (max-width: 22.5rem) {
     .inner {

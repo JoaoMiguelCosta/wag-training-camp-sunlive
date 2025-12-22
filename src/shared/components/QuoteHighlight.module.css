@@ -1,24 +1,22 @@
 /* src/shared/components/QuoteHighlight.module.css */
+
 .section {
     position: relative;
     margin-inline: auto;
 
     width: min(var(--layout-page-max), 100% - 2rem);
-    padding: 3rem 1.5rem 3.5rem;
+    padding: clamp(2.2rem, 4vw, 3rem) clamp(1rem, 3vw, 1.5rem) clamp(2.6rem, 4vw, 3.5rem);
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: clamp(1.5rem, 3vw, 2rem);
 
-    /* cartão igual às outras secções grandes */
     background: var(--gradient-main);
     border-radius: var(--radius-section);
     box-shadow: var(--shadow-section);
     border: 1px solid rgba(236, 72, 153, 0.55);
 }
-
-/* bloco da citação */
 
 .quoteWrapper {
     max-width: 58rem;
@@ -27,17 +25,12 @@
 
 .quoteText {
     font-family: var(--font-family-body);
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 1.2vw, 1.05rem);
     line-height: 1.9;
     color: #0f172a;
-
     letter-spacing: 0.01em;
-
-    /* leve estilo de citação */
     font-style: italic;
 }
-
-/* bloco do autor */
 
 .authorBlock {
     display: flex;
@@ -46,11 +39,9 @@
     gap: 0.4rem;
 }
 
-/* anel à volta da foto */
-
 .avatarRing {
-    width: 5.5rem;
-    height: 5.5rem;
+    width: clamp(4.6rem, 9vw, 5.5rem);
+    height: clamp(4.6rem, 9vw, 5.5rem);
     border-radius: 999px;
     padding: 2px;
 
@@ -60,8 +51,7 @@
             rgba(59, 130, 246, 0.95),
             rgba(236, 72, 153, 0.95));
 
-    box-shadow:
-        0 16px 40px rgba(15, 23, 42, 0.45),
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.45),
         0 0 14px rgba(236, 72, 153, 0.65);
 
     display: flex;
@@ -81,7 +71,7 @@
     margin-top: 0.55rem;
 
     font-family: var(--font-family-heading);
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 1.3vw, 1.05rem);
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -90,11 +80,9 @@
 }
 
 .authorRole {
-    font-size: 0.95rem;
+    font-size: clamp(0.88rem, 1.1vw, 0.95rem);
     color: #64748b;
 }
-
-/* link/“botão” de biografia — usado só quando o parent passar bioHref/bioLabel */
 
 .bioLink {
     margin-top: 0.6rem;
@@ -122,11 +110,9 @@
 
     box-shadow: 0 14px 34px rgba(15, 23, 42, 0.55);
     transform: translateY(0);
-    transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        filter var(--transition-fast),
-        border-color var(--transition-fast);
+
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        filter var(--transition-fast), border-color var(--transition-fast);
 }
 
 .bioLink:hover {
@@ -141,56 +127,21 @@
     outline-offset: 3px;
 }
 
-/* ---------- TABLET (<= 1024px) ---------- */
-
 @media (max-width: 64rem) {
     .section {
         width: min(var(--layout-page-max), 100% - 1.25rem);
-        padding: 2.5rem 1.25rem 3rem;
-    }
-
-    .quoteText {
-        font-size: 1rem;
     }
 }
-
-/* ---------- MOBILE (<= 640px) ---------- */
 
 @media (max-width: 40rem) {
     .section {
         width: min(100%, 100% - 0.75rem);
-        padding: 2.2rem 1rem 2.6rem;
-        gap: 1.75rem;
-    }
-
-    .quoteText {
-        font-size: 0.98rem;
-        line-height: 1.8;
-    }
-
-    .avatarRing {
-        width: 4.8rem;
-        height: 4.8rem;
-    }
-
-    .authorName {
-        font-size: 1rem;
-    }
-
-    .authorRole {
-        font-size: 0.9rem;
     }
 }
-
-/* ---------- MOBILE PEQUENO (<= 360px) ---------- */
 
 @media (max-width: 22.5rem) {
     .section {
         width: min(100%, 100% - 0.5rem);
         padding-inline: 0.75rem;
-    }
-
-    .quoteText {
-        font-size: 0.95rem;
     }
 }

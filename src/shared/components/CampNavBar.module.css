@@ -1,13 +1,11 @@
 /* src/shared/components/CampNavBar.module.css */
 
 .header {
-position: fixed;
-    /* 👉 fica colado ao topo, como na Home */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 120;
-
     width: 100%;
 }
 
@@ -16,20 +14,15 @@ position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2.5rem;
+    gap: 1.4rem;
 
-    min-height: 5.5rem;
+    min-height: 5rem;
     border-radius: 999px;
 
-    /* ~3x mais transparente que antes */
     background: linear-gradient(115deg,
             rgba(236, 72, 153, 0.30) 0%,
-            /* var(--color-primary) */
             rgba(244, 114, 182, 0.26) 35%,
-            /* #f472b6 */
-            rgba(59, 130, 246, 0.30) 100%
-            /* var(--color-secondary) */
-        );
+            rgba(59, 130, 246, 0.30) 100%);
 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -42,40 +35,46 @@ position: fixed;
 .logoWrapper {
     display: flex;
     align-items: center;
+    flex: 0 0 auto;
 }
 
 .logo {
     display: block;
-    height: 5.25rem;
     width: auto;
+    height: 4.6rem;
 }
 
 /* NAV */
 .nav {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 0.9rem;
+
+    flex: 1 1 auto;
+    justify-content: center;
+
+    flex-wrap: wrap;
+    max-width: 50rem;
+    margin-inline: auto;
 }
 
-/* -------- BOTÕES DO MENU (PILLS) -------- */
 .navLink {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    padding: 0.55rem 1.25rem;
+    padding: 0.52rem 1.05rem;
     border-radius: 999px;
 
     font-family: var(--font-family-heading);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
 
     color: #fdf2f8;
     text-decoration: none;
 
-    /* base: quase sem fundo, só um brilho muito leve */
     background-color: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.18);
 
@@ -90,7 +89,6 @@ position: fixed;
         opacity var(--transition-fast);
 }
 
-/* hover geral */
 .navLink:hover {
     background: linear-gradient(115deg,
             var(--color-primary) 0%,
@@ -102,28 +100,23 @@ position: fixed;
     transform: translateY(-2px);
 }
 
-/* focus acessível (teclado) */
 .navLink:focus-visible {
     outline: 2px solid #fef9c3;
     outline-offset: 3px;
 }
 
-/* estado ativo (genérico) */
 .navLinkActive {
     background-color: rgba(255, 255, 255, 0.45);
     border-color: rgba(255, 255, 255, 0.7);
     color: #ffffff;
 }
 
-/* --------- POSTER & PORTAL ESPECIAIS (2 ÚLTIMOS BOTÕES) --------- */
-
-/* ligeiramente maiores que os restantes */
+/* POSTER & PORTAL */
 .nav .navLink:nth-last-child(2),
 .nav .navLink:last-child {
-    padding: 0.6rem 1.6rem;
+    padding: 0.55rem 1.25rem;
 }
 
-/* POSTER -> sempre com look “ativo” + gradiente forte */
 .nav .navLink:nth-last-child(2) {
     background: linear-gradient(115deg,
             var(--color-primary) 0%,
@@ -134,22 +127,17 @@ position: fixed;
     box-shadow: 0 12px 32px rgba(15, 23, 42, 0.55);
 }
 
-/* hover do POSTER: só aumenta o efeito */
 .nav .navLink:nth-last-child(2):hover {
     transform: translateY(-3px);
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.75);
 }
 
-/* PORTAL -> SEMPRE ativo em dourado forte */
 .nav .navLink:last-child {
-    padding: 0.6rem 1.7rem;
-
     background: linear-gradient(115deg,
             rgba(217, 119, 6, 0.9) 0%,
             rgba(234, 179, 8, 0.98) 40%,
             rgba(250, 204, 21, 0.98) 100%);
     color: #ffffff;
-
     border-color: rgba(250, 204, 21, 0.98);
 
     box-shadow:
@@ -157,7 +145,6 @@ position: fixed;
         0 0 18px rgba(250, 204, 21, 0.9);
 }
 
-/* hover do PORTAL: só um bocadinho mais de lift/glow */
 .nav .navLink:last-child:hover {
     transform: translateY(-3px);
     box-shadow:
@@ -165,80 +152,110 @@ position: fixed;
         0 0 24px rgba(250, 204, 21, 1);
 }
 
-/* ---------- LARGURAS >= 991px (layout igual ao design) ---------- */
-@media (min-width: 991px) {
+/* <= 62rem (~992px) */
+@media (max-width: 62rem) {
     .inner {
-        gap: 1.75rem;
-        min-height: 5rem;
-        padding-inline: 1.25rem;
+        padding: 0.55rem 1rem;
+        gap: 1rem;
+        min-height: 4.4rem;
+        border-radius: 2rem;
     }
 
     .logo {
-        height: 4.6rem;
+        height: 3.6rem;
     }
 
     .nav {
-        gap: 0.9rem;
-        flex-wrap: wrap;
-        justify-content: center;
-
-        /* 🔒 trava a largura da barra de navegação
-           para não mudar o ponto de quebra das linhas */
-        max-width: 48rem;
-        margin-inline: auto;
+        gap: 0.55rem 0.6rem;
+        max-width: 44rem;
     }
 
     .navLink {
-        padding-inline: 1rem;
-        font-size: 0.75rem;
+        padding: 0.48rem 0.9rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+    }
+
+    .nav .navLink:nth-last-child(2),
+    .nav .navLink:last-child {
+        padding: 0.5rem 1.05rem;
     }
 }
 
-/* ---------- TELEMÓVEL (<= 48rem ~ 768px) ---------- */
+/* <= 48rem (~768px) */
 @media (max-width: 48rem) {
+    .inner {
+        padding: 0.55rem 0.9rem;
+        min-height: 4.1rem;
+        gap: 0.9rem;
+    }
+
+    .logo {
+        height: 3.25rem;
+    }
+
+    .nav {
+        max-width: 36rem;
+        gap: 0.5rem 0.55rem;
+    }
+
+    .navLink {
+        padding: 0.46rem 0.82rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.13em;
+    }
+}
+
+/* <= 40rem (~640px) */
+@media (max-width: 40rem) {
     .inner {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        padding: 0.75rem 0.9rem 0.85rem;
         min-height: auto;
-        padding: 0.9rem 1.25rem 1.1rem;
-        gap: 0.75rem;
-        border-radius: 1.5rem;
+        gap: 0.55rem;
+
+        border-radius: 1.25rem;
     }
 
     .logo {
-        height: 4.2rem;
+        height: 3.2rem;
     }
 
     .nav {
-        gap: 0.75rem;
-        flex-wrap: wrap;
+        max-width: 100%;
         justify-content: center;
-    }
-
-    .navLink {
-        padding: 0.5rem 0.9rem;
-        font-size: 0.72rem;
-        letter-spacing: 0.16em;
+        gap: 0.5rem 0.55rem;
     }
 }
 
-/* ---------- TELEMÓVEL PEQUENO (<= 30rem) ---------- */
+/* <= 30rem (~480px) */
 @media (max-width: 30rem) {
     .inner {
-        padding-inline: 1rem;
+        padding-inline: 0.8rem;
     }
 
     .logo {
-        height: 3.8rem;
+        height: 3rem;
     }
 
     .nav {
-        gap: 0.6rem;
+        gap: 0.45rem 0.5rem;
     }
 
     .navLink {
-        padding-inline: 0.8rem;
-        font-size: 0.7rem;
+        padding: 0.44rem 0.78rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+    }
+}
+
+/* ✅ Só em ecrãs MUITO pequenos (<=320px) é que faz sentido botões 100% */
+@media (max-width: 20rem) {
+    .navLink {
+        width: 100%;
+        justify-content: center;
     }
 }

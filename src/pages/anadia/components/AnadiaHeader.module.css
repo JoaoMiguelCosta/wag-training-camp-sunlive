@@ -1,6 +1,22 @@
-/* Só overrides específicos de Malta (ex: tamanho do logo) */
+/* src/pages/malta/components/MaltaHeader.module.css */
 
+/* Base: desktop grande */
 .logo {
-    height: 12.8rem;
-    /* ou o valor que tinhas antes */
+    width: auto;
+    height: 9rem;
+}
+
+/* 640px -> 375px: logo maior (como pediste) */
+@media (max-width: 40rem) and (min-width: 23.4375rem) {
+    .logo {
+        height: 7rem;
+        /* aumenta aqui se quiseres ainda mais (ex: 4.6rem) */
+    }
+}
+
+/* < 375px: volta a descer para não “inchar” o header */
+@media (max-width: 23.4375rem) {
+    .logo {
+        height: 7rem;
+    }
 }

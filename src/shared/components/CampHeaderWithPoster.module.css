@@ -8,12 +8,9 @@
 
 .posterOverlay {
     position: fixed;
-
-    /* ocupa de cima a baixo */
     top: 0;
     bottom: 0;
 
-    /* mantém a mesma posição horizontal que tinhas */
     left: 50%;
     transform: translateX(-50%);
     width: min(var(--layout-page-max), 100% - 0.75rem);
@@ -24,15 +21,13 @@
     justify-content: center;
     align-items: center;
 
-    /* muito importante: tira qualquer margem herdada */
     margin: 0 !important;
 
-    padding: 1.5rem;
+    padding: clamp(0.75rem, 2.5vw, 1.5rem);
     background: rgba(15, 23, 42, 0.25);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
 
-    /* se o poster for maior que o ecrã, permite scroll */
     overflow-y: auto;
 }
 
@@ -62,6 +57,7 @@
     max-width: 100%;
     height: auto;
     max-height: calc(100vh - 7rem);
+
     border-radius: calc(var(--radius-section) - 0.5rem);
     object-fit: contain;
 }
@@ -90,11 +86,8 @@
     box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
 
     cursor: pointer;
-    transition:
-        transform var(--transition-fast),
-        background var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast);
+    transition: transform var(--transition-fast), background var(--transition-fast),
+        box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
 .posterClose:hover {
@@ -123,19 +116,15 @@
     border: 0;
 }
 
-/* ---------- RESPONSIVE OVERLAY ---------- */
-
 @media (max-width: 48rem) {
     .posterOverlay {
-        padding: 1rem;
         align-items: flex-start;
     }
 
     .posterContent {
-        margin-top: 5.5rem;
+        margin-top: calc(var(--camp-header-offset, 5rem) + 0.5rem);
         width: min(24rem, 100%);
         max-height: calc(100vh - 4rem);
-        padding: 0;
         border-radius: 1.4rem;
     }
 
@@ -146,15 +135,10 @@
 }
 
 @media (max-width: 30rem) {
-    .posterOverlay {
-        padding: 0.75rem;
-    }
-
     .posterContent {
-        margin-top: 4.5rem;
+        margin-top: calc(var(--camp-header-offset, 5rem));
         width: 100%;
         max-height: calc(100vh - 3rem);
-        padding: 0;
         border-radius: 1.25rem;
     }
 

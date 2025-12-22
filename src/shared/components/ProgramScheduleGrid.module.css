@@ -5,25 +5,21 @@
     margin-inline: auto;
 
     width: min(var(--layout-page-max), 100% - 2rem);
-    padding: 2.5rem 2rem 3rem;
+    padding: clamp(2rem, 3.5vw, 2.5rem) clamp(1.25rem, 3.5vw, 2rem) clamp(2.4rem, 4vw, 3rem);
 
     border-radius: var(--radius-section);
     box-shadow: var(--shadow-section);
     border: 1px solid rgba(236, 72, 153, 0.55);
 
-    /* fundo igual às outras secções principais */
     background: var(--gradient-main);
 }
 
-/* -----------------------------
- * GRELHA DE DIAS
- * --------------------------- */
-
 .grid {
     display: grid;
-    /* 3 colunas em desktop -> 6 dias = 2 linhas */
-    grid-template-columns: repeat(3, minmax(16rem, 1fr));
-    gap: 2.5rem;
+
+    /* em vez de 3 colunas fixas, deixa adaptar */
+    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+    gap: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .dayColumn {
@@ -39,30 +35,24 @@
     text-transform: uppercase;
     letter-spacing: 0.16em;
 
-    /* dourado quente para destacar dos textos */
     color: #fef3c7;
-    text-shadow:
-        0 0 10px rgba(15, 23, 42, 0.8),
+    text-shadow: 0 0 10px rgba(15, 23, 42, 0.8),
         0 0 18px rgba(15, 23, 42, 0.7);
 }
-
-/* -----------------------------
- * LISTA DE LINHAS DO PROGRAMA
- * --------------------------- */
 
 .itemsList {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
+    margin: 0;
+    padding: 0;
 }
 
 .itemRow {
     display: grid;
-    /* coluna das horas com largura fixa -> tudo alinhado */
     grid-template-columns: 7.5rem minmax(0, 1fr);
     column-gap: 0.5rem;
-    /* descrição mais perto da hora */
     align-items: flex-start;
 }
 
@@ -71,53 +61,38 @@
         Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 0.82rem;
 
-    /* horas a PRETO para contrastar bem */
     color: #111827;
-
-    /* preserva espaços em "18:15 - 19:30" e mantém coluna alinhada */
     white-space: pre;
 }
 
 .description {
     font-size: 0.92rem;
     line-height: 1.7;
-
-    /* descrições em branco suave */
     color: #f9fafb;
+    overflow-wrap: anywhere;
 }
-
-/* ---------- TABLET (<= 1024px) ---------- */
 
 @media (max-width: 64rem) {
     .section {
         width: min(var(--layout-page-max), 100% - 1.25rem);
-        padding: 2.2rem 1.5rem 2.7rem;
-    }
-
-    /* 2 colunas em tablet */
-    .grid {
-        grid-template-columns: repeat(2, minmax(14rem, 1fr));
-        gap: 2rem;
     }
 }
-
-/* ---------- MOBILE (<= 640px) ---------- */
 
 @media (max-width: 40rem) {
     .section {
         width: min(100%, 100% - 0.75rem);
-        padding: 2rem 1.1rem 2.4rem;
+        padding-inline: 1.1rem;
     }
 
-    /* 1 coluna em mobile */
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 1.75rem;
+    .itemRow {
+        grid-template-columns: 7rem minmax(0, 1fr);
     }
+}
 
-    .dayTitle {
-        font-size: 0.9rem;
-        letter-spacing: 0.14em;
+@media (max-width: 22.5rem) {
+    .section {
+        width: min(100%, 100% - 0.5rem);
+        padding-inline: 0.75rem;
     }
 
     .time {
@@ -126,18 +101,5 @@
 
     .description {
         font-size: 0.9rem;
-    }
-}
-
-/* ---------- MOBILE PEQUENO (<= 360px) ---------- */
-
-@media (max-width: 22.5rem) {
-    .section {
-        width: min(100%, 100% - 0.5rem);
-        padding-inline: 0.75rem;
-    }
-
-    .grid {
-        gap: 1.5rem;
     }
 }
