@@ -71,10 +71,9 @@ export const anadiaContent = {
     schedule: {
       id: "program-schedule",
       columns: [
-        // » WEDNESDAY, AUGUST 13
         {
-          id: "wednesday-august-13",
-          title: "» WEDNESDAY, AUGUST 13",
+          id: "Monday-august-17",
+          title: "» MONDAY, AUGUST 17",
           items: [
             {
               time: "",
@@ -91,13 +90,19 @@ export const anadiaContent = {
             { time: "20:30", description: "Free time for gymnasts" },
             { time: "20:30", description: "Theory lecture" },
             { time: "21:45", description: "End of session" },
+
+            // ✅ Placeholder guardado para atualizares mais tarde
+            {
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
+            },
           ],
         },
 
-        // » THURSDAY, AUGUST 14
         {
-          id: "thursday-august-14",
-          title: "» THURSDAY, AUGUST 14",
+          id: "Tuesday-august-18",
+          title: "» TUESDAY, AUGUST 18",
           items: [
             { time: "7:45", description: "Breakfast" },
             { time: "8:25", description: "Transport" },
@@ -115,13 +120,19 @@ export const anadiaContent = {
             { time: "19:30", description: "Dinner" },
             { time: "20:30", description: "Theory lecture" },
             { time: "21:45", description: "End of session" },
+
+            // ✅ Placeholder guardado para atualizares mais tarde
+            {
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
+            },
           ],
         },
 
-        // » FRIDAY, AUGUST 15
         {
-          id: "friday-august-15",
-          title: "» FRIDAY, AUGUST 15",
+          id: "Wednesday-august-19",
+          title: "» WEDNESDAY, AUGUST 19",
           items: [
             { time: "8:30", description: "Breakfast" },
             { time: "9:10", description: "Transport" },
@@ -136,13 +147,19 @@ export const anadiaContent = {
             { time: "20:00", description: "End of session / Transport" },
             { time: "20:15", description: "Dinner" },
             { time: "21:00", description: "Free time for all" },
+
+            // ✅ Placeholder guardado para atualizares mais tarde
+            {
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
+            },
           ],
         },
 
-        // » SATURDAY, AUGUST 16
         {
-          id: "saturday-august-16",
-          title: "» SATURDAY, AUGUST 16",
+          id: "Thursday-august-20",
+          title: "» THURSDAY, AUGUST 20",
           items: [
             { time: "8:30", description: "Breakfast" },
             { time: "9:30", description: "Transport" },
@@ -155,13 +172,19 @@ export const anadiaContent = {
             },
             { time: "20:00", description: "Arrival and dinner" },
             { time: "21:00", description: "Free time for all" },
+
+            // ✅ Placeholder guardado para atualizares mais tarde
+            {
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
+            },
           ],
         },
 
-        // » SUNDAY, AUGUST 17
         {
-          id: "sunday-august-17",
-          title: "» SUNDAY, AUGUST 17",
+          id: "Friday-august-21",
+          title: "» FRIDAY, AUGUST 21",
           items: [
             { time: "8:45", description: "Breakfast" },
             { time: "9:25", description: "Transport" },
@@ -175,13 +198,19 @@ export const anadiaContent = {
             { time: "19:30", description: "Dinner" },
             { time: "20:30", description: "Theory lecture" },
             { time: "21:45", description: "End of session" },
+
+            // ✅ Placeholder guardado para atualizares mais tarde
+            {
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
+            },
           ],
         },
 
-        // » MONDAY, AUGUST 18
         {
-          id: "monday-august-18",
-          title: "» MONDAY, AUGUST 18",
+          id: "Saturday-august-22",
+          title: "» SATURDAY, AUGUST 22",
           items: [
             { time: "8:15", description: "Breakfast" },
             { time: "8:40", description: "Transport" },
@@ -197,6 +226,13 @@ export const anadiaContent = {
             { time: "17:00", description: "Free time for all" },
             { time: "18:15", description: "Diploma Ceremony" },
             { time: "19:00", description: "Final dinner and farewell party" },
+
+            // ✅ Placeholder guardado para atualizares mais tarde
+            {
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
+            },
           ],
         },
       ],
@@ -273,6 +309,8 @@ export const anadiaContent = {
       {
         id: "registration",
         title: "★ REGISTRATION",
+        isPlaceholder: true,
+        placeholderText: "To be defined later",
         lines: [
           "Registrations must be made in our website registration form until June 30.",
           "Registrations will only be accepted after submission of bank transfer of 50% of the final price.",
@@ -289,6 +327,8 @@ export const anadiaContent = {
       {
         id: "prices",
         title: "★ PRICES",
+        isPlaceholder: true,
+        placeholderText: "To be defined later",
         lines: [
           "Gymnasts:",
           "Single room: €940",
@@ -316,6 +356,8 @@ export const anadiaContent = {
       {
         id: "extra-info",
         title: "► Those prices include:",
+        isPlaceholder: true,
+        placeholderText: "To be defined later",
         lines: [
           "5 nights at sports hotel Estalagem de Sangalhos***, full board accommodation.",
           "Free access to outdoor swimming pool, hotel gym, snooker and play room.",
@@ -338,6 +380,8 @@ export const anadiaContent = {
       {
         id: "bank",
         title: "► THE BANK DETAILS",
+        isPlaceholder: true,
+        placeholderText: "To be defined later",
         lines: [
           "Company: SUNLIVE INVESTIMENTOS IMOBILIARIOS, LDA",
           "Address: R ESTALAGEM SA 3780-101 SANGALHOS",

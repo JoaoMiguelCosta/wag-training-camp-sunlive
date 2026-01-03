@@ -1,5 +1,5 @@
 // src/pages/malta/components/MaltaRegistrationSection.jsx
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { maltaContent } from "../../../config/content/malta.content.js";
 import CampRegistrationSection from "../../../shared/components/CampRegistrationSection.jsx";
 import { GymnastRegistrationWizard } from "../../../shared/components/GymnastRegistrationWizard.jsx";
@@ -12,11 +12,17 @@ export default function MaltaRegistrationSection() {
 
   const [openForm, setOpenForm] = useState(null);
 
-  const baseParagraphs = contentSection.items.flatMap((item) => [
-    item.title,
-    ...item.lines,
-    "",
-  ]);
+  // ✅ Placeholder "substituto" (igual ao Anadia)
+  const baseParagraphs = useMemo(() => {
+    const items = contentSection?.items || [];
+
+    return items.flatMap((item) => {
+      const hasPlaceholder = Boolean(item.isPlaceholder);
+      const note = item.placeholderText || "To be defined later";
+
+      return [item.title, ...(hasPlaceholder ? [note] : item.lines || []), ""];
+    });
+  }, [contentSection]);
 
   const gymnastInfo = {
     title: "Gymnasts / Ginastas | WAG Training Camp, Malta - 2026",
@@ -35,21 +41,16 @@ export default function MaltaRegistrationSection() {
 
   const campOptions = [
     {
-      value: "14th - 19th July 2026",
-      label: "» 14th - 19th July 2026",
+      value: "6th - 11th July 2026",
+      label: "» 6th - 11th July 2026",
     },
   ];
 
   const handleClick = (button) => {
-    if (button.id === "gymnasts") {
-      setOpenForm("gymnasts");
-    } else if (button.id === "coaches") {
-      setOpenForm("coaches");
-    } else if (button.id === "families") {
-      setOpenForm("families");
-    } else {
-      setOpenForm(null);
-    }
+    if (button.id === "gymnasts") setOpenForm("gymnasts");
+    else if (button.id === "coaches") setOpenForm("coaches");
+    else if (button.id === "families") setOpenForm("families");
+    else setOpenForm(null);
   };
 
   return (

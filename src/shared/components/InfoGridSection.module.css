@@ -1,5 +1,3 @@
-/* src/shared/components/InfoGridSection.module.css */
-
 .section {
     width: 100%;
     display: flex;
@@ -82,6 +80,17 @@
 
     margin-bottom: 0.8rem;
     white-space: normal;
+}
+
+/* ✅ “To be defined later” por baixo do título (substituto) */
+.placeholderNote {
+    margin: -0.25rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+
+    opacity: 0.85;
+    font-style: italic;
+    color: #f9fafb;
 }
 
 .list {

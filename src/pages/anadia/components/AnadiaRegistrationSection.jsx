@@ -1,5 +1,5 @@
 // src/pages/anadia/components/AnadiaRegistrationSection.jsx
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { anadiaContent } from "../../../config/content/anadia.content.js";
 import CampRegistrationSection from "../../../shared/components/CampRegistrationSection.jsx";
 import { GymnastRegistrationWizard } from "../../../shared/components/GymnastRegistrationWizard.jsx";
@@ -12,11 +12,23 @@ export default function AnadiaRegistrationSection() {
 
   const [openForm, setOpenForm] = useState(null);
 
-  const baseParagraphs = contentSection.items.flatMap((item) => [
-    item.title,
-    ...item.lines,
-    "",
-  ]);
+  // ✅ "substituto" como nos outros:
+  // - se item.isPlaceholder -> mostra só o placeholderText (ou "To be defined later")
+  // - senão -> mostra as lines
+  const baseParagraphs = useMemo(() => {
+    const items = contentSection?.items || [];
+
+    return items.flatMap((item) => {
+      const hasPlaceholder = Boolean(item.isPlaceholder);
+      const placeholderText = item.placeholderText || "To be defined later";
+
+      return [
+        item.title,
+        ...(hasPlaceholder ? [placeholderText] : item.lines || []),
+        "",
+      ];
+    });
+  }, [contentSection]);
 
   const gymnastInfo = {
     title: "Gymnasts / Ginastas | WAG Training Camp, ANADIA - 2026",
@@ -35,21 +47,16 @@ export default function AnadiaRegistrationSection() {
 
   const campOptions = [
     {
-      value: "13th - 18th August 2026",
-      label: "» 13th - 18th August 2026",
+      value: "17th - 22th August 2026",
+      label: "» 17th - 22th August 2026",
     },
   ];
 
   const handleClick = (button) => {
-    if (button.id === "gymnasts") {
-      setOpenForm("gymnasts");
-    } else if (button.id === "coaches") {
-      setOpenForm("coaches");
-    } else if (button.id === "families") {
-      setOpenForm("families");
-    } else {
-      setOpenForm(null);
-    }
+    if (button.id === "gymnasts") setOpenForm("gymnasts");
+    else if (button.id === "coaches") setOpenForm("coaches");
+    else if (button.id === "families") setOpenForm("families");
+    else setOpenForm(null);
   };
 
   return (

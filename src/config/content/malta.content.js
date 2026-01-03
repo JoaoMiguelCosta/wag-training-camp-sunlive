@@ -204,10 +204,9 @@ export const maltaContent = {
     schedule: {
       id: "program-schedule",
       columns: [
-        // » MONDAY, JULY 14
         {
-          id: "monday-july-14",
-          title: "» MONDAY, JULY 14",
+          id: "monday-july-6",
+          title: "» MONDAY, JULY 6",
           items: [
             { time: "", description: "Hotel Check-in: Topaz Hotel" },
             { time: "", description: "Breakfast & Lunch" },
@@ -219,17 +218,20 @@ export const maltaContent = {
             { time: "17:35", description: "Transport to Hotel" },
             { time: "18:15 - 19:30", description: "Free Time" },
             { time: "19:30", description: "Dinner" },
+            { time: "20:30", description: "Coaching Education Session" },
+
+            // ✅ Placeholder (substituto) guardado p/ mais tarde
             {
-              time: "20:30",
-              description: "Coaching Education Session",
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
             },
           ],
         },
 
-        // » TUESDAY, JULY 15
         {
-          id: "tuesday-july-15",
-          title: "» TUESDAY, JULY 15",
+          id: "tuesday-july-7",
+          title: "» TUESDAY, JULY 7",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -246,13 +248,18 @@ export const maltaContent = {
             },
             { time: "19:30", description: "Dinner" },
             { time: "20:30", description: "Coaching Education" },
+
+            {
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
+            },
           ],
         },
 
-        // » WEDNESDAY, JULY 16
         {
-          id: "wednesday-july-16",
-          title: "» WEDNESDAY, JULY 16",
+          id: "wednesday-july-8",
+          title: "» WEDNESDAY, JULY 8",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -264,13 +271,18 @@ export const maltaContent = {
             { time: "19:00", description: "Transport to Hotel" },
             { time: "19:30", description: "Dinner" },
             { time: "20:30", description: "Coaching Education" },
+
+            {
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
+            },
           ],
         },
 
-        // » THURSDAY, JULY 17
         {
-          id: "thursday-july-17",
-          title: "» THURSDAY, JULY 17",
+          id: "thursday-july-9",
+          title: "» THURSDAY, JULY 9",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -281,17 +293,19 @@ export const maltaContent = {
             { time: "13:30 - 17:30", description: "Water Park" },
             { time: "17:45", description: "Transport to Hotel" },
             { time: "19:00", description: "Dinner" },
+            { time: "", description: "FREE EVENING FOR COACHES & GYMNASTS" },
+
             {
               time: "",
-              description: "FREE EVENING FOR COACHES & GYMNASTS",
+              description: "To be defined later",
+              isPlaceholder: true,
             },
           ],
         },
 
-        // » FRIDAY, JULY 18
         {
-          id: "friday-july-18",
-          title: "» FRIDAY, JULY 18",
+          id: "friday-july-10",
+          title: "» FRIDAY, JULY 10",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -305,13 +319,18 @@ export const maltaContent = {
               description:
                 "FAREWELL FINAL DINNER & Presentation of Diplomas to Gymnasts/Coaches & Q/A session with expert coaches",
             },
+
+            {
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
+            },
           ],
         },
 
-        // » SATURDAY, JULY 19
         {
-          id: "saturday-july-19",
-          title: "» SATURDAY, JULY 19",
+          id: "saturday-july-11",
+          title: "» SATURDAY, JULY 11",
           items: [
             {
               time: "7:15",
@@ -329,6 +348,12 @@ export const maltaContent = {
               description:
                 "Saturday, July 19 (Afternoon) & Sunday, July 20 - DEPARTURES",
             },
+
+            {
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
+            },
           ],
         },
       ],
@@ -343,6 +368,8 @@ export const maltaContent = {
       {
         id: "registration",
         title: "★ REGISTRATION",
+        isPlaceholder: true,
+        placeholderText: "To be defined later",
         lines: [
           "Registrations must be made in our website registration form until May 30.",
           "Registrations will only be accepted after submission of bank transfer of 50% of the final price.",
@@ -362,6 +389,8 @@ export const maltaContent = {
       {
         id: "prices",
         title: "★ PRICES",
+        isPlaceholder: true,
+        placeholderText: "To be defined later",
         lines: [
           "GYMNASTS",
           "Single room: €940",
@@ -389,6 +418,8 @@ export const maltaContent = {
       {
         id: "package",
         title: "► Package Inclusions & Additional Costs:",
+        isPlaceholder: true,
+        placeholderText: "To be defined later",
         lines: [
           "5 nights at Topaz Hotel* on a full-board basis.",
           "Free access to the outdoor swimming pool (as per hotel regulations).",
@@ -404,6 +435,8 @@ export const maltaContent = {
       {
         id: "extra-info",
         title: "► Additional services available at extra cost:",
+        isPlaceholder: true,
+        placeholderText: "To be defined later",
         lines: [
           "Physiotherapy & Manual therapy treatments.",
           "Water Park entrance.",
@@ -414,6 +447,8 @@ export const maltaContent = {
       {
         id: "bank",
         title: "► THE BANK DETAILS",
+        isPlaceholder: true,
+        placeholderText: "To be defined later",
         lines: [
           "Bank: APS Bank Ltd",
           "Account Name: Sunlive Malta Ltd",

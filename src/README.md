@@ -80,24 +80,27 @@ frontend/
 └── index.html
 ```
 
-*(Os nomes concretos podem variar ligeiramente consoante a implementação.)*
+_(Os nomes concretos podem variar ligeiramente consoante a implementação.)_
 
 ---
 
 ## 🧩 Componentes principais (exemplos)
 
-- `CampHeaderWithPoster`  
+- `CampHeaderWithPoster`
+
   - Header com logo, navegação e botão de poster (overlay).
 
-- `CampNavBar` / `CampNavItem`  
+- `CampNavBar` / `CampNavItem`
+
   - Barra de navegação reutilizável para as páginas de camp.
 
-- `GymnastRegistrationWizard`  
+- `GymnastRegistrationWizard`
+
   - Wizard de inscrição (vários passos).
   - Recebe `camp`, `infoContent`, `campOptions` por props.
   - Usa um componente `GymnastRegistrationForm` com os campos do formulário.
 
-- `ProgramSchedule` (ou semelhante)  
+- `ProgramSchedule` (ou semelhante)
   - Mostra horários, datas e descrições por dia, com estilos consistentes.
 
 ---

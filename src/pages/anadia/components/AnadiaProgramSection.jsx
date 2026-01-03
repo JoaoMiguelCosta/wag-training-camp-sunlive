@@ -1,4 +1,3 @@
-// src/pages/malta/components/MaltaProgramSection.jsx
 import { anadiaContent } from "../../../config/content/anadia.content.js";
 import ImageTitleBanner from "../../../shared/components/ImageTitleBanner.jsx";
 import ProgramScheduleGrid from "../../../shared/components/ProgramScheduleGrid.jsx";
@@ -23,11 +22,9 @@ export default function AnadiaProgramSection() {
         />
       )}
 
-      {schedule &&
-        Array.isArray(schedule.columns) &&
-        schedule.columns.length > 0 && (
-          <ProgramScheduleGrid id={schedule.id} columns={schedule.columns} />
-        )}
+      {schedule?.columns?.length ? (
+        <ProgramScheduleGrid id={schedule.id} columns={schedule.columns} />
+      ) : null}
     </section>
   );
 }
