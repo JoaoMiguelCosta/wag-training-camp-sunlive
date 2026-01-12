@@ -1,235 +1,140 @@
 # 💻 Frontend – Wag Training Camp
 
-![Frontend](https://img.shields.io/badge/Frontend-React_+_Vite-22c55e)
+![Frontend](https://img.shields.io/badge/Frontend-React%20+%20Vite-22c55e)
 ![UI](https://img.shields.io/badge/UI-CSS%20Modules-blueviolet)
+![Deploy](https://img.shields.io/badge/Deploy-FTP%20%2F%20Apache-orange)
 
-Aplicação React + Vite que contém a página principal, páginas dos camps (Malta/Anadia) e os formulários de inscrição.
+Aplicação frontend desenvolvida em **React + Vite**, já **em produção**, para promoção e gestão de inscrições dos **WAG Training Camps** (Malta e Anadia).
 
----
-
-## ⚙️ Requisitos
-
-- Node.js ≥ 18
-- npm ou pnpm
-- Backend a correr localmente (ou URL da API em produção)
+🔗 **Website live:** https://www.wagtrainingcamp.sunlive.pt/
 
 ---
 
-## 📦 Instalação
+## 🎯 Objetivo do projeto
 
-```bash
-cd frontend
-npm install
-```
+- Página institucional do WAG Training Camp  
+- Divulgação dos camps (Malta / Portugal – Anadia)  
+- Apresentação de programa, equipa técnica, venue e parceiros  
+- Inscrições através de **Google Forms integrados em modal (iframe)**  
 
----
-
-## 📜 Scripts disponíveis
-
-```bash
-npm run dev       # servidor de desenvolvimento (Vite)
-npm run build     # build de produção
-npm run preview   # preview da build de produção
-npm run lint      # (se configurado) corre o linter
-```
+👉 Projeto **100% frontend**, sem backend próprio.
 
 ---
 
-## 🔐 Variáveis de ambiente
+## ⚙️ Stack técnica
 
-Criar um ficheiro `.env` (ou `.env.local`) na pasta `frontend/`:
-
-```env
-VITE_API_BASE_URL=http://localhost:4000
-```
-
-Exemplo em produção:
-
-```env
-VITE_API_BASE_URL=https://api.dominio-do-cliente.pt
-```
-
-> O valor é usado para construir a URL das chamadas à API, por exemplo `POST ${VITE_API_BASE_URL}/api/registrations`.
+- React 19  
+- Vite  
+- React Router  
+- CSS Modules  
+- Google Forms (embed via iframe)  
+- Apache (.htaccess)  
+- Deploy tradicional via FTP  
 
 ---
 
-## 🗂️ Estrutura de pastas (detalhe)
+## 🚀 Estado atual
+
+- ✅ Produção ativa  
+- ✅ HTTPS ativo  
+- ✅ Routing funcional (`/`, `/malta`, `/anadia`)  
+- ✅ Modais de inscrição funcionais  
+- ✅ Responsive (mobile-first)  
+- ❌ Sem backend / API própria  
+
+---
+
+## 🗂️ Estrutura do projeto
 
 ```text
-frontend/
-├── public/                    # assets públicos (se usados)
-├── src/
-│   ├── assets/                # imagens (logos, posters, fundos)
-│   ├── config/
-│   │   ├── content/
-│   │   │   ├── home.content.js
-│   │   │   ├── malta.content.js
-│   │   │   └── anadia.content.js
-│   │   └── design.tokens.css  # tokens de design (cores, fontes, etc.)
-│   ├── pages/
-│   │   ├── home/              # Home page
-│   │   ├── malta/             # Página Malta
-│   │   └── anadia/            # Página Anadia
-│   ├── shared/
-│   │   ├── components/        # componentes reutilizáveis (headers, forms, etc.)
-│   │   └── styles/            # estilos partilhados (se existirem)
-│   ├── hooks/                 # hooks personalizados (ex: navegação, scroll)
-│   ├── api/                   # funções para comunicação com o backend
-│   ├── main.jsx               # entrypoint React
-│   └── App.jsx                # componente raiz (rotas, layout geral)
-└── index.html
-```
-
-_(Os nomes concretos podem variar ligeiramente consoante a implementação.)_
-
----
-
-## 🧩 Componentes principais (exemplos)
-
-- `CampHeaderWithPoster`
-
-  - Header com logo, navegação e botão de poster (overlay).
-
-- `CampNavBar` / `CampNavItem`
-
-  - Barra de navegação reutilizável para as páginas de camp.
-
-- `GymnastRegistrationWizard`
-
-  - Wizard de inscrição (vários passos).
-  - Recebe `camp`, `infoContent`, `campOptions` por props.
-  - Usa um componente `GymnastRegistrationForm` com os campos do formulário.
-
-- `ProgramSchedule` (ou semelhante)
-  - Mostra horários, datas e descrições por dia, com estilos consistentes.
-
----
-
-## 📝 Formulários de inscrição – detalhes
-
-Campos típicos (apenas exemplo; confirma com o conteúdo real):
-
-- Nome do gymnast
-- Data de nascimento
-- País
-- Clube
-- Email
-- Telefone
-- Camp (Malta / Anadia)
-- Nível / categoria
-- Best results (máx. 150 caracteres)
-- Notas adicionais (opcional)
-
-Validações no **frontend**:
-
-- 📞 **Telefone**
-  - apenas dígitos (`0-9`)
-  - impedir letras e símbolos na input (ex: filtrar no `onChange`)
-- ✉️ **Email**
-  - obrigatório
-  - tem de conter `@` (validação simples)
-- 🏅 **Best results**
-  - `maxLength` = 150
-  - contador de caracteres restantes (ex: `150 - value.length`)
-
-Exemplo simplificado de contador:
-
-```jsx
-const maxChars = 150;
-const [bestResults, setBestResults] = useState("");
-
-const remaining = maxChars - bestResults.length;
+src/
+├── assets/              # imagens (logos, posters, fundos, pessoas)
+├── config/
+│   └── content/         # conteúdos estáticos (home, malta, anadia)
+├── pages/
+│   ├── home/
+│   ├── malta/
+│   └── anadia/
+├── shared/
+│   └── components/      # componentes reutilizáveis
+├── styles/              # tokens e estilos globais
+├── App.jsx
+└── main.jsx
 ```
 
 ---
 
-## 🌐 Comunicação com o backend
+## 📝 Inscrições (Google Forms)
 
-Exemplo de função em `src/api/registrations.js`:
+- Cada camp possui formulários separados:
+  - Gymnasts
+  - Coaches
+  - Families
+- Os formulários são abertos em **modal fullscreen**
+- Gestão de:
+  - bloqueio de scroll
+  - fecho por overlay / ESC
+  - reload do iframe ao trocar de formulário
 
-```js
-export async function submitRegistration(data) {
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
+📌 **Dados não passam pelo frontend** — submissão direta ao Google Forms.
 
-  const response = await fetch(`${baseUrl}/api/registrations`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
+---
 
-  if (!response.ok) {
-    // podes melhorar mensagens de erro aqui
-    throw new Error("Falha ao enviar inscrição");
-  }
+## 🔐 Segurança & boas práticas
 
-  return response.json();
-}
+- HTTPS ativo no domínio
+- Nenhuma credencial no frontend
+- Google Forms protegidos por permissões Google
+- `.htaccess` usado para:
+  - SPA routing (React Router)
+  - forçar HTTPS
+  - evitar rotas quebradas em refresh
+
+---
+
+## 📦 Build & Deploy
+
+### Build local
+```bash
+npm install
+npm run build
 ```
 
-No formulário/wizard:
-
-```jsx
-try {
-  setIsSubmitting(true);
-  await submitRegistration(formData);
-  setStatus("success");
-} catch (err) {
-  setStatus("error");
-} finally {
-  setIsSubmitting(false);
-}
-```
+### Deploy
+- Upload da pasta `dist/` via FTP
+- Servidor Apache
+- `index.html` na raiz do domínio
+- `.htaccess` configurado para SPA
 
 ---
 
-## 🤖 Anti-bot (honeypot) no frontend
+## 🧠 Decisões técnicas
 
-Adicionar um input escondido no formulário:
-
-```jsx
-<input
-  type="text"
-  name="extraInfo"
-  autoComplete="off"
-  style={{ display: "none" }}
-  tabIndex={-1}
-  value={extraInfo}
-  onChange={(e) => setExtraInfo(e.target.value)}
-/>
-```
-
-- O utilizador humano não vê o campo.
-- Bots genéricos tendem a preencher todos os campos → backend detecta.
+- **Google Forms** em vez de backend:
+  - rapidez
+  - fiabilidade
+  - zero manutenção
+- **CSS Modules**:
+  - isolamento de estilos
+  - escalabilidade
+- **Config por ficheiros JS**:
+  - fácil edição de conteúdos
+  - sem CMS externo
 
 ---
 
-## 🎨 Estilos e design
+## 👤 Autor
 
-- CSS Modules por componente (ex: `Componente.module.css`)
-- Tokens de design centralizados (cores, fontes, etc.) em `design.tokens.css`
-- Gradientes e sombras consistentes entre home e páginas de camp
-- Respeitar o header fixo (espaço superior via `padding-block: var(--header-offset)` na página)
-
-Boas práticas:
-
-- Evitar estilos inline (usar CSS Modules sempre que possível).
-- Manter a paleta de cores consistente com os tokens.
-- Garantir contraste suficiente para legibilidade (especialmente sobre fundos com gradiente).
+Projeto desenvolvido por **João Costa**  
+Frontend Developer (React)
 
 ---
 
-## ♿ Acessibilidade básica
+## 📌 Nota para recrutadores
 
-- Cada input com `label` associado (`htmlFor` / `id`).
-- Mensagens de erro claras por campo.
-- Foco visível (não remover outline sem o substituir por algo equivalente).
-- Botões com texto descritivo (evitar apenas ícones sem `aria-label`).
-
----
-
-## 🔍 Desenvolvimento diário (workflow sugerido)
-
-1. `npm run dev` no backend (pasta `backend/`).
-2. `npm run dev` no frontend (pasta `frontend/`).
-3. Trabalhar em componentes/páginas/hook específicos.
-4. Correr `npm run build` pontualmente para garantir que a build de produção compila sem erros.
+Este projeto demonstra:
+- Estruturação de SPA em produção
+- Deploy real em alojamento tradicional
+- Gestão de routing, modais e estados
+- Integração com serviços externos
+- Atenção a UX, responsividade e detalhe visual
