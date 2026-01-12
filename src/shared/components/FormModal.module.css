@@ -1,0 +1,135 @@
+/* ===== Overlay ===== */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1000;
+
+    /* mobile-first */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* safe areas + margens */
+    padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+}
+
+/* ===== Modal ===== */
+.modal {
+    width: 100%;
+    max-width: 980px;
+
+    /* svh = melhor em mobile (barra do browser) */
+    height: min(92svh, 860px);
+    max-height: 92svh;
+
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    /* sombra suave */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* ===== Header ===== */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    flex: 0 0 auto;
+}
+
+.title {
+    margin: 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.close {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 6px 10px;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+/* ===== Iframe ===== */
+.iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    flex: 1 1 auto;
+    /* ocupa o resto do modal */
+}
+
+/* ===== Breakpoints ===== */
+
+/* 📱 Muito pequeno (ex: 320px) */
+@media (max-width: 360px) {
+    .overlay {
+        padding: 8px;
+    }
+
+    .modal {
+        height: 96svh;
+        border-radius: 12px;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 13px;
+    }
+
+    .close {
+        padding: 6px 8px;
+        border-radius: 9px;
+    }
+}
+
+/* 📱 Mobile normal */
+@media (max-width: 640px) {
+    .modal {
+        max-width: 100%;
+        height: 94svh;
+        /* mais alto no mobile */
+        border-radius: 12px;
+    }
+}
+
+/* 🖥️ Tablet / Desktop */
+@media (min-width: 768px) {
+    .overlay {
+        padding: 16px;
+    }
+
+    .modal {
+        height: min(85svh, 860px);
+        border-radius: 14px;
+    }
+
+    .header {
+        padding: 12px 14px;
+    }
+}
+
+/* 🖥️ Ecrãs muito baixos (ex: laptops com pouco height) */
+@media (max-height: 520px) {
+    .modal {
+        height: 96svh;
+    }
+}

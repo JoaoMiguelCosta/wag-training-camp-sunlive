@@ -1,57 +1,72 @@
-// src/pages/malta/components/MaltaRegistrationSection.jsx
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { maltaContent } from "../../../config/content/malta.content.js";
 import CampRegistrationSection from "../../../shared/components/CampRegistrationSection.jsx";
-import { GymnastRegistrationWizard } from "../../../shared/components/GymnastRegistrationWizard.jsx";
-import { CoachRegistrationWizard } from "../../../shared/components/CoachRegistrationWizard.jsx";
-import { FamilyRegistrationWizard } from "../../../shared/components/FamilyRegistrationWizard.jsx";
+import styles from "./MaltaRegistrationSection.module.css";
+
+const FORMS = {
+  gymnasts:
+    "https://docs.google.com/forms/d/e/1FAIpQLScv115gP_HMEEteLzpMSFcZkVWp1edZM7CctgBFmmAr6cuI0Q/viewform?embedded=true",
+
+  coaches:
+    "https://docs.google.com/forms/d/e/1FAIpQLSfXrmNUyknDt1n5hjS5rDQ9bvF3fgnGqGftI2Zriv4vQ2Kctg/viewform?embedded=true",
+
+  families:
+    "https://docs.google.com/forms/d/e/1FAIpQLSdRe7lvZJ-vV1UgOw5mPx-wVtsrKsJkDWfyXK7Cd8x30TBIzQ/viewform?embedded=true",
+};
+
+const TITLES = {
+  gymnasts: "GYMNASTS REGISTRATION",
+  coaches: "COACHES REGISTRATION",
+  families: "FAMILIES REGISTRATION",
+};
 
 export default function MaltaRegistrationSection() {
-  const { registrationSection, contentSection } = maltaContent;
+  const { registrationSection } = maltaContent;
   const { id, banner, ribbonText, buttons } = registrationSection;
 
-  const [openForm, setOpenForm] = useState(null);
+  const [activeKey, setActiveKey] = useState(null);
 
-  // ✅ Placeholder "substituto" (igual ao Anadia)
-  const baseParagraphs = useMemo(() => {
-    const items = contentSection?.items || [];
+  const isOpen = Boolean(activeKey);
+  const activeUrl = useMemo(
+    () => (activeKey ? FORMS[activeKey] : ""),
+    [activeKey]
+  );
+  const activeTitle = useMemo(
+    () => (activeKey ? TITLES[activeKey] : ""),
+    [activeKey]
+  );
 
-    return items.flatMap((item) => {
-      const hasPlaceholder = Boolean(item.isPlaceholder);
-      const note = item.placeholderText || "To be defined later";
+  const close = useCallback(() => setActiveKey(null), []);
 
-      return [item.title, ...(hasPlaceholder ? [note] : item.lines || []), ""];
-    });
-  }, [contentSection]);
+  const handleClick = useCallback((button) => {
+    const key = button?.id; // "gymnasts" | "coaches" | "families"
+    const url = FORMS[key];
+    if (!url) return;
 
-  const gymnastInfo = {
-    title: "Gymnasts / Ginastas | WAG Training Camp, Malta - 2026",
-    paragraphs: baseParagraphs,
-  };
+    setActiveKey(key);
+  }, []);
 
-  const coachInfo = {
-    title: "Coaches / Treinadores | WAG Training Camp, Malta - 2026",
-    paragraphs: baseParagraphs,
-  };
+  // ✅ Fechar com ESC
+  useEffect(() => {
+    if (!isOpen) return;
 
-  const familyInfo = {
-    title: "Families / Famílias | WAG Training Camp, Malta - 2026",
-    paragraphs: baseParagraphs,
-  };
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") close();
+    };
 
-  const campOptions = [
-    {
-      value: "6th - 11th July 2026",
-      label: "» 6th - 11th July 2026",
-    },
-  ];
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, close]);
 
-  const handleClick = (button) => {
-    if (button.id === "gymnasts") setOpenForm("gymnasts");
-    else if (button.id === "coaches") setOpenForm("coaches");
-    else if (button.id === "families") setOpenForm("families");
-    else setOpenForm(null);
-  };
+  // ✅ Bloquear scroll do body enquanto modal está aberto
+  useEffect(() => {
+    if (!isOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -63,34 +78,41 @@ export default function MaltaRegistrationSection() {
         onButtonClick={handleClick}
       />
 
-      {openForm === "gymnasts" && (
-        <GymnastRegistrationWizard
-          isOpen={true}
-          onClose={() => setOpenForm(null)}
-          camp="malta"
-          infoContent={gymnastInfo}
-          campOptions={campOptions}
-        />
-      )}
+      {isOpen && (
+        <div
+          className={styles.backdrop}
+          role="dialog"
+          aria-modal="true"
+          aria-label={activeTitle}
+          onMouseDown={close}
+        >
+          <div
+            className={styles.modal}
+            onMouseDown={(e) => e.stopPropagation()}
+          >
+            <div className={styles.header}>
+              <h3 className={styles.title}>{activeTitle}</h3>
 
-      {openForm === "coaches" && (
-        <CoachRegistrationWizard
-          isOpen={true}
-          onClose={() => setOpenForm(null)}
-          camp="malta"
-          infoContent={coachInfo}
-          campOptions={campOptions}
-        />
-      )}
+              <button
+                type="button"
+                className={styles.closeBtn}
+                onClick={close}
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            </div>
 
-      {openForm === "families" && (
-        <FamilyRegistrationWizard
-          isOpen={true}
-          onClose={() => setOpenForm(null)}
-          camp="malta"
-          infoContent={familyInfo}
-          campOptions={campOptions}
-        />
+            <iframe
+              key={activeKey} // força reload quando mudas de form
+              title={activeTitle}
+              src={activeUrl}
+              className={styles.iframe}
+              loading="lazy"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        </div>
       )}
     </>
   );

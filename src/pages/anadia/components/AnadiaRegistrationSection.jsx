@@ -1,63 +1,73 @@
 // src/pages/anadia/components/AnadiaRegistrationSection.jsx
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { anadiaContent } from "../../../config/content/anadia.content.js";
 import CampRegistrationSection from "../../../shared/components/CampRegistrationSection.jsx";
-import { GymnastRegistrationWizard } from "../../../shared/components/GymnastRegistrationWizard.jsx";
-import { CoachRegistrationWizard } from "../../../shared/components/CoachRegistrationWizard.jsx";
-import { FamilyRegistrationWizard } from "../../../shared/components/FamilyRegistrationWizard.jsx";
+import styles from "./AnadiaRegistrationSection.module.css";
+
+const FORMS = {
+  gymnasts:
+    "https://docs.google.com/forms/d/e/1FAIpQLScPlOjAJgJ_YswTieR-8sdihokLmtsxCXtb1BhaOeqbBljs5A/viewform?embedded=true",
+
+  coaches:
+    "https://docs.google.com/forms/d/e/1FAIpQLSf2AiXNkSjDos4uUsFIftZmwbuv4F8RO05Ct1-tILk4qXKkyA/viewform?embedded=true",
+
+  families:
+    "https://docs.google.com/forms/d/e/1FAIpQLScIXg4bjQfyUpklz9jIYeu2nCITQvEp936MaoYKj-2s8Peq8g/viewform?embedded=true",
+};
+
+const TITLES = {
+  gymnasts: "GYMNASTS REGISTRATION",
+  coaches: "COACHES REGISTRATION",
+  families: "FAMILIES REGISTRATION",
+};
 
 export default function AnadiaRegistrationSection() {
-  const { registrationSection, contentSection } = anadiaContent;
+  const { registrationSection } = anadiaContent;
   const { id, banner, ribbonText, buttons } = registrationSection;
 
-  const [openForm, setOpenForm] = useState(null);
+  const [activeKey, setActiveKey] = useState(null);
 
-  // ✅ "substituto" como nos outros:
-  // - se item.isPlaceholder -> mostra só o placeholderText (ou "To be defined later")
-  // - senão -> mostra as lines
-  const baseParagraphs = useMemo(() => {
-    const items = contentSection?.items || [];
+  const isOpen = Boolean(activeKey);
+  const activeUrl = useMemo(
+    () => (activeKey ? FORMS[activeKey] : ""),
+    [activeKey]
+  );
+  const activeTitle = useMemo(
+    () => (activeKey ? TITLES[activeKey] : ""),
+    [activeKey]
+  );
 
-    return items.flatMap((item) => {
-      const hasPlaceholder = Boolean(item.isPlaceholder);
-      const placeholderText = item.placeholderText || "To be defined later";
+  const close = useCallback(() => setActiveKey(null), []);
 
-      return [
-        item.title,
-        ...(hasPlaceholder ? [placeholderText] : item.lines || []),
-        "",
-      ];
-    });
-  }, [contentSection]);
+  const handleClick = useCallback((button) => {
+    const key = button?.id; // "gymnasts" | "coaches" | "families"
+    const url = FORMS[key];
+    if (!url) return;
 
-  const gymnastInfo = {
-    title: "Gymnasts / Ginastas | WAG Training Camp, ANADIA - 2026",
-    paragraphs: baseParagraphs,
-  };
+    setActiveKey(key);
+  }, []);
 
-  const coachInfo = {
-    title: "Coaches / Treinadores | WAG Training Camp, ANADIA - 2026",
-    paragraphs: baseParagraphs,
-  };
+  // ✅ Fechar com ESC
+  useEffect(() => {
+    if (!isOpen) return;
 
-  const familyInfo = {
-    title: "Families / Famílias | WAG Training Camp, ANADIA - 2026",
-    paragraphs: baseParagraphs,
-  };
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") close();
+    };
 
-  const campOptions = [
-    {
-      value: "17th - 22th August 2026",
-      label: "» 17th - 22th August 2026",
-    },
-  ];
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, close]);
 
-  const handleClick = (button) => {
-    if (button.id === "gymnasts") setOpenForm("gymnasts");
-    else if (button.id === "coaches") setOpenForm("coaches");
-    else if (button.id === "families") setOpenForm("families");
-    else setOpenForm(null);
-  };
+  // ✅ Bloquear scroll do body enquanto modal está aberto
+  useEffect(() => {
+    if (!isOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -69,34 +79,41 @@ export default function AnadiaRegistrationSection() {
         onButtonClick={handleClick}
       />
 
-      {openForm === "gymnasts" && (
-        <GymnastRegistrationWizard
-          isOpen={true}
-          onClose={() => setOpenForm(null)}
-          camp="anadia"
-          infoContent={gymnastInfo}
-          campOptions={campOptions}
-        />
-      )}
+      {isOpen && (
+        <div
+          className={styles.backdrop}
+          role="dialog"
+          aria-modal="true"
+          aria-label={activeTitle}
+          onMouseDown={close}
+        >
+          <div
+            className={styles.modal}
+            onMouseDown={(e) => e.stopPropagation()}
+          >
+            <div className={styles.header}>
+              <h3 className={styles.title}>{activeTitle}</h3>
 
-      {openForm === "coaches" && (
-        <CoachRegistrationWizard
-          isOpen={true}
-          onClose={() => setOpenForm(null)}
-          camp="anadia"
-          infoContent={coachInfo}
-          campOptions={campOptions}
-        />
-      )}
+              <button
+                type="button"
+                className={styles.closeBtn}
+                onClick={close}
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            </div>
 
-      {openForm === "families" && (
-        <FamilyRegistrationWizard
-          isOpen={true}
-          onClose={() => setOpenForm(null)}
-          camp="anadia"
-          infoContent={familyInfo}
-          campOptions={campOptions}
-        />
+            <iframe
+              key={activeKey} // força reload quando mudas de form
+              title={activeTitle}
+              src={activeUrl}
+              className={styles.iframe}
+              loading="lazy"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        </div>
       )}
     </>
   );
