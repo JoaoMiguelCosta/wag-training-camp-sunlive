@@ -8,6 +8,7 @@ import estalagemLogo from "../../assets/logos/estalagem.png";
 import jumpUpLogo from "../../assets/logos/jump-up.png";
 import gymtrackLogo from "../../assets/logos/gymtrack.png";
 import wagVerticalLogo from "../../assets/logos/wag-vertical.png";
+import carolPhoto from "../../assets/person-malta/carol.png";
 
 import posterAnadia from "../../assets/posters/poster-anadia.png";
 import bannerAnadia from "../../assets/banners-malta-anadia/banner-anadia.png";
@@ -445,7 +446,7 @@ export const anadiaContent = {
     authorName: "Carol-Angela Orchard",
     authorRole: "4-time Worlds Medallist & 4-time Olympic coach",
     photo: {
-      src: "/src/assets/person-malta/carol.png",
+      src: carolPhoto,
       alt: "Carol-Angela Orchard",
     },
     bio: {

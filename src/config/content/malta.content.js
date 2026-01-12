@@ -14,6 +14,8 @@ import posterMalta from "../../assets/posters/poster-malta.png";
 import bannerMalta from "../../assets/banners-malta-anadia/banner-malta.png";
 import fundoMalta from "../../assets/background-malta/fundo-malta.jpg";
 import fundoMalta3 from "../../assets/background-malta/malta-fundo3.jpg";
+import carolPhoto from "../../assets/person-malta/carol.png";
+import francescaPhoto from "../../assets/person-malta/francesca.png";
 
 export const maltaContent = {
   header: {
@@ -66,7 +68,7 @@ export const maltaContent = {
     authorName: "Francesca Borg",
     authorRole: "Organization Sunlive Malta",
     photo: {
-      src: "/src/assets/person-malta/francesca.png",
+      src: francescaPhoto,
       alt: "Francesca Borg",
     },
   },
@@ -79,7 +81,7 @@ export const maltaContent = {
     authorName: "Carol-Angela Orchard",
     authorRole: "4-time Worlds Medallist & 4-time Olympic coach",
     photo: {
-      src: "/src/assets/person-malta/carol.png",
+      src: carolPhoto,
       alt: "Carol-Angela Orchard",
     },
     bio: {
