@@ -48,21 +48,35 @@ export const homeContent = {
   contactsSection: {
     title: "Contacts",
     cards: [
+      // 🇲🇹 MALTA (1ª linha)
       {
-        id: "email",
+        id: "email-malta",
         title: "Email",
+        group: "malta",
+        link: { href: "mailto:events@sunlive.pt", label: "events@sunlive.pt" },
+      },
+      {
+        id: "phone-malta",
+        title: "Phone",
+        group: "malta",
+        link: { href: "tel:+351936126161", label: "+(00351) 936 126 161" },
+      },
+
+      // 🇵🇹 PORTUGAL (2ª linha)
+      {
+        id: "email-portugal",
+        title: "Email",
+        group: "portugal",
         link: {
-          href: "mailto:events@sunlive.pt",
-          label: "events@sunlive.pt",
+          href: "mailto:sunlivegymnastics@gmail.com",
+          label: "sunlivegymnastics@gmail.com",
         },
       },
       {
-        id: "phone",
+        id: "phone-portugal",
         title: "Phone",
-        link: {
-          href: "tel:+351936126161",
-          label: "+(00351) 936 126 161",
-        },
+        group: "portugal",
+        link: { href: "tel:+351934094584", label: "+351 934 094 584" },
       },
     ],
   },

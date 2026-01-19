@@ -207,8 +207,8 @@ export const maltaContent = {
       id: "program-schedule",
       columns: [
         {
-          id: "monday-july-6",
-          title: "» MONDAY, JULY 6",
+          id: "sunday-july-12",
+          title: "» SUNDAY, JULY 12",
           items: [
             { time: "", description: "Hotel Check-in: Topaz Hotel" },
             { time: "", description: "Breakfast & Lunch" },
@@ -221,8 +221,6 @@ export const maltaContent = {
             { time: "18:15 - 19:30", description: "Free Time" },
             { time: "19:30", description: "Dinner" },
             { time: "20:30", description: "Coaching Education Session" },
-
-            // ✅ Placeholder (substituto) guardado p/ mais tarde
             {
               time: "",
               description: "To be defined later",
@@ -232,8 +230,8 @@ export const maltaContent = {
         },
 
         {
-          id: "tuesday-july-7",
-          title: "» TUESDAY, JULY 7",
+          id: "monday-july-13",
+          title: "» MONDAY, JULY 13",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -250,7 +248,6 @@ export const maltaContent = {
             },
             { time: "19:30", description: "Dinner" },
             { time: "20:30", description: "Coaching Education" },
-
             {
               time: "",
               description: "To be defined later",
@@ -260,8 +257,8 @@ export const maltaContent = {
         },
 
         {
-          id: "wednesday-july-8",
-          title: "» WEDNESDAY, JULY 8",
+          id: "tuesday-july-14",
+          title: "» TUESDAY, JULY 14",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -273,7 +270,6 @@ export const maltaContent = {
             { time: "19:00", description: "Transport to Hotel" },
             { time: "19:30", description: "Dinner" },
             { time: "20:30", description: "Coaching Education" },
-
             {
               time: "",
               description: "To be defined later",
@@ -283,8 +279,8 @@ export const maltaContent = {
         },
 
         {
-          id: "thursday-july-9",
-          title: "» THURSDAY, JULY 9",
+          id: "wednesday-july-15",
+          title: "» WEDNESDAY, JULY 15",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -296,7 +292,6 @@ export const maltaContent = {
             { time: "17:45", description: "Transport to Hotel" },
             { time: "19:00", description: "Dinner" },
             { time: "", description: "FREE EVENING FOR COACHES & GYMNASTS" },
-
             {
               time: "",
               description: "To be defined later",
@@ -306,8 +301,30 @@ export const maltaContent = {
         },
 
         {
-          id: "friday-july-10",
-          title: "» FRIDAY, JULY 10",
+          id: "thursday-july-16",
+          title: "» THURSDAY, JULY 16",
+          items: [
+            { time: "7:15", description: "Breakfast" },
+            { time: "8:00", description: "Transport to Gym" },
+            { time: "8:45 - 11:40", description: "Training" },
+            { time: "11:45", description: "Transport to Hotel" },
+            { time: "12:30", description: "Lunch" },
+            { time: "15:30", description: "Transport to Gym" },
+            { time: "16:15 - 19:00", description: "Training" },
+            { time: "19:00", description: "Transport to Hotel" },
+            { time: "19:30", description: "Dinner" },
+            { time: "20:30", description: "Coaching Education" },
+            {
+              time: "",
+              description: "To be defined later",
+              isPlaceholder: true,
+            },
+          ],
+        },
+
+        {
+          id: "friday-july-17",
+          title: "» FRIDAY, JULY 17",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -321,7 +338,6 @@ export const maltaContent = {
               description:
                 "FAREWELL FINAL DINNER & Presentation of Diplomas to Gymnasts/Coaches & Q/A session with expert coaches",
             },
-
             {
               time: "",
               description: "To be defined later",
@@ -331,8 +347,8 @@ export const maltaContent = {
         },
 
         {
-          id: "saturday-july-11",
-          title: "» SATURDAY, JULY 11",
+          id: "saturday-july-18",
+          title: "» SATURDAY, JULY 18",
           items: [
             {
               time: "7:15",
@@ -347,10 +363,20 @@ export const maltaContent = {
             { time: "11:45", description: "Transport to Hotel" },
             {
               time: "",
-              description:
-                "Saturday, July 19 (Afternoon) & Sunday, July 20 - DEPARTURES",
+              description: "To be defined later",
+              isPlaceholder: true,
             },
+          ],
+        },
 
+        {
+          id: "sunday-july-19",
+          title: "» SUNDAY, JULY 19",
+          items: [
+            {
+              time: "",
+              description: "DEPARTURES",
+            },
             {
               time: "",
               description: "To be defined later",

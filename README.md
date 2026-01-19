@@ -12,10 +12,10 @@ Aplicação frontend desenvolvida em **React + Vite**, já **em produção**, pa
 
 ## 🎯 Objetivo do projeto
 
-- Página institucional do WAG Training Camp  
-- Divulgação dos camps (Malta / Portugal – Anadia)  
-- Apresentação de programa, equipa técnica, venue e parceiros  
-- Inscrições através de **Google Forms integrados em modal (iframe)**  
+- Página institucional do WAG Training Camp
+- Divulgação dos camps (Malta / Portugal – Anadia)
+- Apresentação de programa, equipa técnica, venue e parceiros
+- Inscrições através de **Google Forms integrados em modal (iframe)**
 
 👉 Projeto **100% frontend**, sem backend próprio.
 
@@ -23,24 +23,24 @@ Aplicação frontend desenvolvida em **React + Vite**, já **em produção**, pa
 
 ## ⚙️ Stack técnica
 
-- React 19  
-- Vite  
-- React Router  
-- CSS Modules  
-- Google Forms (embed via iframe)  
-- Apache (.htaccess)  
-- Deploy tradicional via FTP  
+- React 19
+- Vite
+- React Router
+- CSS Modules
+- Google Forms (embed via iframe)
+- Apache (.htaccess)
+- Deploy tradicional via FTP
 
 ---
 
 ## 🚀 Estado atual
 
-- ✅ Produção ativa  
-- ✅ HTTPS ativo  
-- ✅ Routing funcional (`/`, `/malta`, `/anadia`)  
-- ✅ Modais de inscrição funcionais  
-- ✅ Responsive (mobile-first)  
-- ❌ Sem backend / API própria  
+- ✅ Produção ativa
+- ✅ HTTPS ativo
+- ✅ Routing funcional (`/`, `/malta`, `/anadia`)
+- ✅ Modais de inscrição funcionais
+- ✅ Responsive (mobile-first)
+- ❌ Sem backend / API própria
 
 ---
 
@@ -95,12 +95,14 @@ src/
 ## 📦 Build & Deploy
 
 ### Build local
+
 ```bash
 npm install
 npm run build
 ```
 
 ### Deploy
+
 - Upload da pasta `dist/` via FTP
 - Servidor Apache
 - `index.html` na raiz do domínio
@@ -133,6 +135,7 @@ Frontend Developer (React)
 ## 📌 Nota para recrutadores
 
 Este projeto demonstra:
+
 - Estruturação de SPA em produção
 - Deploy real em alojamento tradicional
 - Gestão de routing, modais e estados

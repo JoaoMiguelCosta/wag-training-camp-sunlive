@@ -475,11 +475,7 @@ export const anadiaContent = {
       {
         id: "contacts",
         title: "CONTACTS",
-        lines: [
-          "@: events@sunlive.pt",
-          "M: +(00351) 936 126 161",
-          "T: +(00351) 234 745 133",
-        ],
+        lines: ["sunlivegymnastics@gmail.com", "+351 934 094 584"],
       },
       {
         id: "links",

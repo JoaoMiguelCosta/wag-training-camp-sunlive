@@ -55,7 +55,8 @@
 
 /* conteúdo interno do InfoCard */
 .cardContent {
-    flex: 1 1 30rem;
+    flex: 1 1 34rem;
+    /* força a ficar 2 por linha em ecrãs largos */
     max-width: 34rem;
     gap: 1.25rem;
 }
@@ -190,4 +191,22 @@
     .title {
         font-size: 1.7rem;
     }
+}
+
+.groupTitle {
+    margin: 0.5rem 0 1.25rem;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+
+    text-shadow:
+        0 0 4px rgba(15, 23, 42, 1),
+        0 0 14px rgba(148, 163, 184, 1);
+}
+
+/* espaçamento entre os 2 grupos */
+.grid+.groupTitle {
+    margin-top: 2.5rem;
 }
