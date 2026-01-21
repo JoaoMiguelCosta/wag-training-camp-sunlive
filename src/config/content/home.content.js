@@ -59,7 +59,7 @@ export const homeContent = {
         id: "phone-malta",
         title: "Phone",
         group: "malta",
-        link: { href: "tel:+351936126161", label: "+(00351) 936 126 161" },
+        link: { href: "tel:+356 99164245", label: "+356 99164245" },
       },
 
       // 🇵🇹 PORTUGAL (2ª linha)
