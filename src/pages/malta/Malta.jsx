@@ -10,11 +10,10 @@ import MaltaCoachingTeamSection from "./components/MaltaCoachingTeamSection.jsx"
 import MaltaProgramSection from "./components/MaltaProgramSection.jsx";
 import MaltaGymStarsSection from "./components/MaltaGymStarsSection.jsx";
 import MaltaContentSection from "./components/MaltaContentSection.jsx";
-import MaltaHotelSection from "./components/MaltaHotelSection.jsx";
+// import MaltaHotelSection from "./components/MaltaHotelSection.jsx";
 import { MaltaLogosSection } from "./components/MaltaLogosSection.jsx";
 import { MaltaContactsSection } from "./components/MaltaContactsSection.jsx";
 import { MaltaFooter } from "./components/MaltaFooter.jsx";
-
 
 export default function MaltaPage() {
   return (
@@ -27,10 +26,10 @@ export default function MaltaPage() {
       <MaltaProgramSection />
       <MaltaGymStarsSection />
       <MaltaContentSection />
-      <MaltaHotelSection />
+      {/* <MaltaHotelSection /> */}
       <MaltaSunliveSection />
       <MaltaLogosSection />
-      <MaltaContactsSection/>
+      <MaltaContactsSection />
       <MaltaFooter />
 
       <ScrollToTopButton />

@@ -53,7 +53,7 @@ export const homeContent = {
         id: "email-malta",
         title: "Email",
         group: "malta",
-        link: { href: "mailto:events@sunlive.pt", label: "events@sunlive.pt" },
+        link: { href: "mailto: malta@sunlive.pt", label: "malta@sunlive.pt" },
       },
       {
         id: "phone-malta",

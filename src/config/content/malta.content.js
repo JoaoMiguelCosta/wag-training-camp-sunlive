@@ -193,7 +193,7 @@ export const maltaContent = {
     websiteUrl: "https://gymstarsmalta.com",
   },
 
-  // 🔹 SECÇÃO DE PROGRAMA
+  // 🔹 SECÇÃO DE PROGRAMA (ATUALIZADA: 8 a 13 de July)
   programSection: {
     id: "program",
     banner: {
@@ -206,9 +206,10 @@ export const maltaContent = {
     schedule: {
       id: "program-schedule",
       columns: [
+        // (era SUNDAY, JULY 12)
         {
-          id: "sunday-july-12",
-          title: "» SUNDAY, JULY 12",
+          id: "wednesday-july-08",
+          title: "» WEDNESDAY, JULY 8",
           items: [
             { time: "", description: "Hotel Check-in: Topaz Hotel" },
             { time: "", description: "Breakfast & Lunch" },
@@ -229,9 +230,10 @@ export const maltaContent = {
           ],
         },
 
+        // (era MONDAY, JULY 13)
         {
-          id: "monday-july-13",
-          title: "» MONDAY, JULY 13",
+          id: "thursday-july-09",
+          title: "» THURSDAY, JULY 9",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -256,9 +258,10 @@ export const maltaContent = {
           ],
         },
 
+        // (era TUESDAY, JULY 14)
         {
-          id: "tuesday-july-14",
-          title: "» TUESDAY, JULY 14",
+          id: "friday-july-10",
+          title: "» FRIDAY, JULY 10",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -278,9 +281,10 @@ export const maltaContent = {
           ],
         },
 
+        // (era WEDNESDAY, JULY 15)
         {
-          id: "wednesday-july-15",
-          title: "» WEDNESDAY, JULY 15",
+          id: "saturday-july-11",
+          title: "» SATURDAY, JULY 11",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -300,9 +304,10 @@ export const maltaContent = {
           ],
         },
 
+        // (era THURSDAY, JULY 16)
         {
-          id: "thursday-july-16",
-          title: "» THURSDAY, JULY 16",
+          id: "sunday-july-12",
+          title: "» SUNDAY, JULY 12",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -322,9 +327,10 @@ export const maltaContent = {
           ],
         },
 
+        // (era FRIDAY, JULY 17)
         {
-          id: "friday-july-17",
-          title: "» FRIDAY, JULY 17",
+          id: "monday-july-13",
+          title: "» MONDAY, JULY 13",
           items: [
             { time: "7:15", description: "Breakfast" },
             { time: "8:00", description: "Transport to Gym" },
@@ -337,45 +343,6 @@ export const maltaContent = {
               time: "19:30",
               description:
                 "FAREWELL FINAL DINNER & Presentation of Diplomas to Gymnasts/Coaches & Q/A session with expert coaches",
-            },
-            {
-              time: "",
-              description: "To be defined later",
-              isPlaceholder: true,
-            },
-          ],
-        },
-
-        {
-          id: "saturday-july-18",
-          title: "» SATURDAY, JULY 18",
-          items: [
-            {
-              time: "7:15",
-              description:
-                "Breakfast & Check-out (for those departing on Saturday)",
-            },
-            { time: "8:00", description: "Transport to Gym" },
-            {
-              time: "8:45 - 11:40",
-              description: "Gymnasts’ Presentation & Photos",
-            },
-            { time: "11:45", description: "Transport to Hotel" },
-            {
-              time: "",
-              description: "To be defined later",
-              isPlaceholder: true,
-            },
-          ],
-        },
-
-        {
-          id: "sunday-july-19",
-          title: "» SUNDAY, JULY 19",
-          items: [
-            {
-              time: "",
-              description: "DEPARTURES",
             },
             {
               time: "",
@@ -525,7 +492,7 @@ export const maltaContent = {
       {
         id: "contacts",
         title: "Contacts",
-        lines: ["@: events@sunlive.pt", "M: (+356) 99 164 245"],
+        lines: ["@:  malta@sunlive.pt", "M: (+356) 99 164 245"],
       },
       {
         id: "links",
