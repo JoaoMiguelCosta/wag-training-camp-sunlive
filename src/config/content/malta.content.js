@@ -193,7 +193,7 @@ export const maltaContent = {
     websiteUrl: "https://gymstarsmalta.com",
   },
 
-  // 🔹 SECÇÃO DE PROGRAMA (ATUALIZADA: 8 a 13 de July)
+  
   programSection: {
     id: "program",
     banner: {
@@ -206,12 +206,12 @@ export const maltaContent = {
     schedule: {
       id: "program-schedule",
       columns: [
-        // (era SUNDAY, JULY 12)
+      
         {
           id: "wednesday-july-08",
           title: "» WEDNESDAY, JULY 8",
           items: [
-            { time: "", description: "Hotel Check-in: Topaz Hotel" },
+            { time: "", description: "Hotel Check-in" },
             { time: "", description: "Breakfast & Lunch" },
             { time: "12:00", description: "Transport to Gym" },
             { time: "12:50", description: "Arrival at Gym" },
@@ -230,7 +230,7 @@ export const maltaContent = {
           ],
         },
 
-        // (era MONDAY, JULY 13)
+      
         {
           id: "thursday-july-09",
           title: "» THURSDAY, JULY 9",
@@ -258,7 +258,7 @@ export const maltaContent = {
           ],
         },
 
-        // (era TUESDAY, JULY 14)
+      
         {
           id: "friday-july-10",
           title: "» FRIDAY, JULY 10",
@@ -281,7 +281,7 @@ export const maltaContent = {
           ],
         },
 
-        // (era WEDNESDAY, JULY 15)
+      
         {
           id: "saturday-july-11",
           title: "» SATURDAY, JULY 11",

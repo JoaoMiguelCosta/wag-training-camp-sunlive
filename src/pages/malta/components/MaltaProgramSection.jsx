@@ -5,12 +5,20 @@ import ProgramScheduleGrid from "../../../shared/components/ProgramScheduleGrid.
 
 import styles from "./MaltaProgramSection.module.css";
 
-export default function MaltaProgramSection() {
-  const { programSection } = maltaContent;
+export default function MaltaProgramSection({
+  program = maltaContent.programSection,
+}) {
+  if (!program) return null;
 
-  if (!programSection) return null;
+  const { id, banner, schedule } = program;
 
-  const { id, banner, schedule } = programSection;
+  const cleanedColumns =
+    schedule?.columns?.map((col) => ({
+      ...col,
+      items: Array.isArray(col.items)
+        ? col.items.filter((item) => !item?.isPlaceholder)
+        : [],
+    })) ?? [];
 
   return (
     <section id={id} className={styles.section}>
@@ -23,11 +31,9 @@ export default function MaltaProgramSection() {
         />
       )}
 
-      {schedule &&
-        Array.isArray(schedule.columns) &&
-        schedule.columns.length > 0 && (
-          <ProgramScheduleGrid id={schedule.id} columns={schedule.columns} />
-        )}
+      {schedule?.id && cleanedColumns.length > 0 && (
+        <ProgramScheduleGrid id={schedule.id} columns={cleanedColumns} />
+      )}
     </section>
   );
 }

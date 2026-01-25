@@ -19,6 +19,18 @@
     flex-direction: column;
 }
 
+/* ✅ Tokens internos para estilo */
+:root {
+    --info-accent: rgba(252, 211, 77, 0.95);
+    --info-heading-bg: rgba(15, 23, 42, 0.22);
+    --info-bullet: rgba(248, 250, 252, 0.95);
+    --info-title-bg: rgba(15, 23, 42, 0.28);
+    --info-title-border: rgba(248, 250, 252, 0.12);
+
+    --info-sub-bg: rgba(15, 23, 42, 0.18);
+    --info-sub-border: rgba(252, 211, 77, 0.35);
+}
+
 .grid {
     display: grid;
 }
@@ -67,27 +79,49 @@
     width: 100%;
 }
 
+/* ✅ TÍTULO DO CARD (REGISTRATION/PRICES/...) */
 .cardTitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    padding: 0.65rem 0.9rem;
+    margin: 0 0 0.95rem;
+
+    background: var(--info-title-bg);
+    border: 1px solid var(--info-title-border);
+    border-left: 3px solid var(--info-accent);
+    border-radius: 0.9rem;
+
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.35);
+}
+
+.cardTitleIcon {
+    color: var(--info-accent);
+    text-shadow: 0 0 10px rgba(15, 23, 42, 0.8);
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.cardTitleText {
     font-family: var(--font-family-heading);
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
 
     color: #fef3f7;
     text-shadow: 0 0 10px rgba(15, 23, 42, 0.8),
         0 0 18px rgba(15, 23, 42, 0.7);
 
-    margin-bottom: 0.8rem;
     white-space: normal;
 }
 
-/* ✅ “To be defined later” por baixo do título (substituto) */
+/* ✅ Placeholder */
 .placeholderNote {
     margin: -0.25rem 0 0;
     font-size: 0.92rem;
     line-height: 1.6;
-
     opacity: 0.85;
     font-style: italic;
     color: #f9fafb;
@@ -110,17 +144,81 @@
     color: #f9fafb;
 }
 
+/* ✅ Linhas normais */
 .listItem {
     position: relative;
-    padding-left: 0.95rem;
+    padding-left: 1.05rem;
 }
 
 .listItem::before {
-    content: "–";
+    content: "•";
     position: absolute;
     left: 0;
     top: 0;
-    color: #f9fafb;
+    color: var(--info-bullet);
+    opacity: 0.95;
+}
+
+/* ✅ (Se usares headings dentro do texto com "= ...") */
+.listHeading {
+    margin-top: 0.85rem;
+    padding: 0.55rem 0.7rem;
+
+    background: var(--info-heading-bg);
+    border-left: 3px solid var(--info-accent);
+    border-radius: 0.6rem;
+
+    font-family: var(--font-family-heading);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: var(--info-accent);
+    text-shadow: 0 0 10px rgba(15, 23, 42, 0.75);
+}
+
+.listHeading::before {
+    content: none;
+}
+
+/* ✅ SUB-TÍTULOS (GYMNASTS/COACHES/FAMILY/EXTRA NIGHTS/EXTRA MEALS) */
+.listSubheading {
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.7rem;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+ 
+
+  
+
+
+    font-family: var(--font-family-heading);
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(15, 23, 42, 0.75);
+
+    width: fit-content;
+}
+
+.subheadingIcon {
+    color: var(--info-accent);
+    text-shadow: 0 0 10px rgba(15, 23, 42, 0.8);
+    line-height: 1;
+}
+
+.listSubheading::before {
+    content: none;
+}
+
+/* ✅ Espaçadores (linhas vazias "") */
+.spacer {
+    height: 0.55rem;
 }
 
 @media (max-width: 64rem) {
@@ -138,8 +236,9 @@
         grid-column: auto;
     }
 
-    .cardTitle {
+    .cardTitleText {
         font-size: 0.9rem;
+        letter-spacing: 0.16em;
     }
 
     .list {
@@ -158,7 +257,7 @@
         gap: 1.6rem;
     }
 
-    .cardTitle {
+    .cardTitleText {
         letter-spacing: 0.12em;
     }
 

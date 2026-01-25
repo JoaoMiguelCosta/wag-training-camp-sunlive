@@ -73,8 +73,8 @@ export const anadiaContent = {
       id: "program-schedule",
       columns: [
         {
-          id: "Monday-august-17",
-          title: "» MONDAY, AUGUST 17",
+          id: "Wednesday-august-19",
+          title: "» WEDNESDAY, AUGUST 19",
           items: [
             {
               time: "",
@@ -102,8 +102,8 @@ export const anadiaContent = {
         },
 
         {
-          id: "Tuesday-august-18",
-          title: "» TUESDAY, AUGUST 18",
+          id: "Thursday-august-20",
+          title: "» THURSDAY, AUGUST 20",
           items: [
             { time: "7:45", description: "Breakfast" },
             { time: "8:25", description: "Transport" },
@@ -132,8 +132,8 @@ export const anadiaContent = {
         },
 
         {
-          id: "Wednesday-august-19",
-          title: "» WEDNESDAY, AUGUST 19",
+          id: "Friday-august-21",
+          title: "» FRIDAY, AUGUST 21",
           items: [
             { time: "8:30", description: "Breakfast" },
             { time: "9:10", description: "Transport" },
@@ -159,8 +159,8 @@ export const anadiaContent = {
         },
 
         {
-          id: "Thursday-august-20",
-          title: "» THURSDAY, AUGUST 20",
+          id: "Saturday-august-22",
+          title: "» SATURDAY, AUGUST 22",
           items: [
             { time: "8:30", description: "Breakfast" },
             { time: "9:30", description: "Transport" },
@@ -184,8 +184,8 @@ export const anadiaContent = {
         },
 
         {
-          id: "Friday-august-21",
-          title: "» FRIDAY, AUGUST 21",
+          id: "Sunday-august-23",
+          title: "» SUNDAY, AUGUST 23",
           items: [
             { time: "8:45", description: "Breakfast" },
             { time: "9:25", description: "Transport" },
@@ -210,8 +210,8 @@ export const anadiaContent = {
         },
 
         {
-          id: "Saturday-august-22",
-          title: "» SATURDAY, AUGUST 22",
+          id: "Monday-august-24",
+          title: "» MONDAY, AUGUST 24",
           items: [
             { time: "8:15", description: "Breakfast" },
             { time: "8:40", description: "Transport" },
@@ -310,79 +310,75 @@ export const anadiaContent = {
       {
         id: "registration",
         title: "★ REGISTRATION",
-        isPlaceholder: true,
-        placeholderText: "To be defined later",
         lines: [
-          "Registrations must be made in our website registration form until June 30.",
+          "Registrations must be made in our website registration form until May 30.",
           "Registrations will only be accepted after submission of bank transfer of 50% of the final price.",
-          "In case of a participant withdrawal until May 31, this deposit will be refunded.",
-          "In case of a participant withdrawal after May 31 and before June 30, only 50% of the deposit will be refunded.",
-          "In case of absence of the camp or withdrawal after June 30, this deposit will not be refunded.",
+          "In case of a participant withdrawal until May 30, this deposit will be refunded.",
+          "In case of a participant withdrawal after May 30 and before June 15, only 50% of the deposit will be refunded.",
+          "In case of absence of the camp or withdrawal after June 15, this deposit won’t be refunded.",
           "A proof of payment of the remaining 50% has to be made up to the moment of the check in.",
           "We’ll accept a maximum of 40 gymnasts in a first come first served basis.",
           "If more gymnasts show interest in register, we’ll have a waiting list, by order of contact (no extra costs).",
-          "If available, it will be possible to register after June 30, with an extra payment of 100 euros per person.",
+          "If available, it will be possible to register after June 15, with extra payment of 100 euros per person.",
           "In case of cancellation of the camp, all the payments will be reimbursed.",
         ],
       },
+
       {
         id: "prices",
         title: "★ PRICES",
-        isPlaceholder: true,
-        placeholderText: "To be defined later",
         lines: [
-          "Gymnasts:",
-          "Single room: €940",
-          "Double/Twin room: €760",
-          "Triple and more: €700",
+          "GYMNASTS",
+          "Single room: €950",
+          "Double/Twin room: €780",
+          "Triple and more room: €720",
           "",
-          "Coaches:",
-          "Single room: n/a",
-          "Double/Twin room: €660",
-          "Triple and more: €600",
+          "COACHES",
+          "Single room: N/A",
+          "Double/Twin room: €740",
+          "Triple and more room: €680",
           "",
-          "Family:",
-          "Single room: n/a (upon request)",
-          "Double/Twin room: €540",
-          "Triple and more: €480",
+          "FAMILY",
+          "Single room: N/A (UPON REQUEST)",
+          "Double/Twin room: €560",
+          "Triple and more room: €500",
           "",
-          "Extra nights at Estalagem de Sangalhos:",
-          "Single room: €110",
+          "Extra nights at Estalagem Sangalhos:",
+          "Single room: €115",
           "Double/Twin room: €95",
           "Triple: €85",
           "",
-          "Extra meals: €20",
+          "EXTRA MEALS: €25",
         ],
       },
+
       {
         id: "extra-info",
         title: "► Those prices include:",
-        isPlaceholder: true,
-        placeholderText: "To be defined later",
         lines: [
-          "5 nights at sports hotel Estalagem de Sangalhos***, full board accommodation.",
-          "Free access to outdoor swimming pool, hotel gym, snooker and play room.",
+          "5 nights at the sports hotel Estalagem de Sangalhos*, full-board accommodation.",
+          "Free access to the outdoor swimming pool, hotel gym, snooker, and games room.",
           "Free Wi-Fi.",
-          "Transfer from/to Porto airport.",
-          "Transfer between hotel and gym (5 minutes) during the camp.",
-          "Camp coordination and coaching team services.",
-          "Tour to Aveiro and beach.",
-          "Theoretical lectures (for coaches).",
-          "Camp diploma and souvenirs to all gymnasts and coaches.",
-          "Surveillance and basic physiotherapy support.",
+          "Transfer to/from Porto Airport.",
+          "Transfers between the hotel and the gym (5 minutes) during the camp.",
+          "Camp coordination and coaching/team services.",
+          "Visit to Aveiro and the beach.",
+          "Theoretical lectures/sessions (for coaches).",
+          "Camp diploma and souvenirs for all gymnasts and coaches.",
+          "Supervision and basic physiotherapy support.",
           "",
-          "Available by order, but not included in the price:",
+          "Available upon request, but not included in the price:",
           "Physiotherapy treatments.",
           "Sauna.",
-          "Transfer from/to Lisbon Airport – 1–8 people: €550.",
-          "Transfer from/to Lisbon Airport – up to 45 pax: €1200.",
+          "Transfer to/from Lisbon Airport:",
+          "1–8 people: €550.",
+          "Up to 45 people: €1400.",
         ],
       },
+
       {
         id: "bank",
         title: "► THE BANK DETAILS",
-        isPlaceholder: true,
-        placeholderText: "To be defined later",
         lines: [
           "Company: SUNLIVE INVESTIMENTOS IMOBILIARIOS, LDA",
           "Address: R ESTALAGEM SA 3780-101 SANGALHOS",
