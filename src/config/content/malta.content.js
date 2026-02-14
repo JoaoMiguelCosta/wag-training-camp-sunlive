@@ -193,7 +193,6 @@ export const maltaContent = {
     websiteUrl: "https://gymstarsmalta.com",
   },
 
-  
   programSection: {
     id: "program",
     banner: {
@@ -206,7 +205,6 @@ export const maltaContent = {
     schedule: {
       id: "program-schedule",
       columns: [
-      
         {
           id: "wednesday-july-08",
           title: "» WEDNESDAY, JULY 8",
@@ -230,7 +228,6 @@ export const maltaContent = {
           ],
         },
 
-      
         {
           id: "thursday-july-09",
           title: "» THURSDAY, JULY 9",
@@ -258,7 +255,6 @@ export const maltaContent = {
           ],
         },
 
-      
         {
           id: "friday-july-10",
           title: "» FRIDAY, JULY 10",
@@ -281,7 +277,6 @@ export const maltaContent = {
           ],
         },
 
-      
         {
           id: "saturday-july-11",
           title: "» SATURDAY, JULY 11",
@@ -393,9 +388,9 @@ export const maltaContent = {
           "Triple and more room: €780",
           "",
           "COACHES",
-          "Single room: N/A",
-          "Double/Twin room: €740",
-          "Triple and more room: €680",
+          "Single room: €900",
+          "Double/Twin room: €750",
+          "Triple and more room: €720",
           "",
           "FAMILY",
           "Single room: N/A (upon request)",

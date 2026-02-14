@@ -29,11 +29,11 @@ export default function MaltaRegistrationSection() {
   const isOpen = Boolean(activeKey);
   const activeUrl = useMemo(
     () => (activeKey ? FORMS[activeKey] : ""),
-    [activeKey]
+    [activeKey],
   );
   const activeTitle = useMemo(
     () => (activeKey ? TITLES[activeKey] : ""),
-    [activeKey]
+    [activeKey],
   );
 
   const close = useCallback(() => setActiveKey(null), []);
