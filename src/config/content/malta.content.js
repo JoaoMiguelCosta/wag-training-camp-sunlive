@@ -351,6 +351,7 @@ export const maltaContent = {
   },
 
   // 🔹 SECÇÃO CONTENT (InfoGridSection) – usado também no wizard
+  // 🔹 SECÇÃO CONTENT (InfoGridSection) – usado também no wizard
   contentSection: {
     id: "content",
     title: "General Informations",
@@ -358,7 +359,7 @@ export const maltaContent = {
       {
         id: "registration",
         title: "★ REGISTRATION",
-        isPlaceholder: true,
+        isPlaceholder: false,
         placeholderText: "To be defined later",
         lines: [
           "Registrations must be made in our website registration form until May 30.",
@@ -379,7 +380,7 @@ export const maltaContent = {
       {
         id: "prices",
         title: "★ PRICES",
-        isPlaceholder: true,
+        isPlaceholder: false,
         placeholderText: "To be defined later",
         lines: [
           "GYMNASTS",
@@ -397,7 +398,7 @@ export const maltaContent = {
           "Double/Twin room: €620",
           "Triple and more room: €560",
           "",
-          "Extra nights at TOPAZ HOTEL:",
+          "Extra nights at Cerviola hotel:",
           "Single room: €110",
           "Double/Twin room: €95",
           "Triple and more room: €85",
@@ -408,10 +409,10 @@ export const maltaContent = {
       {
         id: "package",
         title: "► Package Inclusions & Additional Costs:",
-        isPlaceholder: true,
+        isPlaceholder: false,
         placeholderText: "To be defined later",
         lines: [
-          "5 nights at Topaz Hotel* on a full-board basis.",
+          "5 nights at Cerviola hotel* on a full-board basis.",
           "Free access to the outdoor swimming pool (as per hotel regulations).",
           "Free Wi-Fi.",
           "Transfers to/from the airport.",
@@ -425,7 +426,7 @@ export const maltaContent = {
       {
         id: "extra-info",
         title: "► Additional services available at extra cost:",
-        isPlaceholder: true,
+        isPlaceholder: false,
         placeholderText: "To be defined later",
         lines: [
           "Physiotherapy & Manual therapy treatments.",
@@ -437,7 +438,7 @@ export const maltaContent = {
       {
         id: "bank",
         title: "► THE BANK DETAILS",
-        isPlaceholder: true,
+        isPlaceholder: false,
         placeholderText: "To be defined later",
         lines: [
           "Bank: APS Bank Ltd",
