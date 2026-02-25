@@ -16,6 +16,7 @@ import fundoMalta from "../../assets/background-malta/fundo-malta.jpg";
 import fundoMalta3 from "../../assets/background-malta/malta-fundo3.jpg";
 import carolPhoto from "../../assets/person-malta/carol.png";
 import francescaPhoto from "../../assets/person-malta/francesca.png";
+import cerviolaBg from "../../assets/background-malta/cerviola.jpg";
 
 export const maltaContent = {
   header: {
@@ -436,20 +437,16 @@ export const maltaContent = {
   // 🔹 SECÇÃO HOTEL – TOPAZ HOTEL
   hotelSection: {
     id: "hotel",
-    title: "Topaz Hotel",
-    videoSrc: "https://www.youtube.com/embed/GlQCSUtnb3E?rel=0",
-    videoTitle: "Topaz Hotel - Bugibba, Malta",
+    title: "Cerviola Hotel",
+    videoSrc: "https://www.youtube.com/embed/e3lmKnTceaU?rel=0",
+    videoTitle: "Cerviola Hotel - Marsaskala, Malta",
+    cardBgSrc: cerviolaBg, // ✅ novo
     addressTitle: "Address:",
-    addressLines: [
-      "Topaz Hotel,",
-      "Censu Tanti street,",
-      "Bugibba,",
-      "SPB3025",
-    ],
+    addressLines: ["Triq il-Qaliet, 201,", "Marsaskala, MSK 3312,", "Malta."],
     contactsTitle: "Contacts:",
-    contactsLines: ["Tel: +356 20146000", "reservations@topaz.com.mt"],
+    contactsLines: ["Tel: +356 2163 2761", "Email: info@cerviolahotel.com"],
     websiteLabel: "Website",
-    websiteHref: "https://topaz.com.mt/",
+    websiteHref: "https://cerviolahotel.com/en/",
   },
 
   contactsSection: {

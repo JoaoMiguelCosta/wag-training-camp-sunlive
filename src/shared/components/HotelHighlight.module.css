@@ -21,6 +21,55 @@
     grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
     gap: clamp(1.5rem, 4vw, 2.25rem);
     align-items: center;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* ✅ Foto bem visível */
+.card[data-has-bg="true"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image: var(--card-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform: scale(1.04);
+    filter: saturate(1.18) contrast(1.10) brightness(1.02);
+    opacity: 0.78;
+}
+
+/* ✅ Overlay inteligente:
+   - mantém o lado do vídeo mais claro (para ver a foto)
+   - escurece o lado direito (texto) para leitura */
+.card[data-has-bg="true"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background:
+        /* leve “véu” geral (não mata a foto) */
+        linear-gradient(180deg,
+            rgba(15, 23, 42, 0.10),
+            rgba(15, 23, 42, 0.25)),
+        /* escurece progressivamente para a direita (zona do texto) */
+        linear-gradient(90deg,
+            rgba(15, 23, 42, 0.05) 0%,
+            rgba(15, 23, 42, 0.22) 45%,
+            rgba(15, 23, 42, 0.62) 100%);
+}
+
+/* ✅ Conteúdo acima do bg */
+.media,
+.info {
+    position: relative;
+    z-index: 2;
 }
 
 .media {
@@ -58,8 +107,12 @@
     text-transform: uppercase;
 
     color: #f9fafb;
-    text-shadow: 0 0 12px rgba(15, 23, 42, 0.85),
-        0 0 22px rgba(15, 23, 42, 0.9);
+
+    /* ✅ leitura melhor */
+    text-shadow:
+        0 2px 0 rgba(15, 23, 42, 0.60),
+        0 0 18px rgba(15, 23, 42, 0.95),
+        0 0 34px rgba(0, 0, 0, 0.55);
 }
 
 .infoBlocks {
@@ -82,14 +135,20 @@
     text-transform: uppercase;
 
     color: #fef9c3;
+
+    /* ✅ leitura melhor */
+    text-shadow: 0 0 14px rgba(15, 23, 42, 0.9);
 }
 
 .infoLine {
     font-family: var(--font-family-body);
     font-size: 0.95rem;
     line-height: 1.7;
-    color: rgba(249, 250, 251, 0.96);
+    color: rgba(249, 250, 251, 0.98);
     overflow-wrap: anywhere;
+
+    /* ✅ leitura melhor */
+    text-shadow: 0 0 14px rgba(15, 23, 42, 0.88);
 }
 
 .websiteButton {
@@ -119,8 +178,11 @@
 
     box-shadow: 0 16px 38px rgba(15, 23, 42, 0.7);
     transform: translateY(0);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast),
-        filter var(--transition-fast), border-color var(--transition-fast);
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        filter var(--transition-fast),
+        border-color var(--transition-fast);
 }
 
 .websiteButton:hover {
@@ -142,10 +204,17 @@
     }
 }
 
+/* Mobile: quando vira 1 coluna, escurece mais de forma uniforme para ler */
 @media (max-width: 40rem) {
     .card {
         width: min(100%, 100% - 1rem);
         grid-template-columns: 1fr;
+    }
+
+    .card[data-has-bg="true"]::after {
+        background: linear-gradient(180deg,
+                rgba(15, 23, 42, 0.25),
+                rgba(15, 23, 42, 0.68));
     }
 }
 

@@ -12,8 +12,8 @@ import carolPhoto from "../../assets/person-malta/carol.png";
 
 import posterAnadia from "../../assets/posters/poster-anadia.png";
 import bannerAnadia from "../../assets/banners-malta-anadia/banner-anadia.png";
-import fundoMalta from "../../assets/background-malta/fundo-malta.jpg";
-import fundoMalta3 from "../../assets/background-malta/malta-fundo3.jpg";
+import piscina from "../../assets/background-anadia/piscina.jpg";
+import fundoportugal1 from "../../assets/background-anadia/fundoportugal1.png";
 
 export const anadiaContent = {
   header: {
@@ -65,7 +65,7 @@ export const anadiaContent = {
     banner: {
       title: "PROGRAM FOR GYMNASTS AND COACHES 2026",
       background: {
-        src: fundoMalta,
+        src: fundoportugal1,
         alt: "Gymnasts training in the gym during the Anadia camp",
       },
     },
@@ -396,7 +396,7 @@ export const anadiaContent = {
     id: "who-we-are",
     title: "Who Are We?",
     background: {
-      src: fundoMalta3,
+      src: piscina,
       alt: "Pool area at the Sunlive hotel in Portugal",
     },
     description: [

@@ -1,5 +1,5 @@
 import { anadiaContent } from "../../../config/content/anadia.content.js";
-import fundoMalta2 from "../../../assets/background-malta/fundo-malta2.jpg";
+import velodromo from "../../../assets/background-anadia/velodromo.jpg";
 
 import styles from "./AnadiaGymStarsSection.module.css";
 
@@ -15,7 +15,7 @@ export default function AnadiaGymStarsSection() {
     <section
       id={id}
       className={styles.section}
-      style={{ backgroundImage: `url(${fundoMalta2})` }}
+      style={{ backgroundImage: `url(${velodromo})` }}
     >
       <div className={styles.overlay}>
         <div className={styles.content}>

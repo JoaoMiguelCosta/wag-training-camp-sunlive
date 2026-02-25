@@ -1,12 +1,11 @@
-// src/pages/malta/components/MaltaHotelSection.jsx
 import { anadiaContent } from "../../../config/content/anadia.content.js";
 import HotelHighlight from "../../../shared/components/HotelHighlight.jsx";
 
+import restaurantHotel from "../../../assets/background-anadia/restautant-hotel.jpg";
 import styles from "./AnadiaHotelSection.module.css";
 
 export default function AnadiaHotelSection() {
   const { hotelSection } = anadiaContent;
-
   if (!hotelSection) return null;
 
   const {
@@ -34,6 +33,7 @@ export default function AnadiaHotelSection() {
         contactsLines={contactsLines}
         websiteLabel={websiteLabel}
         websiteHref={websiteHref}
+        cardBgSrc={restaurantHotel} // ✅ novo
       />
     </div>
   );

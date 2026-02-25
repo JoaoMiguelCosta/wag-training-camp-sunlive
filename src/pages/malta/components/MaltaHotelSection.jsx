@@ -1,12 +1,9 @@
-// src/pages/malta/components/MaltaHotelSection.jsx
 import { maltaContent } from "../../../config/content/malta.content.js";
 import HotelHighlight from "../../../shared/components/HotelHighlight.jsx";
-
 import styles from "./MaltaHotelSection.module.css";
 
 export default function MaltaHotelSection() {
   const { hotelSection } = maltaContent;
-
   if (!hotelSection) return null;
 
   const {
@@ -20,6 +17,7 @@ export default function MaltaHotelSection() {
     contactsLines,
     websiteLabel,
     websiteHref,
+    cardBgSrc, // ✅ novo
   } = hotelSection;
 
   return (
@@ -34,6 +32,7 @@ export default function MaltaHotelSection() {
         contactsLines={contactsLines}
         websiteLabel={websiteLabel}
         websiteHref={websiteHref}
+        cardBgSrc={cardBgSrc} // ✅ novo
       />
     </div>
   );
