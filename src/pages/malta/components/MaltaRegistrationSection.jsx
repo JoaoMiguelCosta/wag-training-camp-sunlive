@@ -39,6 +39,8 @@ export default function MaltaRegistrationSection() {
   const close = useCallback(() => setActiveKey(null), []);
 
   const handleClick = useCallback((button) => {
+    if (button?.disabled) return;
+
     const key = button?.id; // "gymnasts" | "coaches" | "families"
     const url = FORMS[key];
     if (!url) return;

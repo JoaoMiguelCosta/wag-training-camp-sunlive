@@ -16,13 +16,13 @@ export const homeContent = {
       {
         id: "malta",
         posterAlt: "WAG Training Camp - Malta 2026",
-        buttonLabel: "Registration Open",
+        buttonLabel: "Registration Full",
         href: "/malta",
       },
       {
         id: "anadia",
         posterAlt: "WAG Training Camp - Portugal 2026",
-        buttonLabel: "Registration Open",
+        buttonLabel: "Registration Full",
         href: "/anadia",
       },
     ],

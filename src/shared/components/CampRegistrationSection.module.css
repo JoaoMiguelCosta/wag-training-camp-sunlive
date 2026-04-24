@@ -109,6 +109,26 @@
     box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
 }
 
+/* Botão desativado */
+.registrationButton:disabled,
+.registrationButtonDisabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
+    filter: grayscale(0.25);
+    box-shadow: none;
+}
+
+.registrationButton:disabled:hover,
+.registrationButtonDisabled:hover {
+    background: linear-gradient(115deg,
+            #0ea5e9 0%,
+            #22d3ee 40%,
+            #38bdf8 100%);
+
+    box-shadow: none;
+}
+
 /* ---------- TABLET (<= 1024px) ---------- */
 @media (max-width: 64rem) {
     .section {

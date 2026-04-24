@@ -54,11 +54,26 @@ export const maltaContent = {
       src: bannerMalta,
       alt: "Sunlive International WAG Training Camp Malta banner",
     },
-    ribbonText: "▽ REGISTRATION IS OPEN ▽",
+    ribbonText: "▽ REGISTRATION FULL ▽",
     buttons: [
-      { id: "gymnasts", label: "Gymnasts", formKey: "gymnasts" },
-      { id: "coaches", label: "Coaches", formKey: "coaches" },
-      { id: "families", label: "Families", formKey: "families" },
+      {
+        id: "gymnasts",
+        label: "Gymnasts",
+        formKey: "gymnasts",
+        disabled: true,
+      },
+      {
+        id: "coaches",
+        label: "Coaches",
+        formKey: "coaches",
+        disabled: true,
+      },
+      {
+        id: "families",
+        label: "Families",
+        formKey: "families",
+        disabled: true,
+      },
     ],
   },
 

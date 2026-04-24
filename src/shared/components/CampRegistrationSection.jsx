@@ -10,6 +10,7 @@ export default function CampRegistrationSection({
   onButtonClick,
 }) {
   const handleClick = (button) => {
+    if (button?.disabled) return;
     if (onButtonClick) onButtonClick(button);
   };
 
@@ -27,8 +28,11 @@ export default function CampRegistrationSection({
             <Button
               key={button.id ?? button.label}
               type="button"
+              disabled={button.disabled}
               onClick={() => handleClick(button)}
-              className={styles.registrationButton}
+              className={`${styles.registrationButton} ${
+                button.disabled ? styles.registrationButtonDisabled : ""
+              }`}
             >
               {button.label}
             </Button>
